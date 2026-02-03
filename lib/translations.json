@@ -1,0 +1,140 @@
+{
+  "en": {
+    "nav": {
+      "title": "FFI Operations",
+      "poweredBy": "Powered by",
+      "status": "ACTIVE",
+      "hub": "Operational Hub"
+    },
+    "header": {
+      "monitoring": "Monitoring",
+      "impactReport": "Impact Report"
+    },
+    "menu": {
+      "daily": "Daily Menu",
+      "nutrition": "Nutrition",
+      "instructions": "Instructions",
+      "syncingKitchen": "Kitchen Live Feed",
+      "readyToday": "Ready Today",
+      "premiumQuality": "Premium Quality",
+      "certified": "Certified"
+    },
+    "surveillance": {
+      "liveFeeds": "Live Feeds",
+      "realtime": "Real-time",
+      "fleet": "Fleet"
+    },
+    "stats": {
+      "recipients": "Recipients",
+      "delivered": "Delivered",
+      "inventory": "Inventory",
+      "satisfaction": "Satisfaction"
+    },
+    "schools": {
+      "registry": "School Registry",
+      "name": "Name",
+      "students": "Students",
+      "eta": "ETA",
+      "status": "Status",
+      "rating": "Rating",
+      "deliveredSuccessfully": "Delivered Successfully"
+    },
+    "gallery": {
+      "title": "Gallery",
+      "photos": "Photos",
+      "videos": "Videos",
+      "farmPhotos": "Farm & Garden Photos",
+      "kitchenVideos": "Kitchen Preparation Videos"
+    },
+    "impact": {
+      "sustainableImpact": "Sustainable Impact Report",
+      "socialValue": "Social Value & Development Metrics",
+      "socialAnalysis": "Social Impact Analysis",
+      "sroi": "SROI Ratio",
+      "healthSavings": "Health Savings",
+      "localEconomy": "Local Economy",
+      "learningGain": "Learning Gain",
+      "unAlignment": "UN Alignment",
+      "goals": "Sustainable Development Goals"
+    },
+    "footer": {
+      "resources": "Resources",
+      "logisticsHub": "Logistics Hub",
+      "nutritionAudit": "Nutrition Audit",
+      "certified": "Certified",
+      "ffiBrand": "Future Farmers - Indonesia",
+      "compliance": "FFI Operations"
+    }
+  },
+  "id": {
+    "nav": {
+      "title": "Operasi FFI",
+      "poweredBy": "Didukung oleh",
+      "status": "AKTIF",
+      "hub": "Pusat Operasional"
+    },
+    "header": {
+      "monitoring": "Monitoring",
+      "impactReport": "Laporan Dampak"
+    },
+    "menu": {
+      "daily": "Menu Harian",
+      "nutrition": "Nutrisi",
+      "instructions": "Petunjuk",
+      "syncingKitchen": "Live Feed Dapur",
+      "readyToday": "Siap Hari Ini",
+      "premiumQuality": "Kualitas Premium",
+      "certified": "Tersertifikasi"
+    },
+    "surveillance": {
+      "liveFeeds": "Feed Langsung",
+      "realtime": "Real-time",
+      "fleet": "Armada"
+    },
+    "stats": {
+      "recipients": "Penerima",
+      "delivered": "Terkirim",
+      "inventory": "Inventaris",
+      "satisfaction": "Kepuasan"
+    },
+    "schools": {
+      "registry": "Daftar Sekolah",
+      "name": "Nama",
+      "students": "Siswa",
+      "eta": "ETA",
+      "status": "Status",
+      "rating": "Rating",
+      "deliveredSuccessfully": "Terkirim Berhasil",
+      "benefitingSchools": "Sekolah Penerima Program",
+      "totalBeneficiaries": "Total Penerima Program",
+      "schools": "Sekolah"
+    },
+    "gallery": {
+      "title": "Galeri",
+      "photos": "Foto",
+      "videos": "Video",
+      "farmPhotos": "Foto Kebun & Pertanian",
+      "kitchenVideos": "Video Persiapan Masakan"
+    },
+    "impact": {
+      "sustainableImpact": "Laporan Dampak Berkelanjutan",
+      "socialValue": "Metrik Nilai Sosial & Pembangunan",
+      "socialAnalysis": "Analisis Dampak Sosial",
+      "sroi": "Rasio SROI",
+      "healthSavings": "Penghematan Kesehatan",
+      "localEconomy": "Ekonomi Lokal",
+      "learningGain": "Peningkatan Pembelajaran",
+      "unAlignment": "Penyelarasan PBB",
+      "goals": "Tujuan Pembangunan Berkelanjutan"
+    },
+    "footer": {
+      "resources": "Sumber Daya",
+      "logisticsHub": "Hub Logistik",
+      "nutritionAudit": "Audit Nutrisi",
+      "certified": "Tersertifikasi",
+      "ffiBrand": "Petani Masa Depan - Indonesia",
+      "compliance": "Operasi FFI"
+    }
+  }
+}
+
