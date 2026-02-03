@@ -48,8 +48,8 @@ export function KitchenOperations({ profile, language, variant = 'full' }: Kitch
     ? {
         operationalSince: 'Beroperasi Sejak',
         yearsOfService: 'tahun layanan',
-        dailyMealProduction: 'Produksi Makanan Harian',
-        mealsServedPerDay: 'Porsi disajikan per hari',
+        dailyMealProduction: 'Jumlah Penerima manfaat',
+        mealsServedPerDay: 'Penerima manfaat per hari',
         totalTeamMembers: 'Total Anggota Tim',
         professionalStaff: 'Staf profesional',
         operatingDays: 'Hari Operasional',
@@ -68,8 +68,8 @@ export function KitchenOperations({ profile, language, variant = 'full' }: Kitch
         staffDetails: {
           executive: ['Kepala Koki'],
           supervisory: ['Sous Chef', 'Manajer Dapur'],
-          cooks: ['Kepala Koki (2)', 'Koki (8)', 'Pekerja Persiapan (12)'],
-          support: ['Pencuci Peralatan (4)', 'Petugas Kebersihan (3)', 'Pengemudi (4)', 'Manajer Gudang (1)'],
+          cooks: ['Kepala Koki (2)', 'Koki (8)', 'Pekerja Persiapan (18)'],
+          support: ['Pencuci Peralatan (6)', 'Petugas Kebersihan (4)', 'Pengemudi (5)', 'Manajer Gudang (1)'],
         },
         operationsSchedule: 'Jadwal Operasional',
         operatingHours: 'Jam Operasional',
@@ -88,8 +88,8 @@ export function KitchenOperations({ profile, language, variant = 'full' }: Kitch
     : {
         operationalSince: 'Operational Since',
         yearsOfService: 'years of service',
-        dailyMealProduction: 'Daily Meal Production',
-        mealsServedPerDay: 'Meals served per day',
+        dailyMealProduction: 'Total Beneficiaries',
+        mealsServedPerDay: 'Beneficiaries served per day',
         totalTeamMembers: 'Total Team Members',
         professionalStaff: 'Professional staff',
         operatingDays: 'Operating Days',
@@ -108,8 +108,8 @@ export function KitchenOperations({ profile, language, variant = 'full' }: Kitch
         staffDetails: {
           executive: ['Executive Chef'],
           supervisory: ['Sous Chef', 'Kitchen Manager'],
-          cooks: ['Head Cooks (2)', 'Cooks (8)', 'Prep Workers (12)'],
-          support: ['Dishwashers (4)', 'Cleaners (3)', 'Drivers (4)', 'Storage Manager (1)'],
+          cooks: ['Head Cooks (2)', 'Cooks (8)', 'Prep Workers (18)'],
+          support: ['Dishwashers (6)', 'Cleaners (4)', 'Drivers (5)', 'Storage Manager (1)'],
         },
         operationsSchedule: 'Operations Schedule',
         operatingHours: 'Operating Hours',

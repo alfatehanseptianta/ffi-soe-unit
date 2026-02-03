@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
-import { Store, Truck, Utensils, AlertTriangle, TrendingUp, ClipboardCheck, MapPin, DollarSign, CheckCircle2, Video, Navigation, MessageSquare, Globe, Info, ChevronDown, ChevronLeft, ChevronRight, UserPlus, Wheat, Baby, Flame, Zap, Heart, BookOpen, LineChart, Coins, GlobeIcon, Beef, BicepsFlexed, Droplet, Salad, Apple, Milk, Soup, School, Facebook, Instagram, Twitter, Music2, Clock, X, CalendarDays, CalendarCheck, BadgeCheck, Hospital } from 'lucide-react';
+import { Store, Truck, Utensils, AlertTriangle, TrendingUp, ClipboardCheck, MapPin, DollarSign, CheckCircle2, Video, Navigation, MessageSquare, Globe, Info, ChevronDown, ChevronLeft, ChevronRight, UserPlus, Wheat, Baby, Flame, Zap, Heart, BookOpen, LineChart, Coins, GlobeIcon, Beef, BicepsFlexed, Droplet, Salad, Apple, Milk, Soup, School, Facebook, Instagram, Twitter, Music2, Clock, X, CalendarDays, BadgeCheck, Hospital } from 'lucide-react';
 import { useLanguage } from '@/lib/useLanguage';
 import { getGoogleMapsUrl } from '@/lib/utils';
 import { Gallery } from '@/components/gallery';
@@ -823,11 +823,9 @@ const copy = {
       title: 'Operational Highlights',
       operatingSince: 'Operational Since',
       monthsServing: 'months of service',
-      dailyMeals: 'Daily Meal Production',
-      dailyMealsUnit: 'meals',
+      dailyMeals: 'Total Beneficiaries',
+      dailyMealsUnit: 'people',
       operatingHours: 'Operating Hours',
-      operatingDays: 'Operating Days / Year',
-      operatingDaysUnit: 'days',
       schoolsServed: 'Schools Served',
       schoolsUnit: 'schools',
       healthFacilitiesServed: 'Posyandu & Puskesmas Served',
@@ -1034,6 +1032,11 @@ const copy = {
             'Nutritious school meals shift value to households, reducing food expenses.',
             'Equivalent support increases disposable income for other needs.',
           ],
+          stat: {
+            label: 'Annual value transfer',
+            value: 'Rp. 1B',
+            note: '/ year',
+          },
           icon: Coins,
         },
         {
@@ -1042,6 +1045,11 @@ const copy = {
             'Household savings can be invested in productive assets.',
             'These assets generate additional income streams over time.',
           ],
+          stat: {
+            label: 'Asset return ratio',
+            value: '1 : 3.8',
+            note: 'SROI',
+          },
           icon: LineChart,
         },
         {
@@ -1050,6 +1058,11 @@ const copy = {
             'Procurement, logistics, and distribution stimulate local markets.',
             'Program demand creates activity for community goods and services.',
           ],
+          stat: {
+            label: 'Local economic boost',
+            value: 'Rp. 850M',
+            note: '/ month',
+          },
           icon: GlobeIcon,
         },
         {
@@ -1058,6 +1071,11 @@ const copy = {
             'Improved nutrient intake reduces micronutrient gaps and health risks.',
             'Healthier children lower nutrition-related costs for households and government.',
           ],
+          stat: {
+            label: 'Healthcare savings',
+            value: 'Rp. 1.2B',
+            note: '/ year',
+          },
           icon: Heart,
         },
         {
@@ -1066,6 +1084,11 @@ const copy = {
             'Free meals improve attendance and reduce dropout risk.',
             'Higher learning attainment raises future productivity and earnings.',
           ],
+          stat: {
+            label: 'Productivity index',
+            value: '+24%',
+            note: 'concentration',
+          },
           icon: TrendingUp,
         },
       ],
@@ -1174,11 +1197,9 @@ const copy = {
       title: 'Sorotan Operasional',
       operatingSince: 'Beroperasi sejak',
       monthsServing: 'bulan melayani',
-      dailyMeals: 'Produksi Makanan Harian',
-      dailyMealsUnit: 'porsi',
+      dailyMeals: 'Jumlah Penerima manfaat',
+      dailyMealsUnit: 'orang',
       operatingHours: 'Jam Operasional',
-      operatingDays: 'Hari Operasional Tahunan',
-      operatingDaysUnit: 'hari',
       schoolsServed: 'Melayani Sekolah',
       schoolsUnit: 'sekolah',
       healthFacilitiesServed: 'Melayani Posyandu & Puskesmas',
@@ -1386,6 +1407,11 @@ const copy = {
             'Transfer nilai ke rumah tangga mengacu pada pemberian dukungan pendapatan atau tambahan pendapatan kepada rumah tangga.',
             'Nilainya setara dengan makanan bergizi yang diperoleh melalui distribusi makanan di sekolah.',
           ],
+          stat: {
+            label: 'Pencapaian transfer nilai',
+            value: 'Rp. 1 Miliar',
+            note: '/ tahun',
+          },
           icon: Coins,
         },
         {
@@ -1394,6 +1420,11 @@ const copy = {
             'Return on investment pada aset rumah tangga adalah peningkatan kapasitas ekonomi dari nilai transfer makanan yang memungkinkan sumber daya digunakan untuk menciptakan aset produktif.',
             'Rumah tangga menyimpan serta menginvestasikan sebagian pendapatan tambahan pada aset produktif yang menghasilkan aliran pendapatan selama jangka waktu tertentu.',
           ],
+          stat: {
+            label: 'Rasio pengembalian aset',
+            value: '1 : 3,8',
+            note: 'SROI',
+          },
           icon: LineChart,
         },
         {
@@ -1402,6 +1433,11 @@ const copy = {
             'Dampak spillover economy adalah peningkatan kegiatan ekonomi karena program memicu aktivitas ekonomi di masyarakat lokal.',
             'Aktivitas ini muncul melalui pemenuhan kebutuhan barang dan jasa yang diperlukan dalam pelaksanaan program.',
           ],
+          stat: {
+            label: 'Dampak ekonomi lokal',
+            value: 'Rp. 850 Juta',
+            note: '/ bulan',
+          },
           icon: GlobeIcon,
         },
         {
@@ -1410,6 +1446,11 @@ const copy = {
             'Program makan bergizi di sekolah memenuhi 30% dari asupan harian yang direkomendasikan dan membantu mengatasi kekurangan mikronutrien.',
             'Pemberian makan bergizi dan teratur mengurangi tantangan gizi dan kesehatan buruk, menurunkan biaya perawatan kesehatan, serta menghasilkan kehidupan yang lebih sehat bagi penerima manfaat.',
           ],
+          stat: {
+            label: 'Penghematan kesehatan',
+            value: 'Rp. 1,2 Miliar',
+            note: '/ tahun',
+          },
           icon: Heart,
         },
         {
@@ -1418,6 +1459,11 @@ const copy = {
             'Pemberian makanan bergizi di sekolah meningkatkan kehadiran dan menurunkan tingkat putus sekolah.',
             'Pendidikan yang lebih lama menghasilkan peluang kerja lebih baik dan peningkatan produktivitas saat dewasa.',
           ],
+          stat: {
+            label: 'Indeks produktivitas',
+            value: '+24%',
+            note: 'konsentrasi',
+          },
           icon: TrendingUp,
         },
       ],
@@ -2353,32 +2399,36 @@ const App = () => {
   };
   const deliveryCardStyles = {
     target: {
-      iconWrap: 'bg-red-500/10',
-      icon: 'text-red-600',
-      label: 'text-red-700',
-      value: 'text-red-700',
-      border: 'border-red-500/30',
+      headerBg: 'bg-red-700',
+      iconWrap: 'bg-white/15',
+      icon: 'text-white',
+      label: 'text-white',
+      value: 'text-red-600',
+      border: 'border-red-700/40',
     },
     cooked: {
-      iconWrap: 'bg-amber-500/10',
-      icon: 'text-amber-600',
-      label: 'text-amber-700',
-      value: 'text-amber-700',
-      border: 'border-amber-500/30',
+      headerBg: 'bg-amber-600',
+      iconWrap: 'bg-white/15',
+      icon: 'text-white',
+      label: 'text-white',
+      value: 'text-amber-600',
+      border: 'border-amber-600/40',
     },
     inDelivery: {
-      iconWrap: 'bg-sky-500/10',
-      icon: 'text-sky-600',
-      label: 'text-sky-700',
-      value: 'text-sky-700',
-      border: 'border-sky-500/30',
+      headerBg: 'bg-sky-700',
+      iconWrap: 'bg-white/15',
+      icon: 'text-white',
+      label: 'text-white',
+      value: 'text-sky-600',
+      border: 'border-sky-700/40',
     },
     received: {
-      iconWrap: 'bg-emerald-500/10',
-      icon: 'text-emerald-600',
-      label: 'text-emerald-700',
-      value: 'text-emerald-700',
-      border: 'border-emerald-500/30',
+      headerBg: 'bg-emerald-700',
+      iconWrap: 'bg-white/15',
+      icon: 'text-white',
+      label: 'text-white',
+      value: 'text-emerald-600',
+      border: 'border-emerald-700/40',
     },
   };
 
@@ -2634,19 +2684,19 @@ const App = () => {
       <nav className="bg-card border-b border-border px-6 py-4 sticky top-0 z-50 backdrop-blur-xl bg-opacity-95 relative grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-4">
         <div className="flex items-center gap-3 sm:gap-4 min-w-0">
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <FFILogo className="h-9 w-auto sm:h-10" alt={ui.footer.ffiLogoAlt} />
+            <FFILogo className="h-7 w-auto sm:h-8" alt={ui.footer.ffiLogoAlt} />
             <div className="flex items-center gap-2 sm:gap-3 pl-1">
               <img
                 src="/bgn-logo.png"
                 alt={ui.bgnLogoAlt}
-                className="h-7 w-auto sm:h-8"
+                className="h-8 w-auto sm:h-9"
                 loading="eager"
                 decoding="async"
               />
               <img
                 src="/wfp-logo.png"
                 alt={ui.wfpLogoAlt}
-                className="h-7 w-auto sm:h-8"
+                className="h-8 w-auto sm:h-9"
                 loading="eager"
                 decoding="async"
               />
@@ -2668,7 +2718,7 @@ const App = () => {
                 type="button"
                 onClick={() => handleSectionNavigation(section.id)}
                 aria-current={section.id === activeSection ? 'page' : undefined}
-                className={`flex items-center gap-1 px-3 py-2 text-[11px] font-bold uppercase tracking-wider transition ${
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-bold uppercase tracking-wider transition ${
                   section.id === activeSection ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -2700,7 +2750,7 @@ const App = () => {
 
         <div className="flex items-center gap-3 justify-self-end">
           <details className="relative lg:hidden group">
-            <summary className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-secondary px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-foreground shadow-sm transition hover:border-primary/40 hover:bg-secondary/80 [&::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-secondary px-3 py-2 text-sm font-bold uppercase tracking-wider text-foreground shadow-sm transition hover:border-primary/40 hover:bg-secondary/80 [&::-webkit-details-marker]:hidden">
               <span>{navToggleLabel}</span>
               <ChevronDown size={14} className="transition-transform group-open:rotate-180" />
             </summary>
@@ -2782,7 +2832,7 @@ const App = () => {
       <main className="flex-1 p-8 w-full space-y-8 animate-in fade-in duration-500">
         {/* Unit Header */}
         <header className="flex flex-col gap-6 bg-card p-6 rounded-2xl border border-border shadow-lg">
-          <div className="grid gap-4 lg:gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,320px)] xl:grid-cols-[minmax(0,1fr)_minmax(0,360px)] lg:items-start">
+          <div className="grid gap-4 lg:gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,520px)] xl:grid-cols-[minmax(0,1fr)_minmax(0,620px)] lg:items-start">
             <div className="flex items-start gap-4">
               <div className="bg-primary/15 p-3.5 rounded-xl text-primary shadow-sm">
                 <Store size={26} />
@@ -2814,26 +2864,39 @@ const App = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-border/80 bg-secondary/30 p-4 shadow-sm lg:justify-self-end lg:w-full">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                {ui.headerHighlights.partnersTitle}
-              </p>
-              <div className="mt-3 flex flex-wrap items-center gap-4">
-                <FFILogo className="h-7 w-auto" alt={ui.footer.ffiLogoAlt} />
-                <img
-                  src="/bgn-logo.png"
-                  alt={ui.bgnLogoAlt}
-                  className="h-6 w-auto"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <img
-                  src="/wfp-logo.png"
-                  alt={ui.wfpLogoAlt}
-                  className="h-6 w-auto"
-                  loading="lazy"
-                  decoding="async"
-                />
+            <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-card p-7 sm:p-8 lg:p-10 shadow-[0_20px_40px_-24px_rgba(15,23,42,0.35)] lg:justify-self-end lg:w-full">
+              <span
+                className="pointer-events-none absolute -top-20 right-0 h-40 w-40 rounded-full bg-primary/15 blur-3xl"
+                aria-hidden="true"
+              />
+              <span
+                className="pointer-events-none absolute -bottom-20 left-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+                aria-hidden="true"
+              />
+              <div className="relative z-10 space-y-5">
+                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.32em] text-muted-foreground">
+                  {ui.headerHighlights.partnersTitle}
+                </p>
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                  <FFILogo
+                    className="h-10 w-auto opacity-90 transition-opacity hover:opacity-100 sm:h-12 lg:h-14"
+                    alt={ui.footer.ffiLogoAlt}
+                  />
+                  <img
+                    src="/bgn-logo.png"
+                    alt={ui.bgnLogoAlt}
+                    className="h-10 w-auto opacity-90 transition-opacity hover:opacity-100 sm:h-12 lg:h-14"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src="/wfp-logo.png"
+                    alt={ui.wfpLogoAlt}
+                    className="h-10 w-auto opacity-90 transition-opacity hover:opacity-100 sm:h-12 lg:h-14"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -2844,7 +2907,7 @@ const App = () => {
                 <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-5 text-center">
                   {ui.headerStats.title}
                 </p>
-                <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 sm:grid sm:grid-cols-2 sm:gap-4 sm:mx-0 sm:px-0 sm:overflow-visible lg:grid-cols-4 xl:grid-cols-7">
+                <div className="flex flex-nowrap gap-3 overflow-x-auto pb-2 -mx-1 px-1 sm:mx-0 sm:px-0 sm:gap-4">
                   <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
                     <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
                       <CalendarDays size={16} />
@@ -2882,20 +2945,6 @@ const App = () => {
                         {ui.headerStats.operatingHours}
                       </p>
                       <p className="text-lg font-bold text-foreground">{headerStats.operatingHours}</p>
-                    </div>
-                  </div>
-                  <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <CalendarCheck size={16} />
-                    </span>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                        {ui.headerStats.operatingDays}
-                      </p>
-                      <p className="text-lg font-bold text-foreground">
-                        {numberFormatter.format(headerStats.operatingDays)}{' '}
-                        <span className="text-[10px] font-semibold text-muted-foreground">{ui.headerStats.operatingDaysUnit}</span>
-                      </p>
                     </div>
                   </div>
                   <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
@@ -3150,14 +3199,21 @@ const App = () => {
           { label: ui.stats.inDelivery, val: numberFormatter.format(deliveryProgress.inDelivery), icon: Truck, tone: deliveryCardStyles.inDelivery },
           { label: ui.stats.received, val: numberFormatter.format(deliveryProgress.received), icon: CheckCircle2, tone: deliveryCardStyles.received },
         ].map((stat, i) => (
-          <div key={i} className={`bg-card p-6 rounded-lg border border-border shadow-md flex flex-col justify-between transition-all hover:shadow-lg hover:border-primary/50 ${stat.tone.border}`}>
-            <p className={`text-[11px] font-bold uppercase tracking-wider mb-3 flex items-center gap-2 ${stat.tone.label}`}>
-              <span className={`flex h-6 w-6 items-center justify-center rounded-md ${stat.tone.iconWrap}`}>
-                <stat.icon size={13} className={stat.tone.icon} />
-              </span>
-              {stat.label}
-            </p>
-            <p className={`text-3xl font-bold ${stat.tone.value}`}>{stat.val}</p>
+          <div
+            key={i}
+            className={`rounded-lg border shadow-md overflow-hidden grid grid-rows-2 min-h-[120px] transition-all hover:shadow-lg ${stat.tone.border}`}
+          >
+            <div className={`${stat.tone.headerBg} px-4 py-3 flex items-center justify-center`}>
+              <p className={`text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 ${stat.tone.label}`}>
+                <span className={`flex h-6 w-6 items-center justify-center rounded-md ${stat.tone.iconWrap}`}>
+                  <stat.icon size={13} className={stat.tone.icon} />
+                </span>
+                {stat.label}
+              </p>
+            </div>
+            <div className="bg-white px-4 py-4 flex items-center justify-center">
+              <p className={`text-3xl font-bold ${stat.tone.value}`}>{stat.val}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -3544,14 +3600,18 @@ const App = () => {
                 ))}
               </div>
 
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="rounded-2xl bg-white/80 dark:bg-secondary/80 border border-border/70 p-4 shadow-sm backdrop-blur">
-                  <div className="flex items-center gap-2 text-[11px] font-bold text-muted-foreground uppercase tracking-widest">
-                    <LineChart size={16} className="text-primary" />
-                    <span>{ui.impact.sroiRatio}</span>
+              <div className="mt-8 -mx-8 md:-mx-10">
+                <div className="relative overflow-hidden bg-gradient-to-r from-primary to-primary/85 px-8 py-6 text-white shadow-lg md:px-10 md:py-7">
+                  <div className="absolute -right-8 top-1/2 -translate-y-1/2 opacity-20">
+                    <TrendingUp size={120} />
                   </div>
-                  <p className="text-3xl font-bold text-foreground mt-2">{cba.sroi}</p>
-                  <p className="text-xs text-muted-foreground font-medium">{ui.impact.socialValuePerInvestment}</p>
+                  <div className="relative max-w-2xl">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.26em] text-white/85">
+                      {ui.impact.sroiRatio}
+                    </p>
+                    <p className="text-3xl font-bold tracking-tight mt-2 md:text-4xl">{cba.sroi}</p>
+                    <p className="text-sm text-white/85 mt-2">{ui.impact.socialValuePerInvestment}</p>
+                  </div>
                 </div>
               </div>
 
@@ -3561,28 +3621,67 @@ const App = () => {
                 <div className="mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                   {ui.impact.economicModelPoints.map((point, idx) => {
                     const Icon = point.icon;
+                    const isHighlighted = Boolean(point.stat);
                     const descriptionItems = Array.isArray(point.description) ? point.description : [point.description];
 
                     return (
                       <div
                         key={`${point.title}-${idx}`}
-                        className="group relative overflow-hidden rounded-lg border border-border bg-secondary p-5"
+                        className={`group relative overflow-hidden rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                          isHighlighted
+                            ? 'border-emerald-200/70 bg-gradient-to-br from-emerald-50/80 via-white to-white shadow-[0_16px_36px_-24px_rgba(16,185,129,0.65)]'
+                            : 'border-border/70 bg-card/90 shadow-sm'
+                        }`}
                       >
-                        <span className="pointer-events-none absolute -left-2 -top-4 text-[72px] font-black leading-none text-primary/10">
+                        <div
+                          className={`pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${
+                            isHighlighted
+                              ? 'bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.18),transparent_65%)]'
+                              : 'bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_60%)]'
+                          }`}
+                        />
+                        <span
+                          className={`pointer-events-none absolute -left-2 -top-4 text-[72px] font-black leading-none ${
+                            isHighlighted ? 'text-emerald-200/50' : 'text-primary/10'
+                          }`}
+                        >
                           {idx + 1}
                         </span>
                         <div className="relative flex items-start gap-4">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-primary text-xl font-bold">
+                          <div
+                            className={`flex h-12 w-12 items-center justify-center rounded-full text-xl font-bold ${
+                              isHighlighted ? 'bg-emerald-500/15 text-emerald-700' : 'bg-primary/15 text-primary'
+                            }`}
+                          >
                             {idx + 1}
                           </div>
-                          <div className="flex-1">
+                          <div className="flex-1 space-y-3">
                             <div className="flex items-center gap-2">
-                              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+                              <span
+                                className={`flex h-8 w-8 items-center justify-center rounded-full ${
+                                  isHighlighted ? 'bg-emerald-500/10 text-emerald-700' : 'bg-primary/10 text-primary'
+                                }`}
+                              >
                                 <Icon size={16} />
                               </span>
                               <p className="font-semibold text-foreground">{point.title}</p>
                             </div>
-                            <ul className="mt-2 space-y-1 text-xs text-muted-foreground list-disc pl-5">
+                            {point.stat && (
+                              <div className="rounded-xl border border-emerald-200/80 bg-emerald-50/80 px-3 py-2.5">
+                                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-emerald-700/70">
+                                  {point.stat.label}
+                                </p>
+                                <p className="text-4xl font-black leading-none tracking-tight text-emerald-800">
+                                  {point.stat.value}
+                                </p>
+                                {point.stat.note && (
+                                  <p className="text-xs font-semibold text-emerald-700/70">
+                                    {point.stat.note}
+                                  </p>
+                                )}
+                              </div>
+                            )}
+                            <ul className="space-y-1 text-xs text-muted-foreground list-disc pl-5">
                               {descriptionItems.map((item, itemIdx) => (
                                 <li key={`${point.title}-${itemIdx}`} className="leading-relaxed">
                                   {item}

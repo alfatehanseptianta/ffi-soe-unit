@@ -35,6 +35,7 @@ interface MenuDay {
 interface MenuHistoryProps {
   menus: MenuDay[];
   title?: string;
+  subtitle?: string;
   onDateRangeChange?: (range: string) => void;
   language: 'en' | 'id';
 }
@@ -53,14 +54,30 @@ const categoryIcons = {
 
 export const MenuHistory: React.FC<MenuHistoryProps> = ({
   menus,
-  title = 'Menu',
+  title,
+  subtitle,
   onDateRangeChange,
   language,
 }) => {
   const [selectedRange, setSelectedRange] = useState('30');
+  const [isRangeOpen, setIsRangeOpen] = useState(false);
   const labels = language === 'id'
-    ? { lastDays: 'hari terakhir', days: 'hari', photos: 'foto', menuComponents: 'Komponen Menu' }
-    : { lastDays: 'last days', days: 'days', photos: 'photos', menuComponents: 'Menu Components' };
+    ? {
+        title: 'Testimonial Penerima Manfaat',
+        subtitle: 'Kisah nyata dari para penerima manfaat program',
+        lastDays: 'hari terakhir',
+        days: 'hari',
+        photos: 'foto',
+        menuComponents: 'Komponen Menu',
+      }
+    : {
+        title: 'Beneficiary Testimonial',
+        subtitle: 'First-hand stories from our program beneficiaries',
+        lastDays: 'last days',
+        days: 'days',
+        photos: 'photos',
+        menuComponents: 'Menu Components',
+      };
   const nutritionLabels = language === 'id'
     ? {
         title: 'Nutrisi',
@@ -83,69 +100,102 @@ export const MenuHistory: React.FC<MenuHistoryProps> = ({
 
   const handleRangeChange = (range: string) => {
     setSelectedRange(range);
+    setIsRangeOpen(false);
     onDateRangeChange?.(range);
   };
 
+  const headingTitle = title ?? labels.title;
+  const headingSubtitle = subtitle ?? labels.subtitle;
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-7 sm:space-y-9">
       {/* Header with Filter */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <Calendar className="text-primary" size={20} />
-          <h3 className="font-bold text-lg text-foreground">{title}</h3>
-        </div>
-        
-        <div className="relative">
-          <button className="flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors text-foreground font-medium text-sm">
-            {language === 'id' ? `${selectedRange} ${labels.lastDays}` : `Last ${selectedRange} ${labels.days}`}
-            <ChevronDown size={16} />
-          </button>
-          <div className="absolute right-0 mt-2 w-32 bg-card border border-border rounded-lg shadow-lg hidden hover:block z-10">
-            {['7', '14', '30', '60'].map((range) => (
-              <button
-                key={range}
-                onClick={() => handleRangeChange(range)}
-                className={`w-full text-left px-4 py-2 text-sm font-medium transition-colors ${
-                  selectedRange === range
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-foreground hover:bg-secondary'
-                }`}
-              >
-                {language === 'id' ? `${range} ${labels.days}` : `${range} ${labels.days}`}
-              </button>
-            ))}
+      <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-gradient-to-br from-amber-50 via-white to-emerald-50 p-4 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.45)] sm:p-5 dark:from-slate-950 dark:via-slate-950 dark:to-emerald-950/40">
+        <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-emerald-200/30 blur-3xl dark:bg-emerald-700/20" />
+        <div className="absolute -left-10 bottom-0 h-28 w-28 rounded-full bg-amber-200/40 blur-2xl dark:bg-amber-600/20" />
+        <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-foreground text-primary-foreground shadow-[0_12px_30px_-18px_rgba(15,23,42,0.8)]">
+              <Calendar size={20} />
+            </div>
+            <div>
+              <h3 className="text-base font-semibold text-foreground sm:text-lg">{headingTitle}</h3>
+              <p className="text-xs text-muted-foreground sm:text-sm">{headingSubtitle}</p>
+            </div>
+          </div>
+
+          <div className="relative w-full sm:w-auto">
+            <button
+              type="button"
+              aria-haspopup="listbox"
+              aria-expanded={isRangeOpen}
+              onClick={() => setIsRangeOpen((prev) => !prev)}
+              className="flex w-full items-center justify-between gap-2 rounded-full border border-border/70 bg-background/80 px-4 py-2 text-sm font-semibold text-foreground shadow-[0_12px_25px_-20px_rgba(15,23,42,0.7)] transition-all hover:-translate-y-0.5 hover:border-foreground/20 sm:w-auto"
+            >
+              {language === 'id' ? `${selectedRange} ${labels.lastDays}` : `Last ${selectedRange} ${labels.days}`}
+              <ChevronDown size={16} />
+            </button>
+            <div
+              className={`absolute left-0 mt-2 w-full rounded-2xl border border-border/60 bg-background/95 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.6)] backdrop-blur sm:left-auto sm:right-0 sm:w-36 ${
+                isRangeOpen ? 'block' : 'hidden'
+              }`}
+              role="listbox"
+            >
+              {['7', '14', '30', '60'].map((range) => (
+                <button
+                  key={range}
+                  onClick={() => handleRangeChange(range)}
+                  className={`w-full px-4 py-2 text-left text-sm font-semibold transition-colors ${
+                    selectedRange === range
+                      ? 'bg-foreground text-primary-foreground'
+                      : 'text-foreground hover:bg-secondary'
+                  }`}
+                >
+                  {language === 'id' ? `${range} ${labels.days}` : `${range} ${labels.days}`}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Menu Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {menus.map((menu) => (
+      <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {menus.map((menu, index) => (
           <div
             key={menu.id}
-            className="bg-card rounded-2xl border border-border overflow-hidden shadow-md hover:shadow-lg transition-all hover:border-primary/50 group"
+            style={{ animationDelay: `${index * 80}ms` }}
+            className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card/80 shadow-[0_25px_70px_-45px_rgba(15,23,42,0.6)] backdrop-blur transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 hover:-translate-y-1 hover:shadow-[0_35px_85px_-50px_rgba(15,23,42,0.75)]"
           >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_55%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             {/* Photo Section */}
-            <div className="relative overflow-hidden bg-secondary h-48">
+            <div className="relative h-44 overflow-hidden bg-secondary sm:h-52">
               <img
                 src={menu.photo || "/placeholder.svg"}
                 alt={menu.date}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute top-3 left-3 bg-foreground/80 text-primary-foreground px-3 py-1 rounded-lg text-xs font-bold">
-                {language === 'id' ? `${menu.photoCount} ${labels.photos}` : `${menu.photoCount} ${labels.photos}`}
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
+              <div className="absolute left-3 top-3 flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-semibold text-foreground shadow-lg backdrop-blur">
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-700">
+                  {menu.photoCount}
+                </span>
+                {labels.photos}
               </div>
-              <div className="absolute top-3 right-3 bg-foreground/80 text-primary-foreground px-3 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
-                <Star size={12} className="fill-yellow-400 text-yellow-400" />
+              <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-background/85 px-3 py-1 text-xs font-semibold text-foreground shadow-lg backdrop-blur">
+                <Star size={12} className="fill-amber-400 text-amber-400" />
                 {menu.rating}
               </div>
             </div>
 
             {/* Content Section */}
-            <div className="p-4 space-y-4">
+            <div className="space-y-4 p-4 sm:space-y-5 sm:p-5">
               {/* Date */}
-              <div>
-                <h4 className="font-bold text-foreground text-base">{menu.date}</h4>
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-semibold text-foreground sm:text-base">{menu.date}</h4>
+                <span className="rounded-full border border-border/70 bg-secondary/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  {labels.menuComponents}
+                </span>
               </div>
 
               <div
@@ -157,9 +207,6 @@ export const MenuHistory: React.FC<MenuHistoryProps> = ({
               >
                 {/* Menu Components */}
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
-                    <span>{labels.menuComponents}</span>
-                  </div>
                   <div className="space-y-3">
                     {menu.components.map((component, idx) => (
                       <div key={idx} className="space-y-1">
@@ -167,7 +214,7 @@ export const MenuHistory: React.FC<MenuHistoryProps> = ({
                           <span className="text-lg">
                             {categoryIcons[component.category as keyof typeof categoryIcons] || '\u{1F37D}\u{FE0F}'}
                           </span>
-                          <h5 className="font-bold text-sm text-foreground flex-1">
+                          <h5 className="flex-1 text-sm font-semibold text-foreground sm:text-[15px]">
                             {component.category}
                           </h5>
                         </div>
@@ -175,7 +222,7 @@ export const MenuHistory: React.FC<MenuHistoryProps> = ({
                           {component.items.map((item, itemIdx) => (
                             <span
                               key={itemIdx}
-                              className="text-xs bg-secondary px-2.5 py-1 rounded-full border border-border text-muted-foreground"
+                              className="rounded-full border border-border/70 bg-background/80 px-2.5 py-1 text-xs font-medium text-muted-foreground shadow-[0_8px_18px_-15px_rgba(15,23,42,0.65)]"
                             >
                               {item}
                             </span>
@@ -188,18 +235,18 @@ export const MenuHistory: React.FC<MenuHistoryProps> = ({
 
                 {/* Nutrition Summary */}
                 {menu.nutrition && (
-                  <div className="space-y-3 rounded-xl border border-primary/10 bg-primary/5 px-3 py-3 md:px-4 md:py-4">
-                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
-                      <Flame size={14} className="text-destructive" />
+                  <div className="space-y-3 rounded-2xl border border-emerald-200/40 bg-gradient-to-br from-emerald-50/70 via-white to-sky-50/70 px-3 py-3 md:px-4 md:py-4 dark:border-emerald-900/40 dark:from-emerald-950/60 dark:via-slate-950 dark:to-sky-950/40">
+                    <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                      <Flame size={14} className="text-amber-500" />
                       <span>{nutritionLabels.title}</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="flex items-center gap-3 rounded-lg border border-border/60 bg-background/70 px-2.5 py-2">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-destructive/10 text-destructive">
+                    <div className="grid grid-cols-1 gap-3">
+                      <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 px-2.5 py-2 shadow-sm">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-500/15 text-amber-600">
                           <Flame size={16} />
                         </div>
                         <div className="leading-tight">
-                          <p className="text-[11px] uppercase tracking-[0.12em] font-bold text-muted-foreground">
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                             {nutritionLabels.calories}
                           </p>
                           <p className="text-lg font-extrabold text-foreground">
@@ -207,12 +254,12 @@ export const MenuHistory: React.FC<MenuHistoryProps> = ({
                           </p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-3 rounded-lg border border-border/60 bg-background/70 px-2.5 py-2">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 px-2.5 py-2 shadow-sm">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600">
                           <BicepsFlexed size={16} />
                         </div>
                         <div className="leading-tight">
-                          <p className="text-[11px] uppercase tracking-[0.12em] font-bold text-muted-foreground">
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                             {nutritionLabels.protein}
                           </p>
                           <p className="text-lg font-extrabold text-foreground">
@@ -221,12 +268,12 @@ export const MenuHistory: React.FC<MenuHistoryProps> = ({
                           </p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-3 rounded-lg border border-border/60 bg-background/70 px-2.5 py-2">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-100 text-amber-700">
+                      <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 px-2.5 py-2 shadow-sm">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-500/15 text-rose-600">
                           <Droplet size={16} />
                         </div>
                         <div className="leading-tight">
-                          <p className="text-[11px] uppercase tracking-[0.12em] font-bold text-muted-foreground">
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                             {nutritionLabels.fat}
                           </p>
                           <p className="text-lg font-extrabold text-foreground">
@@ -235,12 +282,12 @@ export const MenuHistory: React.FC<MenuHistoryProps> = ({
                           </p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-3 rounded-lg border border-border/60 bg-background/70 px-2.5 py-2">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                      <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 px-2.5 py-2 shadow-sm">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-500/15 text-sky-600">
                           <Wheat size={16} />
                         </div>
                         <div className="leading-tight">
-                          <p className="text-[11px] uppercase tracking-[0.12em] font-bold text-muted-foreground">
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                             {nutritionLabels.carbs}
                           </p>
                           <p className="text-lg font-extrabold text-foreground">
