@@ -7,7 +7,7 @@
     "dev": "next dev",
     "dev:open": "concurrently -k \"pnpm dev\" \"wait-on http://localhost:3000 && explorer http://localhost:3000\"",
     "test:smoke": "playwright test tests/runtime-smoke.spec.ts",
-     "ai:watch": "node scripts/ai-autofix.mjs",
+    "ai:watch": "node scripts/ai-autofix.mjs",
     "lint": "eslint .",
     "start": "next start"
   },
@@ -68,6 +68,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "baseline-browser-mapping": "^2.9.19",
     "chokidar": "^5.0.0",
     "concurrently": "^9.2.1",
     "open-cli": "^8.0.0",

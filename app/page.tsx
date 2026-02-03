@@ -2864,16 +2864,8 @@ const App = () => {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-card p-7 sm:p-8 lg:p-10 shadow-[0_20px_40px_-24px_rgba(15,23,42,0.35)] lg:justify-self-end lg:w-full">
-              <span
-                className="pointer-events-none absolute -top-20 right-0 h-40 w-40 rounded-full bg-primary/15 blur-3xl"
-                aria-hidden="true"
-              />
-              <span
-                className="pointer-events-none absolute -bottom-20 left-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
-                aria-hidden="true"
-              />
-              <div className="relative z-10 space-y-5">
+            <div className="lg:justify-self-end lg:w-full">
+              <div className="space-y-5">
                 <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.32em] text-muted-foreground">
                   {ui.headerHighlights.partnersTitle}
                 </p>
@@ -2916,8 +2908,8 @@ const App = () => {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.operatingSince}
                       </p>
-                      <p className="text-sm font-semibold text-foreground">{headerStats.operationalSince}</p>
-                      <p className="text-[10px] text-muted-foreground mt-1">
+                      <p className="text-lg font-bold text-foreground whitespace-nowrap">{headerStats.operationalSince}</p>
+                      <p className="text-[10px] text-muted-foreground mt-1 whitespace-nowrap">
                         {numberFormatter.format(headerStats.serviceMonths)} {ui.headerStats.monthsServing}
                       </p>
                     </div>
@@ -2930,8 +2922,8 @@ const App = () => {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.dailyMeals}
                       </p>
-                      <p className="text-lg font-bold text-foreground">
-                        {numberFormatter.format(headerStats.dailyMeals)}{' '}
+                      <p className="inline-flex items-baseline gap-1 text-lg font-bold text-foreground whitespace-nowrap">
+                        {numberFormatter.format(headerStats.dailyMeals)}
                         <span className="text-[10px] font-semibold text-muted-foreground">{ui.headerStats.dailyMealsUnit}</span>
                       </p>
                     </div>
@@ -2944,7 +2936,7 @@ const App = () => {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.operatingHours}
                       </p>
-                      <p className="text-lg font-bold text-foreground">{headerStats.operatingHours}</p>
+                      <p className="text-lg font-bold text-foreground whitespace-nowrap">{headerStats.operatingHours}</p>
                     </div>
                   </div>
                   <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
@@ -2955,8 +2947,8 @@ const App = () => {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.schoolsServed}
                       </p>
-                      <p className="text-lg font-bold text-foreground">
-                        {numberFormatter.format(schoolsServedCount)}{' '}
+                      <p className="inline-flex items-baseline gap-1 text-lg font-bold text-foreground whitespace-nowrap">
+                        {numberFormatter.format(schoolsServedCount)}
                         <span className="text-[10px] font-semibold text-muted-foreground">{ui.headerStats.schoolsUnit}</span>
                       </p>
                     </div>
@@ -2969,7 +2961,7 @@ const App = () => {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.healthFacilitiesServed}
                       </p>
-                      <p className="text-lg font-bold text-foreground">{numberFormatter.format(healthFacilitiesServedCount)}</p>
+                      <p className="text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(healthFacilitiesServedCount)}</p>
                     </div>
                   </div>
                   <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
@@ -2980,7 +2972,7 @@ const App = () => {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.staffCount}
                       </p>
-                      <p className="text-lg font-bold text-foreground">{numberFormatter.format(headerStats.totalStaff)}</p>
+                      <p className="text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(headerStats.totalStaff)}</p>
                     </div>
                   </div>
                   <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
@@ -2991,7 +2983,7 @@ const App = () => {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.supplierCount}
                       </p>
-                      <p className="text-lg font-bold text-foreground">{numberFormatter.format(supplierCount)}</p>
+                      <p className="text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(supplierCount)}</p>
                     </div>
                   </div>
                   <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
@@ -3002,8 +2994,8 @@ const App = () => {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.totalServings}
                       </p>
-                      <p className="text-lg font-bold text-foreground">
-                        {numberFormatter.format(headerStats.totalServings)}{' '}
+                      <p className="inline-flex items-baseline gap-1 text-lg font-bold text-foreground whitespace-nowrap">
+                        {numberFormatter.format(headerStats.totalServings)}
                         <span className="text-[10px] font-semibold text-muted-foreground">{ui.headerStats.totalServingsUnit}</span>
                       </p>
                     </div>
