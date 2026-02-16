@@ -799,6 +799,1222 @@ const MOCK_SPPG_DATA = [
     ],
     teamProfiles: operationalTeamProfiles,
   },
+  {
+    id: 'FFI-GISTING-01',
+    name: {
+      en: 'FFI Central Gisting Unit',
+      id: 'Unit Pusat FFI Gisting',
+    },
+    region: {
+      en: 'Gisting, Tanggamus',
+      id: 'Gisting, Tanggamus',
+    },
+    address: {
+      en: 'Jl. Raya Gisting No. 45, Gisting District, Tanggamus Regency, Lampung Province, 35377',
+      id: 'Jl. Raya Gisting Nomor 45, Kec. Gisting, Kab. Tanggamus, Prov. Lampung, 35377',
+    },
+    managedBy: {
+      en: 'Future Farmers of Indonesia, Badan Gizi Nasional, and World Food Programme',
+      id: 'Future Farmers of Indonesia, Badan Gizi Nasional, dan World Food Programme',
+    },
+    supportedBy: { en: 'World Food Programme (WFP)', id: 'Program Pangan Dunia (WFP)' },
+    costPerPortion: 14800,
+    localSourcing: 85,
+    healthScore: 96,
+    staffCount: { present: 16, total: 18 },
+    wasteRate: 1.5,
+    feedbackScore: 4.8,
+    deliveryProgress: {
+      target: 2400,
+      cooked: 0,
+      inDelivery: 0,
+      received: 0,
+    },
+    dailyMenu: {
+      en: {
+        name: "Lampung Grilled Fish with Cassava & Vegetable Soup",
+        photo: '/gallery/menu-showcase.jpg',
+        nutrition: {
+          Calories: '710 kcal',
+          Protein: '30g',
+          Fat: '16g',
+          Carbs: '82g',
+          Vitamins: 'Vit A, C & Iron',
+        },
+        components: {
+          Staple: 'xxx',
+          'Main Dish': 'xx',
+          'Side Dish': 'xxx',
+          Vegetable: 'xxx',
+          Fruit: 'xxx',
+          Milk: 'xxx',
+        },
+      },
+      id: {
+        name: "Ikan Bakar Lampung dengan Singkong & Sup Sayur",
+        photo: '/gallery/menu-showcase.jpg',
+        nutrition: {
+          Kalori: '710 kkal',
+          Protein: '30g',
+          Lemak: '16g',
+          Karbohidrat: '82g',
+          Vitamin: 'Vit A, C & Zat Besi',
+        },
+        components: {
+          'Makanan Pokok': 'xxx',
+          Lauk: 'xx',
+          Pauk: 'xxx',
+          Sayur: 'xxx',
+          Buah: 'xxx',
+          Susu: 'xxx',
+        },
+      },
+    },
+    cba: {
+      en: {
+        sroi: '1 : 3.5',
+        healthcareSavings: 'Rp 980M / Year',
+        localEconomicBoost: 'Rp 720M / Month',
+        productivityIndex: '+22% Concentration',
+      },
+      id: {
+        sroi: '1 : 3,5',
+        healthcareSavings: 'Rp 980 Juta / Tahun',
+        localEconomicBoost: 'Rp 720 Juta / Bulan',
+        productivityIndex: '+22% Konsentrasi',
+      },
+    },
+    sdgs: {
+      en: [
+        { id: 1, title: 'No Poverty', metric: '78 Workers, +42% Income', color: 'bg-[#E5243B]', desc: 'Economic opportunities for 78 workers, average income increase 42%.' },
+        { id: 2, title: 'Zero Hunger', metric: '1,450 Children Secured', color: 'bg-[#E5243B]', desc: 'Direct reduction of food insecurity and malnutrition in Tanggamus region.' },
+        { id: 3, title: 'Good Health', metric: '-13% Stunting Probability', color: 'bg-[#4C9F38]', desc: 'Improved micro-nutrient intake through fortified local menus.' },
+        { id: 4, title: 'Quality Education', metric: '97% School Attendance', color: 'bg-[#C5192D]', desc: 'Providing the cognitive fuel needed for effective classroom learning.' },
+        { id: 5, title: 'Gender Equality', metric: '58% Women Workforce', color: 'bg-[#FF3A21]', desc: 'Equal beneficiary distribution, women comprise 58% of workforce.' },
+        { id: 8, title: 'Decent Work', metric: '38 Local Farmers Engaged', color: 'bg-[#A21942]', desc: 'Supporting local economy by sourcing 85% of ingredients from Gisting farmers.' },
+        { id: 12, title: 'Responsible Prod.', metric: '1.5% Minimal Food Waste', color: 'bg-[#FB9D24]', desc: 'Optimized supply chain to ensure zero-waste circular production.' },
+      ],
+      id: [
+        { id: 1, title: 'Tanpa Kemiskinan', metric: '78 Pekerja, +42% Pendapatan', color: 'bg-[#E5243B]', desc: 'Peluang ekonomi bagi 78 pekerja, kenaikan pendapatan rata-rata 42%.' },
+        { id: 2, title: 'Tanpa Kelaparan', metric: '1.450 Anak Terpenuhi', color: 'bg-[#E5243B]', desc: 'Pengurangan langsung ketidakamanan pangan dan malnutrisi di wilayah Tanggamus.' },
+        { id: 3, title: 'Kesehatan yang Baik', metric: '-13% Risiko Stunting', color: 'bg-[#4C9F38]', desc: 'Peningkatan asupan mikronutrien melalui menu lokal yang diperkaya.' },
+        { id: 4, title: 'Pendidikan Berkualitas', metric: '97% Kehadiran Sekolah', color: 'bg-[#C5192D]', desc: 'Memberikan asupan kognitif yang dibutuhkan untuk pembelajaran efektif di kelas.' },
+        { id: 5, title: 'Kesetaraan Gender', metric: '58% Tenaga Kerja Perempuan', color: 'bg-[#FF3A21]', desc: 'Distribusi penerima manfaat setara, perempuan 58% tenaga kerja.' },
+        { id: 8, title: 'Pekerjaan Layak', metric: '38 Petani Lokal Terlibat', color: 'bg-[#A21942]', desc: 'Mendukung ekonomi lokal dengan 85% bahan berasal dari petani Gisting.' },
+        { id: 12, title: 'Produksi Bertanggung Jawab', metric: '1,5% Minim Sisa Makanan', color: 'bg-[#FB9D24]', desc: 'Rantai pasok dioptimalkan untuk produksi sirkular minim limbah.' },
+      ],
+    },
+    cctvFeeds: {
+      en: ['Main Kitchen', 'Main Warehouse', 'Packing Line', 'Loading Bay'],
+      id: ['Dapur Utama', 'Gudang Utama', 'Lini Pengemasan', 'Area Muat'],
+    },
+    fleet: [
+      { id: 'T01', plate: 'BE 2341 GH', driver: 'Rahmat Hidayat', route: ['Unit', 'SDN 1 Gisting', 'SMPN 1 Gisting'], currentPos: 'SDN 1 Gisting', status: 'delivered' as FleetStatus },
+      { id: 'T02', plate: 'BE 5612 IJ', driver: 'Ahmad Fauzi', route: ['Unit', 'SDN 2 Gisting'], currentPos: 'En Route', status: 'onRoute' as FleetStatus },
+    ],
+    schools: [
+      { id: 'SCH-01', name: 'SDN 1 Gisting', type: 'elementary' as SchoolType, students: 320, beneficiaries: 320, target: 320, cooked: 0, inDelivery: 0, received: 0, teachers: 14, scholarshipPercentage: 42, distance: '2.8 km', travelTimeMinutes: 10, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Siti', id: 'Ibu Siti' }, rating: 5 },
+      { id: 'SCH-02', name: 'SDN 2 Gisting', type: 'elementary' as SchoolType, students: 290, beneficiaries: 280, target: 280, cooked: 0, inDelivery: 0, received: 0, teachers: 13, scholarshipPercentage: 40, distance: '3.5 km', travelTimeMinutes: 13, status: 'active' as SchoolStatus, contact: { en: 'Mr. Bambang', id: 'Bapak Bambang' }, rating: null },
+      { id: 'SCH-03', name: 'SMPN 1 Gisting', type: 'juniorHigh' as SchoolType, students: 480, beneficiaries: 460, target: 460, cooked: 0, inDelivery: 0, received: 0, teachers: 24, scholarshipPercentage: 48, distance: '2.2 km', travelTimeMinutes: 9, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Dewi', id: 'Ibu Dewi' }, rating: 4 },
+    ],
+    menuHistory: {
+      en: [
+        {
+          id: '1',
+          date: 'Sunday, October 5, 2025',
+          rating: 4.8,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/children-meals.jpg',
+          nutrition: { calories: 710, protein: 30, carbs: 82, fat: 16, fiber: 7, percentages: { protein: 16, carbs: 45, fat: 20 } },
+          components: [
+            { category: 'Carbohydrates', items: ['Steamed Rice 150g', 'Cassava 80g'] },
+            { category: 'Protein', items: ['Grilled Fish 70g', 'Boiled Egg 50g'] },
+            { category: 'Vegetables', items: ['Spinach Soup 100ml', 'Carrots 60g'] },
+            { category: 'Fruit', items: ['Banana 100g', 'Papaya 80g'] },
+            { category: 'Milk', items: ['UHT Milk 200ml'] },
+          ],
+        },
+        {
+          id: '2',
+          date: 'Saturday, October 4, 2025',
+          rating: 4.7,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/kitchen-1.jpg',
+          nutrition: { calories: 690, protein: 28, carbs: 84, fat: 15, fiber: 7, percentages: { protein: 16, carbs: 47, fat: 19 } },
+          components: [
+            { category: 'Carbohydrates', items: ['Brown Rice 140g', 'Sweet Potato 70g'] },
+            { category: 'Protein', items: ['Fried Tempeh 80g', 'Tofu 70g'] },
+            { category: 'Vegetables', items: ['Long Beans 60g', 'Vegetable Soup 100ml'] },
+            { category: 'Fruit', items: ['Mango 90g', 'Watermelon 100g'] },
+            { category: 'Milk', items: ['Soy Milk 200ml'] },
+          ],
+        },
+        {
+          id: '3',
+          date: 'Wednesday, September 24, 2025',
+          rating: 4.6,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/farm-1.jpg',
+          nutrition: { calories: 700, protein: 29, carbs: 80, fat: 16, fiber: 6, percentages: { protein: 16, carbs: 45, fat: 20 } },
+          components: [
+            { category: 'Carbohydrates', items: ['Corn Rice 140g', 'Boiled Potatoes 90g'] },
+            { category: 'Protein', items: ['Grilled Chicken 65g', 'Peanuts 40g'] },
+            { category: 'Vegetables', items: ['Stir-fried Cabbage 60g', 'Pumpkin Soup 100ml'] },
+            { category: 'Fruit', items: ['Orange 80g', 'Pineapple 90g'] },
+            { category: 'Milk', items: ['Fresh Milk 200ml'] },
+          ],
+        },
+      ],
+      id: [
+        {
+          id: '1',
+          date: 'Minggu, 5 Oktober 2025',
+          rating: 4.8,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/children-meals.jpg',
+          nutrition: { calories: 710, protein: 30, carbs: 82, fat: 16, fiber: 7, percentages: { protein: 16, carbs: 45, fat: 20 } },
+          components: [
+            { category: 'Karbohidrat', items: ['Nasi Putih 150g', 'Singkong 80g'] },
+            { category: 'Protein', items: ['Ikan Bakar 70g', 'Telur Rebus 50g'] },
+            { category: 'Sayuran', items: ['Sup Bayam 100ml', 'Wortel 60g'] },
+            { category: 'Buah', items: ['Pisang 100g', 'Papaya 80g'] },
+            { category: 'Susu', items: ['Susu UHT 200ml'] },
+          ],
+        },
+        {
+          id: '2',
+          date: 'Sabtu, 4 Oktober 2025',
+          rating: 4.7,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/kitchen-1.jpg',
+          nutrition: { calories: 690, protein: 28, carbs: 84, fat: 15, fiber: 7, percentages: { protein: 16, carbs: 47, fat: 19 } },
+          components: [
+            { category: 'Karbohidrat', items: ['Beras Merah 140g', 'Ubi Manis 70g'] },
+            { category: 'Protein', items: ['Tempe Goreng 80g', 'Tahu 70g'] },
+            { category: 'Sayuran', items: ['Kacang Panjang 60g', 'Sup Sayuran 100ml'] },
+            { category: 'Buah', items: ['Mangga 90g', 'Semangka 100g'] },
+            { category: 'Susu', items: ['Susu Kedelai 200ml'] },
+          ],
+        },
+        {
+          id: '3',
+          date: 'Rabu, 24 September 2025',
+          rating: 4.6,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/farm-1.jpg',
+          nutrition: { calories: 700, protein: 29, carbs: 80, fat: 16, fiber: 6, percentages: { protein: 16, carbs: 45, fat: 20 } },
+          components: [
+            { category: 'Karbohidrat', items: ['Nasi Jagung 140g', 'Kentang Rebus 90g'] },
+            { category: 'Protein', items: ['Ayam Panggang 65g', 'Kacang Tanah 40g'] },
+            { category: 'Sayuran', items: ['Tumis Kol 60g', 'Sup Labu 100ml'] },
+            { category: 'Buah', items: ['Jeruk 80g', 'Nanas 90g'] },
+            { category: 'Susu', items: ['Susu Segar 200ml'] },
+          ],
+        },
+      ],
+    },
+    suppliers: [
+      { id: 'S01', name: { en: 'Tilapia Fish', id: 'Ikan Nila' }, image: '/gallery/children-meals.jpg', quantity: 95, unit: 'Kg', supplier: { name: 'Kelompok Pembudidaya Ikan Gisting', href: '/suppliers/pembudidaya-ikan-gisting' }, region: 'Gisting', distributionFrequencyPerWeek: 2, price: 'Rp28.000', category: 'protein' as SupplierCategory },
+      { id: 'S02', name: { en: 'Free-range Chicken', id: 'Ayam Kampung' }, image: '/gallery/kitchen-1.jpg', quantity: 80, unit: 'Kg', supplier: { name: 'Peternak Ayam Tanggamus', href: '/suppliers/peternak-ayam-tanggamus' }, region: 'Tanggamus', distributionFrequencyPerWeek: 1, price: 'Rp62.000', category: 'protein' as SupplierCategory },
+      { id: 'S03', name: { en: 'Cassava', id: 'Singkong' }, image: '/gallery/farm-1.jpg', quantity: 120, unit: 'Kg', supplier: { name: 'Petani Singkong Gisting', href: '/suppliers/petani-singkong-gisting' }, region: 'Gisting', distributionFrequencyPerWeek: 2, price: 'Rp3.500', category: 'vegetables' as SupplierCategory },
+      { id: 'S04', name: { en: 'Spinach', id: 'Bayam' }, image: '/gallery/farm-2.jpg', quantity: 70, unit: 'Kg', supplier: { name: 'Kebun Sayur Lampung', href: '/suppliers/kebun-sayur-lampung' }, region: 'Gisting', distributionFrequencyPerWeek: 2, price: 'Rp4.500', category: 'vegetables' as SupplierCategory },
+      { id: 'S05', name: { en: 'Carrots', id: 'Wortel' }, image: '/gallery/farm-1.jpg', quantity: 85, unit: 'Kg', supplier: { name: 'Kebun Sayur Tanggamus', href: '/suppliers/kebun-sayur-tanggamus' }, region: 'Tanggamus', distributionFrequencyPerWeek: 2, price: 'Rp5.000', category: 'vegetables' as SupplierCategory },
+      { id: 'S06', name: { en: 'Banana', id: 'Pisang' }, image: '/gallery/children-meals.jpg', quantity: 100, unit: 'Kg', supplier: { name: 'Petani Buah Gisting', href: '/suppliers/petani-buah-gisting' }, region: 'Gisting', distributionFrequencyPerWeek: 2, price: 'Rp8.000', category: 'vegetables' as SupplierCategory },
+    ],
+    beneficiaries: {
+      en: [
+        {
+          id: 'students',
+          label: 'School Children',
+          value: '1,060 Students',
+          description: [
+            'Learners from pre-school through junior high (TK, SD, SMP).',
+            'Primary recipients of daily nutritious meals.',
+          ],
+        },
+        {
+          id: 'pregnantNursing',
+          label: 'Pregnant & Nursing Mothers',
+          value: '210 Mothers',
+          description: [
+            'Served via posyandu and puskesmas nutrition services.',
+            'Support focuses on maternal health during pregnancy and breastfeeding.',
+          ],
+        },
+        {
+          id: 'toddlers',
+          label: 'Toddlers (0–59 months)',
+          value: '180 Children',
+          description: [
+            'Early childhood cohort receiving complementary feeding support.',
+            'Linked to posyandu growth monitoring and counseling.',
+          ],
+        },
+      ],
+      id: [
+        {
+          id: 'students',
+          label: 'Siswa/i Sekolah',
+          value: '1.060 Anak',
+          description: [
+            'Anak TK, SD, SMP penerima makanan bergizi.',
+            'Prioritas utama distribusi program harian.',
+          ],
+        },
+        {
+          id: 'pregnantNursing',
+          label: 'Ibu Hamil & Menyusui',
+          value: '210 Ibu',
+          description: [
+            'Dilayani melalui layanan gizi posyandu dan puskesmas.',
+            'Fokus pada kesehatan ibu selama kehamilan dan menyusui.',
+          ],
+        },
+        {
+          id: 'toddlers',
+          label: 'Balita (0–59 bulan)',
+          value: '180 Balita',
+          description: [
+            'Dukungan makanan pendamping gizi untuk usia 0–59 bulan.',
+            'Terhubung dengan pemantauan tumbuh kembang posyandu.',
+          ],
+        },
+      ],
+    },
+    testimonials: {
+      en: [
+        {
+          id: 'T-01',
+          name: 'Siti Nurjanah',
+          role: 'Student, SDN 1 Gisting',
+          category: 'siswa',
+          quote: 'The meals are delicious and I can study better after lunch.',
+          highlight: 'Better learning focus',
+          photo: '/gallery/children-meals.jpg',
+        },
+        {
+          id: 'T-02',
+          name: 'Bambang Hartono',
+          role: 'Parent',
+          category: 'orangtua',
+          quote: 'This program saves our family expenses and my child eats healthier.',
+          highlight: 'Family cost savings',
+          photo: '/gallery/kitchen-1.jpg',
+        },
+        {
+          id: 'T-03',
+          name: 'Dewi Lestari',
+          role: 'Teacher, SMPN 1 Gisting',
+          category: 'guru',
+          quote: 'Students are more active and focused since the feeding program started.',
+          highlight: 'Improved classroom engagement',
+          photo: '/gallery/farm-1.jpg',
+        },
+        {
+          id: 'T-04',
+          name: 'Rahmat Hidayat',
+          role: 'Local Supplier',
+          category: 'supplier',
+          quote: 'Regular orders help us plan our harvests and secure stable income.',
+          highlight: 'Farmer income stability',
+          photo: '/gallery/farm-2.jpg',
+        },
+      ],
+      id: [
+        {
+          id: 'T-01',
+          name: 'Siti Nurjanah',
+          role: 'Siswa, SDN 1 Gisting',
+          category: 'siswa',
+          quote: 'Makanannya enak dan saya bisa belajar lebih baik setelah makan siang.',
+          highlight: 'Fokus belajar meningkat',
+          photo: '/gallery/children-meals.jpg',
+        },
+        {
+          id: 'T-02',
+          name: 'Bapak Bambang Hartono',
+          role: 'Orang tua',
+          category: 'orangtua',
+          quote: 'Program ini menghemat biaya keluarga dan anak saya makan lebih sehat.',
+          highlight: 'Penghematan biaya keluarga',
+          photo: '/gallery/kitchen-1.jpg',
+        },
+        {
+          id: 'T-03',
+          name: 'Ibu Dewi Lestari',
+          role: 'Guru, SMPN 1 Gisting',
+          category: 'guru',
+          quote: 'Siswa lebih aktif dan fokus sejak program makan dimulai.',
+          highlight: 'Keterlibatan kelas membaik',
+          photo: '/gallery/farm-1.jpg',
+        },
+        {
+          id: 'T-04',
+          name: 'Rahmat Hidayat',
+          role: 'Pemasok lokal',
+          category: 'supplier',
+          quote: 'Pesanan rutin membantu kami merencanakan panen dan mengamankan pendapatan stabil.',
+          highlight: 'Stabilitas pendapatan petani',
+          photo: '/gallery/farm-2.jpg',
+        },
+      ],
+    },
+    healthCenters: [
+      { id: 'HC-01', name: 'Puskesmas Gisting', type: 'puskesmas', pregnantNursing: 110, toddlers: 95, target: 205, cooked: 0, inDelivery: 0, received: 0, distance: '2.1 km', travelTimeMinutes: 8, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Rina', id: 'Ibu Rina' } },
+      { id: 'HC-02', name: 'Posyandu Melati Gisting', type: 'posyandu', pregnantNursing: 100, toddlers: 85, target: 185, cooked: 0, inDelivery: 0, received: 0, distance: '1.6 km', travelTimeMinutes: 7, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Fitri', id: 'Ibu Fitri' } },
+    ],
+    geospatialClusters: [
+      {
+        clusterId: 1,
+        radius: { en: 'Cluster I (Radius < 1 km)', id: 'Klaster I (Radius < 1 km)' },
+        color: '#3b82f6',
+        count: 4,
+        schools: [
+          { id: 'S1', name: 'TK Dharma Gisting', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S2', name: 'SDN 1 Gisting', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S3', name: 'TK Pembina Gisting', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S4', name: 'SDN 2 Gisting', type: 'school', cluster: 1, radius: '<1km' },
+        ],
+        healthCenters: [
+          { id: 'H1', name: 'Puskesmas Gisting', type: 'health', cluster: 1, radius: '<1km' },
+        ],
+      },
+      {
+        clusterId: 2,
+        radius: { en: 'Cluster II (Radius 1 - 2 km)', id: 'Klaster II (Radius 1 - 2 km)' },
+        color: '#10b981',
+        count: 3,
+        schools: [
+          { id: 'S5', name: 'SMPN 1 Gisting', type: 'school', cluster: 2, radius: '1-2km' },
+          { id: 'S6', name: 'SD Muhammadiyah Gisting', type: 'school', cluster: 2, radius: '1-2km' },
+          { id: 'S7', name: 'TK Al-Ikhlas Gisting', type: 'school', cluster: 2, radius: '1-2km' },
+        ],
+        healthCenters: [
+          { id: 'H2', name: 'Posyandu Melati Gisting', type: 'health', cluster: 2, radius: '1-2km' },
+        ],
+      },
+    ],
+    teamProfiles: operationalTeamProfiles,
+  },
+  {
+    id: 'FFI-JONGGAT-01',
+    name: {
+      en: 'FFI Central Jonggat Unit',
+      id: 'Unit Pusat FFI Jonggat',
+    },
+    region: {
+      en: 'Jonggat, Central Lombok',
+      id: 'Jonggat, Lombok Tengah',
+    },
+    address: {
+      en: 'Jalan Tenun Sukarare, Puyung, Jonggat District, Central Lombok Regency, West Nusa Tenggara Province, 83561',
+      id: 'Jalan Tenun Sukarare, Puyung, Jonggat, Lombok Tengah, Nusa Tenggara Barat, 83561',
+    },
+    managedBy: {
+      en: 'Future Farmers of Indonesia, Badan Gizi Nasional, and World Food Programme',
+      id: 'Future Farmers of Indonesia, Badan Gizi Nasional, dan World Food Programme',
+    },
+    supportedBy: { en: 'World Food Programme (WFP)', id: 'Program Pangan Dunia (WFP)' },
+    costPerPortion: 15200,
+    localSourcing: 87,
+    healthScore: 95,
+    staffCount: { present: 17, total: 19 },
+    wasteRate: 1.3,
+    feedbackScore: 4.9,
+    deliveryProgress: {
+      target: 2600,
+      cooked: 0,
+      inDelivery: 0,
+      received: 0,
+    },
+    dailyMenu: {
+      en: {
+        name: "Lombok Grilled Chicken with Rice & Plecing Kangkung",
+        photo: '/gallery/menu-showcase.jpg',
+        nutrition: {
+          Calories: '730 kcal',
+          Protein: '31g',
+          Fat: '17g',
+          Carbs: '84g',
+          Vitamins: 'Vit A, C & Iron',
+        },
+        components: {
+          Staple: 'xxx',
+          'Main Dish': 'xx',
+          'Side Dish': 'xxx',
+          Vegetable: 'xxx',
+          Fruit: 'xxx',
+          Milk: 'xxx',
+        },
+      },
+      id: {
+        name: "Ayam Taliwang dengan Nasi & Plecing Kangkung",
+        photo: '/gallery/menu-showcase.jpg',
+        nutrition: {
+          Kalori: '730 kkal',
+          Protein: '31g',
+          Lemak: '17g',
+          Karbohidrat: '84g',
+          Vitamin: 'Vit A, C & Zat Besi',
+        },
+        components: {
+          'Makanan Pokok': 'xxx',
+          Lauk: 'xx',
+          Pauk: 'xxx',
+          Sayur: 'xxx',
+          Buah: 'xxx',
+          Susu: 'xxx',
+        },
+      },
+    },
+    cba: {
+      en: {
+        sroi: '1 : 3.6',
+        healthcareSavings: 'Rp 1.1B / Year',
+        localEconomicBoost: 'Rp 780M / Month',
+        productivityIndex: '+23% Concentration',
+      },
+      id: {
+        sroi: '1 : 3,6',
+        healthcareSavings: 'Rp 1,1 Miliar / Tahun',
+        localEconomicBoost: 'Rp 780 Juta / Bulan',
+        productivityIndex: '+23% Konsentrasi',
+      },
+    },
+    sdgs: {
+      en: [
+        { id: 1, title: 'No Poverty', metric: '84 Workers, +43% Income', color: 'bg-[#E5243B]', desc: 'Economic opportunities for 84 workers, average income increase 43%.' },
+        { id: 2, title: 'Zero Hunger', metric: '1,580 Children Secured', color: 'bg-[#E5243B]', desc: 'Direct reduction of food insecurity and malnutrition in Lombok Tengah region.' },
+        { id: 3, title: 'Good Health', metric: '-14% Stunting Probability', color: 'bg-[#4C9F38]', desc: 'Improved micro-nutrient intake through fortified local menus.' },
+        { id: 4, title: 'Quality Education', metric: '98% School Attendance', color: 'bg-[#C5192D]', desc: 'Providing the cognitive fuel needed for effective classroom learning.' },
+        { id: 5, title: 'Gender Equality', metric: '62% Women Workforce', color: 'bg-[#FF3A21]', desc: 'Equal beneficiary distribution, women comprise 62% of workforce.' },
+        { id: 8, title: 'Decent Work', metric: '42 Local Farmers Engaged', color: 'bg-[#A21942]', desc: 'Supporting local economy by sourcing 87% of ingredients from Jonggat farmers.' },
+        { id: 12, title: 'Responsible Prod.', metric: '1.3% Minimal Food Waste', color: 'bg-[#FB9D24]', desc: 'Optimized supply chain to ensure zero-waste circular production.' },
+      ],
+      id: [
+        { id: 1, title: 'Tanpa Kemiskinan', metric: '84 Pekerja, +43% Pendapatan', color: 'bg-[#E5243B]', desc: 'Peluang ekonomi bagi 84 pekerja, kenaikan pendapatan rata-rata 43%.' },
+        { id: 2, title: 'Tanpa Kelaparan', metric: '1.580 Anak Terpenuhi', color: 'bg-[#E5243B]', desc: 'Pengurangan langsung ketidakamanan pangan dan malnutrisi di wilayah Lombok Tengah.' },
+        { id: 3, title: 'Kesehatan yang Baik', metric: '-14% Risiko Stunting', color: 'bg-[#4C9F38]', desc: 'Peningkatan asupan mikronutrien melalui menu lokal yang diperkaya.' },
+        { id: 4, title: 'Pendidikan Berkualitas', metric: '98% Kehadiran Sekolah', color: 'bg-[#C5192D]', desc: 'Memberikan asupan kognitif yang dibutuhkan untuk pembelajaran efektif di kelas.' },
+        { id: 5, title: 'Kesetaraan Gender', metric: '62% Tenaga Kerja Perempuan', color: 'bg-[#FF3A21]', desc: 'Distribusi penerima manfaat setara, perempuan 62% tenaga kerja.' },
+        { id: 8, title: 'Pekerjaan Layak', metric: '42 Petani Lokal Terlibat', color: 'bg-[#A21942]', desc: 'Mendukung ekonomi lokal dengan 87% bahan berasal dari petani Jonggat.' },
+        { id: 12, title: 'Produksi Bertanggung Jawab', metric: '1,3% Minim Sisa Makanan', color: 'bg-[#FB9D24]', desc: 'Rantai pasok dioptimalkan untuk produksi sirkular minim limbah.' },
+      ],
+    },
+    cctvFeeds: {
+      en: ['Main Kitchen', 'Main Warehouse', 'Packing Line', 'Loading Bay'],
+      id: ['Dapur Utama', 'Gudang Utama', 'Lini Pengemasan', 'Area Muat'],
+    },
+    fleet: [
+      { id: 'T01', plate: 'DR 3421 KL', driver: 'Saiful Rahman', route: ['Unit', 'SDN 1 Jonggat', 'SMPN 1 Jonggat'], currentPos: 'SDN 1 Jonggat', status: 'delivered' as FleetStatus },
+      { id: 'T02', plate: 'DR 6712 MN', driver: 'Hendra Gunawan', route: ['Unit', 'SDN 2 Puyung'], currentPos: 'En Route', status: 'onRoute' as FleetStatus },
+    ],
+    schools: [
+      { id: 'SCH-01', name: 'SDN 1 Jonggat', type: 'elementary' as SchoolType, students: 340, beneficiaries: 340, target: 340, cooked: 0, inDelivery: 0, received: 0, teachers: 15, scholarshipPercentage: 44, distance: '2.5 km', travelTimeMinutes: 10, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Nurul', id: 'Ibu Nurul' }, rating: 5 },
+      { id: 'SCH-02', name: 'SDN 2 Puyung', type: 'elementary' as SchoolType, students: 310, beneficiaries: 300, target: 300, cooked: 0, inDelivery: 0, received: 0, teachers: 14, scholarshipPercentage: 41, distance: '3.2 km', travelTimeMinutes: 12, status: 'active' as SchoolStatus, contact: { en: 'Mr. Iqbal', id: 'Bapak Iqbal' }, rating: 4 },
+      { id: 'SCH-03', name: 'SMPN 1 Jonggat', type: 'juniorHigh' as SchoolType, students: 520, beneficiaries: 500, target: 500, cooked: 0, inDelivery: 0, received: 0, teachers: 26, scholarshipPercentage: 50, distance: '2.0 km', travelTimeMinutes: 8, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Fitria', id: 'Ibu Fitria' }, rating: 5 },
+      { id: 'SCH-04', name: 'SDN 3 Sukarare', type: 'elementary' as SchoolType, students: 280, beneficiaries: 270, target: 270, cooked: 0, inDelivery: 0, received: 0, teachers: 12, scholarshipPercentage: 39, distance: '4.1 km', travelTimeMinutes: 14, status: 'active' as SchoolStatus, contact: { en: 'Mr. Zaki', id: 'Bapak Zaki' }, rating: null },
+    ],
+    menuHistory: {
+      en: [
+        {
+          id: '1',
+          date: 'Sunday, October 5, 2025',
+          rating: 4.9,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/children-meals.jpg',
+          nutrition: { calories: 730, protein: 31, carbs: 84, fat: 17, fiber: 7, percentages: { protein: 16, carbs: 45, fat: 20 } },
+          components: [
+            { category: 'Carbohydrates', items: ['Steamed Rice 160g', 'Boiled Corn 70g'] },
+            { category: 'Protein', items: ['Grilled Chicken 75g', 'Boiled Egg 50g'] },
+            { category: 'Vegetables', items: ['Plecing Kangkung 80g', 'Tomato Salad 60g'] },
+            { category: 'Fruit', items: ['Watermelon 100g', 'Papaya 80g'] },
+            { category: 'Milk', items: ['UHT Milk 200ml'] },
+          ],
+        },
+        {
+          id: '2',
+          date: 'Saturday, October 4, 2025',
+          rating: 4.8,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/kitchen-1.jpg',
+          nutrition: { calories: 700, protein: 29, carbs: 82, fat: 16, fiber: 7, percentages: { protein: 16, carbs: 46, fat: 20 } },
+          components: [
+            { category: 'Carbohydrates', items: ['Brown Rice 150g', 'Sweet Potato 70g'] },
+            { category: 'Protein', items: ['Grilled Fish 70g', 'Tempeh 80g'] },
+            { category: 'Vegetables', items: ['Stir-fried Vegetables 70g', 'Vegetable Soup 100ml'] },
+            { category: 'Fruit', items: ['Banana 100g', 'Mango 80g'] },
+            { category: 'Milk', items: ['Fresh Milk 200ml'] },
+          ],
+        },
+        {
+          id: '3',
+          date: 'Wednesday, September 24, 2025',
+          rating: 4.7,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/farm-1.jpg',
+          nutrition: { calories: 710, protein: 30, carbs: 80, fat: 16, fiber: 6, percentages: { protein: 16, carbs: 45, fat: 20 } },
+          components: [
+            { category: 'Carbohydrates', items: ['Corn Rice 140g', 'Cassava 80g'] },
+            { category: 'Protein', items: ['Fried Chicken 70g', 'Tofu 70g'] },
+            { category: 'Vegetables', items: ['Long Beans 60g', 'Spinach Soup 100ml'] },
+            { category: 'Fruit', items: ['Orange 80g', 'Pineapple 90g'] },
+            { category: 'Milk', items: ['Soy Milk 200ml'] },
+          ],
+        },
+      ],
+      id: [
+        {
+          id: '1',
+          date: 'Minggu, 5 Oktober 2025',
+          rating: 4.9,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/children-meals.jpg',
+          nutrition: { calories: 730, protein: 31, carbs: 84, fat: 17, fiber: 7, percentages: { protein: 16, carbs: 45, fat: 20 } },
+          components: [
+            { category: 'Karbohidrat', items: ['Nasi Putih 160g', 'Jagung Rebus 70g'] },
+            { category: 'Protein', items: ['Ayam Taliwang 75g', 'Telur Rebus 50g'] },
+            { category: 'Sayuran', items: ['Plecing Kangkung 80g', 'Lalapan Tomat 60g'] },
+            { category: 'Buah', items: ['Semangka 100g', 'Papaya 80g'] },
+            { category: 'Susu', items: ['Susu UHT 200ml'] },
+          ],
+        },
+        {
+          id: '2',
+          date: 'Sabtu, 4 Oktober 2025',
+          rating: 4.8,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/kitchen-1.jpg',
+          nutrition: { calories: 700, protein: 29, carbs: 82, fat: 16, fiber: 7, percentages: { protein: 16, carbs: 46, fat: 20 } },
+          components: [
+            { category: 'Karbohidrat', items: ['Beras Merah 150g', 'Ubi Manis 70g'] },
+            { category: 'Protein', items: ['Ikan Bakar 70g', 'Tempe 80g'] },
+            { category: 'Sayuran', items: ['Tumis Sayuran 70g', 'Sup Sayuran 100ml'] },
+            { category: 'Buah', items: ['Pisang 100g', 'Mangga 80g'] },
+            { category: 'Susu', items: ['Susu Segar 200ml'] },
+          ],
+        },
+        {
+          id: '3',
+          date: 'Rabu, 24 September 2025',
+          rating: 4.7,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/farm-1.jpg',
+          nutrition: { calories: 710, protein: 30, carbs: 80, fat: 16, fiber: 6, percentages: { protein: 16, carbs: 45, fat: 20 } },
+          components: [
+            { category: 'Karbohidrat', items: ['Nasi Jagung 140g', 'Singkong 80g'] },
+            { category: 'Protein', items: ['Ayam Goreng 70g', 'Tahu 70g'] },
+            { category: 'Sayuran', items: ['Kacang Panjang 60g', 'Sup Bayam 100ml'] },
+            { category: 'Buah', items: ['Jeruk 80g', 'Nanas 90g'] },
+            { category: 'Susu', items: ['Susu Kedelai 200ml'] },
+          ],
+        },
+      ],
+    },
+    suppliers: [
+      { id: 'S01', name: { en: 'Free-range Chicken', id: 'Ayam Kampung' }, image: '/gallery/children-meals.jpg', quantity: 105, unit: 'Kg', supplier: { name: 'Peternak Ayam Lombok', href: '/suppliers/peternak-ayam-lombok' }, region: 'Jonggat', distributionFrequencyPerWeek: 1, price: 'Rp64.000', category: 'protein' as SupplierCategory },
+      { id: 'S02', name: { en: 'Milkfish', id: 'Ikan Bandeng' }, image: '/gallery/kitchen-1.jpg', quantity: 90, unit: 'Kg', supplier: { name: 'Pembudidaya Ikan Lombok Tengah', href: '/suppliers/pembudidaya-ikan-lombok' }, region: 'Puyung', distributionFrequencyPerWeek: 2, price: 'Rp32.000', category: 'protein' as SupplierCategory },
+      { id: 'S03', name: { en: 'Water Spinach', id: 'Kangkung' }, image: '/gallery/farm-1.jpg', quantity: 110, unit: 'Kg', supplier: { name: 'Kebun Sayur Jonggat', href: '/suppliers/kebun-sayur-jonggat' }, region: 'Jonggat', distributionFrequencyPerWeek: 3, price: 'Rp3.500', category: 'vegetables' as SupplierCategory },
+      { id: 'S04', name: { en: 'Tomatoes', id: 'Tomat' }, image: '/gallery/farm-2.jpg', quantity: 75, unit: 'Kg', supplier: { name: 'Petani Sayur Sukarare', href: '/suppliers/petani-sayur-sukarare' }, region: 'Sukarare', distributionFrequencyPerWeek: 2, price: 'Rp12.000', category: 'vegetables' as SupplierCategory },
+      { id: 'S05', name: { en: 'Long Beans', id: 'Kacang Panjang' }, image: '/gallery/farm-1.jpg', quantity: 80, unit: 'Kg', supplier: { name: 'Kebun Sayur Puyung', href: '/suppliers/kebun-sayur-puyung' }, region: 'Puyung', distributionFrequencyPerWeek: 2, price: 'Rp9.000', category: 'legumes' as SupplierCategory },
+      { id: 'S06', name: { en: 'Chili', id: 'Cabai' }, image: '/gallery/children-meals.jpg', quantity: 25, unit: 'Kg', supplier: { name: 'Petani Cabai Lombok', href: '/suppliers/petani-cabai-lombok' }, region: 'Jonggat', distributionFrequencyPerWeek: 2, price: 'Rp38.000', category: 'spices' as SupplierCategory },
+    ],
+    beneficiaries: {
+      en: [
+        {
+          id: 'students',
+          label: 'School Children',
+          value: '1,410 Students',
+          description: [
+            'Learners from pre-school through junior high (TK, SD, SMP).',
+            'Primary recipients of daily nutritious meals.',
+          ],
+        },
+        {
+          id: 'pregnantNursing',
+          label: 'Pregnant & Nursing Mothers',
+          value: '260 Mothers',
+          description: [
+            'Served via posyandu and puskesmas nutrition services.',
+            'Support focuses on maternal health during pregnancy and breastfeeding.',
+          ],
+        },
+        {
+          id: 'toddlers',
+          label: 'Toddlers (0–59 months)',
+          value: '220 Children',
+          description: [
+            'Early childhood cohort receiving complementary feeding support.',
+            'Linked to posyandu growth monitoring and counseling.',
+          ],
+        },
+      ],
+      id: [
+        {
+          id: 'students',
+          label: 'Siswa/i Sekolah',
+          value: '1.410 Anak',
+          description: [
+            'Anak TK, SD, SMP penerima makanan bergizi.',
+            'Prioritas utama distribusi program harian.',
+          ],
+        },
+        {
+          id: 'pregnantNursing',
+          label: 'Ibu Hamil & Menyusui',
+          value: '260 Ibu',
+          description: [
+            'Dilayani melalui layanan gizi posyandu dan puskesmas.',
+            'Fokus pada kesehatan ibu selama kehamilan dan menyusui.',
+          ],
+        },
+        {
+          id: 'toddlers',
+          label: 'Balita (0–59 bulan)',
+          value: '220 Balita',
+          description: [
+            'Dukungan makanan pendamping gizi untuk usia 0–59 bulan.',
+            'Terhubung dengan pemantauan tumbuh kembang posyandu.',
+          ],
+        },
+      ],
+    },
+    testimonials: {
+      en: [
+        {
+          id: 'T-01',
+          name: 'Ahmad Fauzi',
+          role: 'Student, SDN 1 Jonggat',
+          category: 'siswa',
+          quote: 'I really enjoy the Taliwang chicken and now I never skip school.',
+          highlight: 'Excited to come to school',
+          photo: '/gallery/children-meals.jpg',
+        },
+        {
+          id: 'T-02',
+          name: 'Nurul Hidayah',
+          role: 'Parent',
+          category: 'orangtua',
+          quote: 'My children are healthier and I can save money for their education.',
+          highlight: 'Better nutrition, lower costs',
+          photo: '/gallery/kitchen-1.jpg',
+        },
+        {
+          id: 'T-03',
+          name: 'Fitria Rahmawati',
+          role: 'Teacher, SMPN 1 Jonggat',
+          category: 'guru',
+          quote: 'Students are more energetic and attentive after lunch.',
+          highlight: 'Learning performance improves',
+          photo: '/gallery/farm-1.jpg',
+        },
+        {
+          id: 'T-04',
+          name: 'Saiful Rahman',
+          role: 'Local Supplier',
+          category: 'supplier',
+          quote: 'Weekly orders help our farming community thrive economically.',
+          highlight: 'Stable market for farmers',
+          photo: '/gallery/farm-2.jpg',
+        },
+      ],
+      id: [
+        {
+          id: 'T-01',
+          name: 'Ahmad Fauzi',
+          role: 'Siswa, SDN 1 Jonggat',
+          category: 'siswa',
+          quote: 'Saya sangat suka ayam taliwangnya dan sekarang tidak pernah bolos sekolah.',
+          highlight: 'Semangat ke sekolah',
+          photo: '/gallery/children-meals.jpg',
+        },
+        {
+          id: 'T-02',
+          name: 'Ibu Nurul Hidayah',
+          role: 'Orang tua',
+          category: 'orangtua',
+          quote: 'Anak-anak saya lebih sehat dan saya bisa menabung untuk pendidikan mereka.',
+          highlight: 'Gizi lebih baik, biaya lebih hemat',
+          photo: '/gallery/kitchen-1.jpg',
+        },
+        {
+          id: 'T-03',
+          name: 'Ibu Fitria Rahmawati',
+          role: 'Guru, SMPN 1 Jonggat',
+          category: 'guru',
+          quote: 'Siswa lebih bersemangat dan perhatian setelah makan siang.',
+          highlight: 'Performa belajar meningkat',
+          photo: '/gallery/farm-1.jpg',
+        },
+        {
+          id: 'T-04',
+          name: 'Saiful Rahman',
+          role: 'Pemasok lokal',
+          category: 'supplier',
+          quote: 'Pesanan mingguan membantu komunitas petani kami berkembang secara ekonomi.',
+          highlight: 'Pasar stabil untuk petani',
+          photo: '/gallery/farm-2.jpg',
+        },
+      ],
+    },
+    healthCenters: [
+      { id: 'HC-01', name: 'Puskesmas Jonggat', type: 'puskesmas', pregnantNursing: 140, toddlers: 110, target: 250, cooked: 0, inDelivery: 0, received: 0, distance: '1.8 km', travelTimeMinutes: 7, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Siti', id: 'Ibu Siti' } },
+      { id: 'HC-02', name: 'Posyandu Mawar Puyung', type: 'posyandu', pregnantNursing: 120, toddlers: 110, target: 230, cooked: 0, inDelivery: 0, received: 0, distance: '2.5 km', travelTimeMinutes: 9, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Ani', id: 'Ibu Ani' } },
+    ],
+    geospatialClusters: [
+      {
+        clusterId: 1,
+        radius: { en: 'Cluster I (Radius < 1 km)', id: 'Klaster I (Radius < 1 km)' },
+        color: '#3b82f6',
+        count: 5,
+        schools: [
+          { id: 'S1', name: 'TK Pertiwi Jonggat', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S2', name: 'SDN 1 Jonggat', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S3', name: 'TK Islam Jonggat', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S4', name: 'SDN 2 Puyung', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S5', name: 'KB Aisyiyah Jonggat', type: 'school', cluster: 1, radius: '<1km' },
+        ],
+        healthCenters: [
+          { id: 'H1', name: 'Puskesmas Jonggat', type: 'health', cluster: 1, radius: '<1km' },
+        ],
+      },
+      {
+        clusterId: 2,
+        radius: { en: 'Cluster II (Radius 1 - 2 km)', id: 'Klaster II (Radius 1 - 2 km)' },
+        color: '#10b981',
+        count: 4,
+        schools: [
+          { id: 'S6', name: 'SMPN 1 Jonggat', type: 'school', cluster: 2, radius: '1-2km' },
+          { id: 'S7', name: 'SDN 3 Sukarare', type: 'school', cluster: 2, radius: '1-2km' },
+          { id: 'S8', name: 'TK Dharma Wanita Puyung', type: 'school', cluster: 2, radius: '1-2km' },
+          { id: 'S9', name: 'SD Muhammadiyah Jonggat', type: 'school', cluster: 2, radius: '1-2km' },
+        ],
+        healthCenters: [
+          { id: 'H2', name: 'Posyandu Mawar Puyung', type: 'health', cluster: 2, radius: '1-2km' },
+        ],
+      },
+    ],
+    teamProfiles: operationalTeamProfiles,
+  },
+  {
+    id: 'FFI-KRAMATJATI-01',
+    name: {
+      en: 'FFI Central Kramatjati Unit',
+      id: 'Unit Pusat FFI Kramatjati',
+    },
+    region: {
+      en: 'Kramatjati, East Jakarta',
+      id: 'Kramatjati, Jakarta Timur',
+    },
+    address: {
+      en: 'Jl. H. Ali No.77, RT.1/RW.9, Kp. Tengah, Kramat Jati District, East Jakarta City, Special Capital Region of Jakarta 13540',
+      id: 'Jl. H. Ali No.77, RT.1/RW.9, Kp. Tengah, Kec. Kramat jati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13540',
+    },
+    managedBy: {
+      en: 'Future Farmers of Indonesia, Badan Gizi Nasional, and World Food Programme',
+      id: 'Future Farmers of Indonesia, Badan Gizi Nasional, dan World Food Programme',
+    },
+    supportedBy: { en: 'World Food Programme (WFP)', id: 'Program Pangan Dunia (WFP)' },
+    costPerPortion: 16500,
+    localSourcing: 75,
+    healthScore: 98,
+    staffCount: { present: 22, total: 24 },
+    wasteRate: 0.9,
+    feedbackScore: 4.8,
+    deliveryProgress: {
+      target: 3200,
+      cooked: 0,
+      inDelivery: 0,
+      received: 0,
+    },
+    dailyMenu: {
+      en: {
+        name: "Betawi Grilled Chicken with Rice & Sayur Asem",
+        photo: '/gallery/menu-showcase.jpg',
+        nutrition: {
+          Calories: '750 kcal',
+          Protein: '33g',
+          Fat: '19g',
+          Carbs: '86g',
+          Vitamins: 'Vit A, C & Iron',
+        },
+        components: {
+          Staple: 'xxx',
+          'Main Dish': 'xx',
+          'Side Dish': 'xxx',
+          Vegetable: 'xxx',
+          Fruit: 'xxx',
+          Milk: 'xxx',
+        },
+      },
+      id: {
+        name: "Ayam Bakar Betawi dengan Nasi & Sayur Asem",
+        photo: '/gallery/menu-showcase.jpg',
+        nutrition: {
+          Kalori: '750 kkal',
+          Protein: '33g',
+          Lemak: '19g',
+          Karbohidrat: '86g',
+          Vitamin: 'Vit A, C & Zat Besi',
+        },
+        components: {
+          'Makanan Pokok': 'xxx',
+          Lauk: 'xx',
+          Pauk: 'xxx',
+          Sayur: 'xxx',
+          Buah: 'xxx',
+          Susu: 'xxx',
+        },
+      },
+    },
+    cba: {
+      en: {
+        sroi: '1 : 4.0',
+        healthcareSavings: 'Rp 1.5B / Year',
+        localEconomicBoost: 'Rp 950M / Month',
+        productivityIndex: '+26% Concentration',
+      },
+      id: {
+        sroi: '1 : 4,0',
+        healthcareSavings: 'Rp 1,5 Miliar / Tahun',
+        localEconomicBoost: 'Rp 950 Juta / Bulan',
+        productivityIndex: '+26% Konsentrasi',
+      },
+    },
+    sdgs: {
+      en: [
+        { id: 1, title: 'No Poverty', metric: '98 Workers, +48% Income', color: 'bg-[#E5243B]', desc: 'Economic opportunities for 98 workers, average income increase 48%.' },
+        { id: 2, title: 'Zero Hunger', metric: '1,920 Children Secured', color: 'bg-[#E5243B]', desc: 'Direct reduction of food insecurity and malnutrition in East Jakarta region.' },
+        { id: 3, title: 'Good Health', metric: '-16% Stunting Probability', color: 'bg-[#4C9F38]', desc: 'Improved micro-nutrient intake through fortified local menus.' },
+        { id: 4, title: 'Quality Education', metric: '99% School Attendance', color: 'bg-[#C5192D]', desc: 'Providing the cognitive fuel needed for effective classroom learning.' },
+        { id: 5, title: 'Gender Equality', metric: '65% Women Workforce', color: 'bg-[#FF3A21]', desc: 'Equal beneficiary distribution, women comprise 65% of workforce.' },
+        { id: 8, title: 'Decent Work', metric: '48 Local Suppliers Engaged', color: 'bg-[#A21942]', desc: 'Supporting local economy by sourcing 75% of ingredients from Jakarta suppliers.' },
+        { id: 12, title: 'Responsible Prod.', metric: '0.9% Minimal Food Waste', color: 'bg-[#FB9D24]', desc: 'Optimized supply chain to ensure zero-waste circular production.' },
+      ],
+      id: [
+        { id: 1, title: 'Tanpa Kemiskinan', metric: '98 Pekerja, +48% Pendapatan', color: 'bg-[#E5243B]', desc: 'Peluang ekonomi bagi 98 pekerja, kenaikan pendapatan rata-rata 48%.' },
+        { id: 2, title: 'Tanpa Kelaparan', metric: '1.920 Anak Terpenuhi', color: 'bg-[#E5243B]', desc: 'Pengurangan langsung ketidakamanan pangan dan malnutrisi di wilayah Jakarta Timur.' },
+        { id: 3, title: 'Kesehatan yang Baik', metric: '-16% Risiko Stunting', color: 'bg-[#4C9F38]', desc: 'Peningkatan asupan mikronutrien melalui menu lokal yang diperkaya.' },
+        { id: 4, title: 'Pendidikan Berkualitas', metric: '99% Kehadiran Sekolah', color: 'bg-[#C5192D]', desc: 'Memberikan asupan kognitif yang dibutuhkan untuk pembelajaran efektif di kelas.' },
+        { id: 5, title: 'Kesetaraan Gender', metric: '65% Tenaga Kerja Perempuan', color: 'bg-[#FF3A21]', desc: 'Distribusi penerima manfaat setara, perempuan 65% tenaga kerja.' },
+        { id: 8, title: 'Pekerjaan Layak', metric: '48 Pemasok Lokal Terlibat', color: 'bg-[#A21942]', desc: 'Mendukung ekonomi lokal dengan 75% bahan berasal dari pemasok Jakarta.' },
+        { id: 12, title: 'Produksi Bertanggung Jawab', metric: '0,9% Minim Sisa Makanan', color: 'bg-[#FB9D24]', desc: 'Rantai pasok dioptimalkan untuk produksi sirkular minim limbah.' },
+      ],
+    },
+    cctvFeeds: {
+      en: ['Main Kitchen', 'Main Warehouse', 'Packing Line', 'Loading Bay'],
+      id: ['Dapur Utama', 'Gudang Utama', 'Lini Pengemasan', 'Area Muat'],
+    },
+    fleet: [
+      { id: 'T01', plate: 'B 4521 PQ', driver: 'Agus Setiawan', route: ['Unit', 'SDN Kampung Tengah 01', 'SMPN 115'], currentPos: 'SDN Kampung Tengah 01', status: 'delivered' as FleetStatus },
+      { id: 'T02', plate: 'B 7812 RS', driver: 'Budi Santoso', route: ['Unit', 'SDN Kramat Jati 12'], currentPos: 'En Route', status: 'onRoute' as FleetStatus },
+    ],
+    schools: [
+      { id: 'SCH-01', name: 'SDN Kampung Tengah 01', type: 'elementary' as SchoolType, students: 380, beneficiaries: 380, target: 380, cooked: 0, inDelivery: 0, received: 0, teachers: 16, scholarshipPercentage: 38, distance: '1.8 km', travelTimeMinutes: 8, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Retno', id: 'Ibu Retno' }, rating: 5 },
+      { id: 'SCH-02', name: 'SDN Kramat Jati 12', type: 'elementary' as SchoolType, students: 360, beneficiaries: 350, target: 350, cooked: 0, inDelivery: 0, received: 0, teachers: 16, scholarshipPercentage: 36, distance: '2.6 km', travelTimeMinutes: 11, status: 'active' as SchoolStatus, contact: { en: 'Mr. Dedi', id: 'Bapak Dedi' }, rating: 4 },
+      { id: 'SCH-03', name: 'SMPN 115 Jakarta', type: 'juniorHigh' as SchoolType, students: 580, beneficiaries: 560, target: 560, cooked: 0, inDelivery: 0, received: 0, teachers: 28, scholarshipPercentage: 42, distance: '2.2 km', travelTimeMinutes: 10, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Indah', id: 'Ibu Indah' }, rating: 5 },
+      { id: 'SCH-04', name: 'SDN Cililitan 01', type: 'elementary' as SchoolType, students: 340, beneficiaries: 330, target: 330, cooked: 0, inDelivery: 0, received: 0, teachers: 15, scholarshipPercentage: 40, distance: '3.4 km', travelTimeMinutes: 13, status: 'active' as SchoolStatus, contact: { en: 'Mr. Eko', id: 'Bapak Eko' }, rating: null },
+    ],
+    menuHistory: {
+      en: [
+        {
+          id: '1',
+          date: 'Sunday, October 5, 2025',
+          rating: 4.8,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/children-meals.jpg',
+          nutrition: { calories: 750, protein: 33, carbs: 86, fat: 19, fiber: 8, percentages: { protein: 17, carbs: 45, fat: 22 } },
+          components: [
+            { category: 'Carbohydrates', items: ['Steamed Rice 170g', 'Whole Wheat Bread 60g'] },
+            { category: 'Protein', items: ['Grilled Chicken 80g', 'Boiled Egg 55g'] },
+            { category: 'Vegetables', items: ['Sayur Asem 120ml', 'Stir-fried Vegetables 70g'] },
+            { category: 'Fruit', items: ['Apple 90g', 'Banana 100g'] },
+            { category: 'Milk', items: ['UHT Milk 200ml'] },
+          ],
+        },
+        {
+          id: '2',
+          date: 'Saturday, October 4, 2025',
+          rating: 4.7,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/kitchen-1.jpg',
+          nutrition: { calories: 720, protein: 31, carbs: 84, fat: 18, fiber: 7, percentages: { protein: 17, carbs: 46, fat: 22 } },
+          components: [
+            { category: 'Carbohydrates', items: ['Brown Rice 160g', 'Boiled Potatoes 80g'] },
+            { category: 'Protein', items: ['Fried Fish 75g', 'Tempeh 80g'] },
+            { category: 'Vegetables', items: ['Vegetable Soup 110ml', 'Stir-fried Cabbage 70g'] },
+            { category: 'Fruit', items: ['Orange 80g', 'Papaya 90g'] },
+            { category: 'Milk', items: ['Fresh Milk 200ml'] },
+          ],
+        },
+        {
+          id: '3',
+          date: 'Wednesday, September 24, 2025',
+          rating: 4.6,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/farm-1.jpg',
+          nutrition: { calories: 730, protein: 32, carbs: 82, fat: 18, fiber: 7, percentages: { protein: 17, carbs: 44, fat: 22 } },
+          components: [
+            { category: 'Carbohydrates', items: ['White Rice 160g', 'Sweet Potato 75g'] },
+            { category: 'Protein', items: ['Beef Rendang 70g', 'Tofu 75g'] },
+            { category: 'Vegetables', items: ['Spinach Soup 110ml', 'Long Beans 65g'] },
+            { category: 'Fruit', items: ['Watermelon 100g', 'Mango 85g'] },
+            { category: 'Milk', items: ['Soy Milk 200ml'] },
+          ],
+        },
+      ],
+      id: [
+        {
+          id: '1',
+          date: 'Minggu, 5 Oktober 2025',
+          rating: 4.8,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/children-meals.jpg',
+          nutrition: { calories: 750, protein: 33, carbs: 86, fat: 19, fiber: 8, percentages: { protein: 17, carbs: 45, fat: 22 } },
+          components: [
+            { category: 'Karbohidrat', items: ['Nasi Putih 170g', 'Roti Gandum 60g'] },
+            { category: 'Protein', items: ['Ayam Bakar 80g', 'Telur Rebus 55g'] },
+            { category: 'Sayuran', items: ['Sayur Asem 120ml', 'Tumis Sayuran 70g'] },
+            { category: 'Buah', items: ['Apel 90g', 'Pisang 100g'] },
+            { category: 'Susu', items: ['Susu UHT 200ml'] },
+          ],
+        },
+        {
+          id: '2',
+          date: 'Sabtu, 4 Oktober 2025',
+          rating: 4.7,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/kitchen-1.jpg',
+          nutrition: { calories: 720, protein: 31, carbs: 84, fat: 18, fiber: 7, percentages: { protein: 17, carbs: 46, fat: 22 } },
+          components: [
+            { category: 'Karbohidrat', items: ['Beras Merah 160g', 'Kentang Rebus 80g'] },
+            { category: 'Protein', items: ['Ikan Goreng 75g', 'Tempe 80g'] },
+            { category: 'Sayuran', items: ['Sup Sayuran 110ml', 'Tumis Kol 70g'] },
+            { category: 'Buah', items: ['Jeruk 80g', 'Papaya 90g'] },
+            { category: 'Susu', items: ['Susu Segar 200ml'] },
+          ],
+        },
+        {
+          id: '3',
+          date: 'Rabu, 24 September 2025',
+          rating: 4.6,
+          reviewCount: 1,
+          photoCount: 2,
+          photo: '/gallery/farm-1.jpg',
+          nutrition: { calories: 730, protein: 32, carbs: 82, fat: 18, fiber: 7, percentages: { protein: 17, carbs: 44, fat: 22 } },
+          components: [
+            { category: 'Karbohidrat', items: ['Nasi Putih 160g', 'Ubi Manis 75g'] },
+            { category: 'Protein', items: ['Rendang Daging 70g', 'Tahu 75g'] },
+            { category: 'Sayuran', items: ['Sup Bayam 110ml', 'Kacang Panjang 65g'] },
+            { category: 'Buah', items: ['Semangka 100g', 'Mangga 85g'] },
+            { category: 'Susu', items: ['Susu Kedelai 200ml'] },
+          ],
+        },
+      ],
+    },
+    suppliers: [
+      { id: 'S01', name: { en: 'Broiler Chicken', id: 'Ayam Broiler' }, image: '/gallery/children-meals.jpg', quantity: 125, unit: 'Kg', supplier: { name: 'Supplier Unggas Jakarta', href: '/suppliers/supplier-unggas-jakarta' }, region: 'Jakarta Timur', distributionFrequencyPerWeek: 2, price: 'Rp38.000', category: 'protein' as SupplierCategory },
+      { id: 'S02', name: { en: 'Tilapia Fish', id: 'Ikan Nila' }, image: '/gallery/kitchen-1.jpg', quantity: 110, unit: 'Kg', supplier: { name: 'Pasar Ikan Kramat Jati', href: '/suppliers/pasar-ikan-kramatjati' }, region: 'Jakarta Timur', distributionFrequencyPerWeek: 3, price: 'Rp32.000', category: 'protein' as SupplierCategory },
+      { id: 'S03', name: { en: 'Mixed Vegetables', id: 'Sayuran Campur' }, image: '/gallery/farm-1.jpg', quantity: 140, unit: 'Kg', supplier: { name: 'Pasar Induk Kramat Jati', href: '/suppliers/pasar-induk-kramatjati' }, region: 'Jakarta Timur', distributionFrequencyPerWeek: 3, price: 'Rp8.000', category: 'vegetables' as SupplierCategory },
+      { id: 'S04', name: { en: 'Tempeh', id: 'Tempe' }, image: '/gallery/farm-2.jpg', quantity: 100, unit: 'Kg', supplier: { name: 'Produsen Tempe Lokal', href: '/suppliers/produsen-tempe-lokal' }, region: 'Jakarta Timur', distributionFrequencyPerWeek: 3, price: 'Rp12.000', category: 'protein' as SupplierCategory },
+      { id: 'S05', name: { en: 'Fresh Fruit', id: 'Buah Segar' }, image: '/gallery/children-meals.jpg', quantity: 150, unit: 'Kg', supplier: { name: 'Toko Buah Kramat Jati', href: '/suppliers/toko-buah-kramatjati' }, region: 'Jakarta Timur', distributionFrequencyPerWeek: 3, price: 'Rp15.000', category: 'vegetables' as SupplierCategory },
+      { id: 'S06', name: { en: 'UHT Milk', id: 'Susu UHT' }, image: '/gallery/kitchen-1.jpg', quantity: 800, unit: 'Liter', supplier: { name: 'Distributor Susu Jakarta', href: '/suppliers/distributor-susu-jakarta' }, region: 'Jakarta', distributionFrequencyPerWeek: 2, price: 'Rp18.000', category: 'protein' as SupplierCategory },
+    ],
+    beneficiaries: {
+      en: [
+        {
+          id: 'students',
+          label: 'School Children',
+          value: '1,620 Students',
+          description: [
+            'Learners from elementary through junior high (SD, SMP).',
+            'Primary recipients of daily nutritious meals.',
+          ],
+        },
+        {
+          id: 'pregnantNursing',
+          label: 'Pregnant & Nursing Mothers',
+          value: '280 Mothers',
+          description: [
+            'Served via posyandu and puskesmas nutrition services.',
+            'Support focuses on maternal health during pregnancy and breastfeeding.',
+          ],
+        },
+        {
+          id: 'toddlers',
+          label: 'Toddlers (0–59 months)',
+          value: '240 Children',
+          description: [
+            'Early childhood cohort receiving complementary feeding support.',
+            'Linked to posyandu growth monitoring and counseling.',
+          ],
+        },
+      ],
+      id: [
+        {
+          id: 'students',
+          label: 'Siswa/i Sekolah',
+          value: '1.620 Anak',
+          description: [
+            'Anak SD, SMP penerima makanan bergizi.',
+            'Prioritas utama distribusi program harian.',
+          ],
+        },
+        {
+          id: 'pregnantNursing',
+          label: 'Ibu Hamil & Menyusui',
+          value: '280 Ibu',
+          description: [
+            'Dilayani melalui layanan gizi posyandu dan puskesmas.',
+            'Fokus pada kesehatan ibu selama kehamilan dan menyusui.',
+          ],
+        },
+        {
+          id: 'toddlers',
+          label: 'Balita (0–59 bulan)',
+          value: '240 Balita',
+          description: [
+            'Dukungan makanan pendamping gizi untuk usia 0–59 bulan.',
+            'Terhubung dengan pemantauan tumbuh kembang posyandu.',
+          ],
+        },
+      ],
+    },
+    testimonials: {
+      en: [
+        {
+          id: 'T-01',
+          name: 'Anisa Putri',
+          role: 'Student, SDN Kampung Tengah 01',
+          category: 'siswa',
+          quote: 'The food is always fresh and I love coming to school for lunch.',
+          highlight: 'Increased school motivation',
+          photo: '/gallery/children-meals.jpg',
+        },
+        {
+          id: 'T-02',
+          name: 'Retno Wulandari',
+          role: 'Parent',
+          category: 'orangtua',
+          quote: 'This program helps our family budget and my children eat better.',
+          highlight: 'Financial relief for families',
+          photo: '/gallery/kitchen-1.jpg',
+        },
+        {
+          id: 'T-03',
+          name: 'Indah Permatasari',
+          role: 'Teacher, SMPN 115',
+          category: 'guru',
+          quote: 'Students are much more focused and energetic after the meal program.',
+          highlight: 'Better classroom performance',
+          photo: '/gallery/farm-1.jpg',
+        },
+        {
+          id: 'T-04',
+          name: 'Agus Setiawan',
+          role: 'Local Supplier',
+          category: 'supplier',
+          quote: 'The consistent demand helps small businesses like ours stay afloat.',
+          highlight: 'Support for local economy',
+          photo: '/gallery/farm-2.jpg',
+        },
+      ],
+      id: [
+        {
+          id: 'T-01',
+          name: 'Anisa Putri',
+          role: 'Siswa, SDN Kampung Tengah 01',
+          category: 'siswa',
+          quote: 'Makanannya selalu segar dan saya suka datang ke sekolah untuk makan siang.',
+          highlight: 'Motivasi sekolah meningkat',
+          photo: '/gallery/children-meals.jpg',
+        },
+        {
+          id: 'T-02',
+          name: 'Ibu Retno Wulandari',
+          role: 'Orang tua',
+          category: 'orangtua',
+          quote: 'Program ini membantu anggaran keluarga dan anak-anak saya makan lebih baik.',
+          highlight: 'Keringanan finansial keluarga',
+          photo: '/gallery/kitchen-1.jpg',
+        },
+        {
+          id: 'T-03',
+          name: 'Ibu Indah Permatasari',
+          role: 'Guru, SMPN 115',
+          category: 'guru',
+          quote: 'Siswa jauh lebih fokus dan bersemangat setelah program makan.',
+          highlight: 'Performa kelas lebih baik',
+          photo: '/gallery/farm-1.jpg',
+        },
+        {
+          id: 'T-04',
+          name: 'Agus Setiawan',
+          role: 'Pemasok lokal',
+          category: 'supplier',
+          quote: 'Permintaan yang konsisten membantu usaha kecil seperti kami tetap bertahan.',
+          highlight: 'Dukungan untuk ekonomi lokal',
+          photo: '/gallery/farm-2.jpg',
+        },
+      ],
+    },
+    healthCenters: [
+      { id: 'HC-01', name: 'Puskesmas Kramat Jati', type: 'puskesmas', pregnantNursing: 150, toddlers: 130, target: 280, cooked: 0, inDelivery: 0, received: 0, distance: '1.5 km', travelTimeMinutes: 6, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Dewi', id: 'Ibu Dewi' } },
+      { id: 'HC-02', name: 'Posyandu Melati Kampung Tengah', type: 'posyandu', pregnantNursing: 130, toddlers: 110, target: 240, cooked: 0, inDelivery: 0, received: 0, distance: '1.2 km', travelTimeMinutes: 5, status: 'active' as SchoolStatus, contact: { en: 'Mrs. Linda', id: 'Ibu Linda' } },
+    ],
+    geospatialClusters: [
+      {
+        clusterId: 1,
+        radius: { en: 'Cluster I (Radius < 1 km)', id: 'Klaster I (Radius < 1 km)' },
+        color: '#3b82f6',
+        count: 6,
+        schools: [
+          { id: 'S1', name: 'TK Pembina Kramat Jati', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S2', name: 'SDN Kampung Tengah 01', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S3', name: 'TK Al-Azhar Kramat Jati', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S4', name: 'KB Tunas Harapan', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S5', name: 'SDN Kramat Jati 12', type: 'school', cluster: 1, radius: '<1km' },
+          { id: 'S6', name: 'TK Dharma Wanita Kramat Jati', type: 'school', cluster: 1, radius: '<1km' },
+        ],
+        healthCenters: [
+          { id: 'H1', name: 'Puskesmas Kramat Jati', type: 'health', cluster: 1, radius: '<1km' },
+          { id: 'H2', name: 'Posyandu Melati Kampung Tengah', type: 'health', cluster: 1, radius: '<1km' },
+        ],
+      },
+      {
+        clusterId: 2,
+        radius: { en: 'Cluster II (Radius 1 - 2 km)', id: 'Klaster II (Radius 1 - 2 km)' },
+        color: '#10b981',
+        count: 5,
+        schools: [
+          { id: 'S7', name: 'SMPN 115 Jakarta', type: 'school', cluster: 2, radius: '1-2km' },
+          { id: 'S8', name: 'SDN Cililitan 01', type: 'school', cluster: 2, radius: '1-2km' },
+          { id: 'S9', name: 'TK Islam Terpadu', type: 'school', cluster: 2, radius: '1-2km' },
+          { id: 'S10', name: 'SD Muhammadiyah Kramat Jati', type: 'school', cluster: 2, radius: '1-2km' },
+          { id: 'S11', name: 'TK Mentari Kramat Jati', type: 'school', cluster: 2, radius: '1-2km' },
+        ],
+        healthCenters: [],
+      },
+    ],
+    teamProfiles: operationalTeamProfiles,
+  },
 ];
 
 const copy = {
@@ -2139,8 +3355,80 @@ const SPPG_RECIPE_COLLECTION = {
   },
 } as const;
 
+const LocationSelector = ({
+  locations,
+  selectedLocation,
+  onLocationChange,
+  language,
+}: {
+  locations: typeof MOCK_SPPG_DATA;
+  selectedLocation: typeof MOCK_SPPG_DATA[0];
+  onLocationChange: (location: typeof MOCK_SPPG_DATA[0]) => void;
+  language: Language;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const selectorRef = useRef<HTMLDivElement | null>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (selectorRef.current && !selectorRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <div className="relative" ref={selectorRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-red-700 hover:bg-red-800 transition-colors text-white shadow-sm"
+      >
+        <MapPin size={16} className="shrink-0 text-white" />
+        <span className="font-semibold text-sm text-white truncate max-w-[140px] md:max-w-[220px]">
+          {selectedLocation.region[language]}
+        </span>
+        <ChevronDown size={16} className={`shrink-0 text-white transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+
+      {isOpen && (
+        <div className="absolute top-full left-0 mt-2 min-w-[280px] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl z-50 overflow-hidden">
+          {locations.map(location => (
+            <button
+              key={location.id}
+              onClick={() => {
+                onLocationChange(location);
+                setIsOpen(false);
+              }}
+              className={`w-full text-left px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border-b border-gray-100 dark:border-gray-700 last:border-b-0 ${
+                location.id === selectedLocation.id ? 'bg-red-50 dark:bg-red-900/20' : ''
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <MapPin size={14} className={location.id === selectedLocation.id ? 'text-red-700' : 'text-gray-400'} />
+                <div className="flex-1">
+                  <div className="font-semibold text-sm text-gray-900 dark:text-white">{location.name[language]}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{location.region[language]}</div>
+                </div>
+                {location.id === selectedLocation.id && (
+                  <CheckCircle2 size={16} className="text-red-700 shrink-0" />
+                )}
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const App = () => {
-  const [selectedSppg] = useState(MOCK_SPPG_DATA[0]);
+  const [selectedSppg, setSelectedSppg] = useState(MOCK_SPPG_DATA[0]);
   const { language, updateLanguage, mounted } = useLanguage();
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   const languageMenuRef = useRef<HTMLDivElement | null>(null);
@@ -2681,32 +3969,34 @@ const App = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans antialiased text-foreground">
       {/* Header Navigation */}
-      <nav className="bg-card border-b border-border px-6 py-4 sticky top-0 z-50 backdrop-blur-xl bg-opacity-95 relative grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-4">
+      <nav className="bg-card/95 border-b border-border/50 px-3 sm:px-6 py-3 sm:py-4 sticky top-0 z-50 backdrop-blur-xl shadow-medium relative grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4">
         <div className="flex items-center gap-3 sm:gap-4 min-w-0">
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <FFILogo className="h-7 w-auto sm:h-8" alt={ui.footer.ffiLogoAlt} />
+            <FFILogo className="h-6 w-auto sm:h-7 md:h-8" alt={ui.footer.ffiLogoAlt} />
             <div className="flex items-center gap-2 sm:gap-3 pl-1">
               <img
                 src="/bgn-logo.png"
                 alt={ui.bgnLogoAlt}
-                className="h-8 w-auto sm:h-9"
+                className="h-7 w-auto sm:h-8 md:h-9"
                 loading="eager"
                 decoding="async"
               />
-              <img
-                src="/wfp-logo.png"
-                alt={ui.wfpLogoAlt}
-                className="h-8 w-auto sm:h-9"
-                loading="eager"
-                decoding="async"
-              />
+              {selectedSppg.id === 'FFI-SOE-01' && (
+                <img
+                  src="/wfp-logo.png"
+                  alt={ui.wfpLogoAlt}
+                  className="h-7 w-auto sm:h-8 md:h-9"
+                  loading="eager"
+                  decoding="async"
+                />
+              )}
             </div>
           </div>
           <div className="hidden md:block h-10 w-px bg-border"></div>
           <div className="min-w-0 space-y-1">
-            <h1 className="font-semibold text-base sm:text-lg text-foreground leading-tight truncate">{ui.navTitle}</h1>
+            <h1 className="font-semibold text-base sm:text-lg text-foreground leading-tight truncate">{selectedSppg.name[language]}</h1>
             <p className="hidden md:block text-[10px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
-              {ui.navSubtitle}
+              {ui.operationalHub}
             </p>
           </div>
         </div>
@@ -2718,19 +4008,21 @@ const App = () => {
                 type="button"
                 onClick={() => handleSectionNavigation(section.id)}
                 aria-current={section.id === activeSection ? 'page' : undefined}
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-bold uppercase tracking-wider transition ${
-                  section.id === activeSection ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-bold uppercase tracking-wider transition-smooth rounded-lg ${
+                  section.id === activeSection
+                    ? 'text-foreground bg-primary/10'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
                 }`}
               >
                 {section.label}
                 <ChevronDown
                   size={12}
-                  className={`transition ${section.id === activeSection ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}
+                  className={`transition-smooth ${section.id === activeSection ? 'text-foreground rotate-180' : 'text-muted-foreground group-hover:text-foreground'}`}
                 />
               </button>
               <div
                 role="menu"
-                className="absolute left-0 mt-2 min-w-[220px] rounded-xl border border-border bg-card p-1 shadow-xl opacity-0 pointer-events-none translate-y-2 transition group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0"
+                className="absolute left-0 mt-2 min-w-[220px] rounded-xl border border-border/50 bg-card/95 backdrop-blur-lg p-2 shadow-hard opacity-0 pointer-events-none translate-y-2 transition-smooth group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0"
               >
                 {section.items.map((item) => (
                   <button
@@ -2738,7 +4030,7 @@ const App = () => {
                     type="button"
                     role="menuitem"
                     onClick={() => handleSectionNavigation(section.id, item.id)}
-                    className="flex w-full items-center rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition hover:bg-secondary/70 hover:text-foreground"
+                    className="flex w-full items-center rounded-lg px-3 py-2.5 text-left text-xs font-semibold text-muted-foreground transition-smooth hover:bg-primary/10 hover:text-foreground hover:translate-x-1"
                   >
                     {item.label}
                   </button>
@@ -2750,11 +4042,11 @@ const App = () => {
 
         <div className="flex items-center gap-3 justify-self-end">
           <details className="relative lg:hidden group">
-            <summary className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-secondary px-3 py-2 text-sm font-bold uppercase tracking-wider text-foreground shadow-sm transition hover:border-primary/40 hover:bg-secondary/80 [&::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer items-center gap-2 rounded-lg border border-border/50 bg-secondary/80 backdrop-blur-sm px-3 py-2 text-sm font-bold uppercase tracking-wider text-foreground shadow-soft transition-smooth hover:border-primary/40 hover:bg-secondary hover:shadow-medium [&::-webkit-details-marker]:hidden">
               <span>{navToggleLabel}</span>
-              <ChevronDown size={14} className="transition-transform group-open:rotate-180" />
+              <ChevronDown size={14} className="transition-smooth group-open:rotate-180" />
             </summary>
-            <div className="absolute right-0 mt-2 w-72 rounded-xl border border-border bg-card p-2 shadow-xl">
+            <div className="absolute right-0 mt-2 w-72 rounded-xl border border-border/50 bg-card/95 backdrop-blur-lg p-2 shadow-hard animate-slide-up">
               {navSections.map((section) => (
                 <div key={section.id} className="p-2">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{section.label}</p>
@@ -2764,7 +4056,7 @@ const App = () => {
                         key={item.id}
                         type="button"
                         onClick={() => handleSectionNavigation(section.id, item.id)}
-                        className="flex w-full items-center rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition hover:bg-secondary/70 hover:text-foreground"
+                        className="flex w-full items-center rounded-lg px-3 py-2.5 text-left text-xs font-semibold text-muted-foreground transition-smooth hover:bg-primary/10 hover:text-foreground hover:translate-x-1"
                       >
                         {item.label}
                       </button>
@@ -2775,11 +4067,18 @@ const App = () => {
             </div>
           </details>
 
+          <LocationSelector
+            locations={MOCK_SPPG_DATA}
+            selectedLocation={selectedSppg}
+            onLocationChange={setSelectedSppg}
+            language={language}
+          />
+
           <div className="relative" ref={languageMenuRef}>
             <button
               type="button"
               onClick={() => setLanguageMenuOpen((open) => !open)}
-              className="flex items-center gap-2 rounded-lg border border-border bg-secondary px-2.5 py-1.5 text-xs font-semibold text-foreground shadow-sm transition hover:border-primary/40 hover:bg-secondary/80"
+              className="flex items-center gap-2 rounded-lg border border-border/50 bg-secondary/80 backdrop-blur-sm px-2.5 py-1.5 text-xs font-semibold text-foreground shadow-soft transition-smooth hover:border-primary/40 hover:bg-secondary hover:shadow-medium"
               aria-haspopup="menu"
               aria-expanded={languageMenuOpen}
               aria-label={ui.languageMenu.ariaLabel}
@@ -2790,11 +4089,11 @@ const App = () => {
                 </span>
                 <span className="hidden sm:inline text-[11px] font-semibold">{languageLabel}</span>
               </span>
-              <ChevronDown size={14} className={`transition-transform ${languageMenuOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown size={14} className={`transition-smooth ${languageMenuOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {languageMenuOpen && (
-              <div role="menu" className="absolute right-0 mt-2 min-w-[190px] rounded-lg border border-border bg-card p-1 shadow-xl">
+              <div role="menu" className="absolute right-0 mt-2 min-w-[190px] rounded-xl border border-border/50 bg-card/95 backdrop-blur-lg p-2 shadow-hard animate-slide-up">
                 <button
                   type="button"
                   role="menuitem"
@@ -2802,7 +4101,7 @@ const App = () => {
                     updateLanguage('en');
                     setLanguageMenuOpen(false);
                   }}
-                  className={`flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold transition ${language === 'en' ? 'bg-secondary text-foreground' : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'}`}
+                  className={`flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-xs font-semibold transition-smooth ${language === 'en' ? 'bg-primary/10 text-foreground' : 'text-muted-foreground hover:bg-primary/10 hover:text-foreground hover:translate-x-1'}`}
                 >
                   <span className="inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-[3px] border border-border/60 bg-white">
                     <img src="/flags/us.svg" alt={ui.languageMenu.usFlagAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
@@ -2816,7 +4115,7 @@ const App = () => {
                     updateLanguage('id');
                     setLanguageMenuOpen(false);
                   }}
-                  className={`flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold transition ${language === 'id' ? 'bg-secondary text-foreground' : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'}`}
+                  className={`flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-xs font-semibold transition-smooth ${language === 'id' ? 'bg-primary/10 text-foreground' : 'text-muted-foreground hover:bg-primary/10 hover:text-foreground hover:translate-x-1'}`}
                 >
                   <span className="inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-[3px] border border-border/60 bg-white">
                     <img src="/flags/id.svg" alt={ui.languageMenu.idFlagAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
@@ -2829,16 +4128,16 @@ const App = () => {
         </div>
       </nav>
 
-      <main className="flex-1 p-8 w-full space-y-8 animate-in fade-in duration-500">
+      <main className="flex-1 p-4 sm:p-6 md:p-8 w-full space-y-6 sm:space-y-8 animate-in fade-in duration-500">
         {/* Unit Header */}
-        <header className="flex flex-col gap-6 rounded-2xl border border-border bg-card p-6 md:p-7 shadow-md">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] xl:grid-cols-[minmax(0,1fr)_minmax(0,520px)] lg:items-start">
+        <header className="flex flex-col gap-4 sm:gap-6 rounded-xl sm:rounded-2xl border border-border/50 bg-card p-4 sm:p-6 md:p-7 shadow-medium hover-lift">
+          <div className="grid gap-4 sm:gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] xl:grid-cols-[minmax(0,1fr)_minmax(0,520px)] lg:items-start">
             <div className="flex items-start gap-4">
-              <div className="bg-primary/10 p-3.5 rounded-2xl text-primary shadow-sm ring-1 ring-primary/10">
+              <div className="gradient-primary p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl text-white shadow-colored-primary ring-1 ring-primary/20 animate-float">
                 <Store size={26} />
               </div>
               <div className="flex-1 space-y-3">
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">{localizedName}</h2>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground tracking-tight">{localizedName}</h2>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-2 rounded-full bg-secondary/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
                     <span className="h-2 w-2 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20" />
@@ -2876,7 +4175,7 @@ const App = () => {
             </div>
 
             <div className="lg:justify-self-end lg:w-full">
-              <div className="space-y-4 rounded-2xl border border-border bg-secondary/40 p-4 shadow-sm">
+              <div className="space-y-4 rounded-2xl border border-border/50 bg-gradient-card p-4 shadow-soft backdrop-blur-sm">
                 <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.32em] text-muted-foreground">
                   {ui.headerHighlights.partnersTitle}
                 </p>
@@ -2892,13 +4191,15 @@ const App = () => {
                     loading="lazy"
                     decoding="async"
                   />
-                  <img
-                    src="/wfp-logo.png"
-                    alt={ui.wfpLogoAlt}
-                    className="h-10 w-auto opacity-90 transition-opacity hover:opacity-100 sm:h-12 lg:h-14"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  {selectedSppg.id === 'FFI-SOE-01' && (
+                    <img
+                      src="/wfp-logo.png"
+                      alt={ui.wfpLogoAlt}
+                      className="h-10 w-auto opacity-90 transition-opacity hover:opacity-100 sm:h-12 lg:h-14"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -2906,115 +4207,115 @@ const App = () => {
 
           {headerStats && (
             <div className="w-full relative z-10">
-              <div className="rounded-2xl border border-border bg-secondary/20 p-5 md:p-6 shadow-sm">
+              <div className="rounded-2xl border border-border/50 bg-gradient-card p-5 md:p-6 shadow-soft backdrop-blur-sm">
                 <div className="flex items-center justify-between mb-4">
                   <p className="text-xs font-bold uppercase tracking-[0.28em] text-muted-foreground">
                     {ui.headerStats.title}
                   </p>
                 </div>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className="grid gap-3 sm:gap-4 grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                    <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <CalendarDays size={16} />
                     </span>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.operatingSince}
                       </p>
-                      <p className="text-lg font-bold text-foreground whitespace-nowrap">{headerStats.operationalSince}</p>
+                      <p className="text-base sm:text-lg font-bold text-foreground whitespace-nowrap">{headerStats.operationalSince}</p>
                       <p className="text-[10px] text-muted-foreground mt-1 whitespace-nowrap">
                         {numberFormatter.format(headerStats.serviceMonths)} {ui.headerStats.monthsServing}
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                    <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <Utensils size={16} />
                     </span>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.dailyMeals}
                       </p>
-                      <p className="inline-flex items-baseline gap-1 text-lg font-bold text-foreground whitespace-nowrap">
+                      <p className="inline-flex items-baseline gap-1 text-base sm:text-lg font-bold text-foreground whitespace-nowrap">
                         {numberFormatter.format(headerStats.dailyMeals)}
                         <span className="text-[10px] font-semibold text-muted-foreground">{ui.headerStats.dailyMealsUnit}</span>
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                    <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <Clock size={16} />
                     </span>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.operatingHours}
                       </p>
-                      <p className="text-lg font-bold text-foreground whitespace-nowrap">{headerStats.operatingHours}</p>
+                      <p className="text-base sm:text-lg font-bold text-foreground whitespace-nowrap">{headerStats.operatingHours}</p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                    <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <School size={16} />
                     </span>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.schoolsServed}
                       </p>
-                      <p className="inline-flex items-baseline gap-1 text-lg font-bold text-foreground whitespace-nowrap">
+                      <p className="inline-flex items-baseline gap-1 text-base sm:text-lg font-bold text-foreground whitespace-nowrap">
                         {numberFormatter.format(schoolsServedCount)}
                         <span className="text-[10px] font-semibold text-muted-foreground">{ui.headerStats.schoolsUnit}</span>
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                    <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <Hospital size={16} />
                     </span>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.healthFacilitiesServed}
                       </p>
-                      <p className="text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(healthFacilitiesServedCount)}</p>
+                      <p className="text-base sm:text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(healthFacilitiesServedCount)}</p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                    <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <UserPlus size={16} />
                     </span>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.staffCount}
                       </p>
-                      <p className="text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(headerStats.totalStaff)}</p>
+                      <p className="text-base sm:text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(headerStats.totalStaff)}</p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                    <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <Store size={16} />
                     </span>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.supplierCount}
                       </p>
-                      <p className="text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(supplierCount)}</p>
+                      <p className="text-base sm:text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(supplierCount)}</p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                    <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <Soup size={16} />
                     </span>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {ui.headerStats.totalServings}
                       </p>
-                      <p className="inline-flex items-baseline gap-1 text-lg font-bold text-foreground whitespace-nowrap">
+                      <p className="inline-flex items-baseline gap-1 text-base sm:text-lg font-bold text-foreground whitespace-nowrap">
                         {numberFormatter.format(headerStats.totalServings)}
                         <span className="text-[10px] font-semibold text-muted-foreground">{ui.headerStats.totalServingsUnit}</span>
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                    <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <BadgeCheck size={16} />
                     </span>
                     <div>
@@ -3042,10 +4343,10 @@ const App = () => {
               id="overview-beneficiaries"
               className="scroll-mt-28 animate-in fade-in duration-500 mt-2"
             >
-              <div className="bg-card rounded-2xl border border-border shadow-lg p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2.5 bg-primary/15 rounded-lg text-primary">
-                    <Heart size={18} />
+              <div className="bg-card rounded-xl sm:rounded-2xl border border-border/50 shadow-medium hover-lift transition-smooth p-4 sm:p-5">
+                <div className="flex items-center gap-2 sm:gap-3 mb-3">
+                  <div className="p-2 sm:p-2.5 gradient-primary rounded-lg text-white shadow-colored-primary">
+                    <Heart size={16} className="sm:hidden" /><Heart size={18} className="hidden sm:block" />
                   </div>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
@@ -3060,7 +4361,7 @@ const App = () => {
               </div>
             </section>
 
-            <section className="space-y-8">
+            <section className="space-y-6 sm:space-y-8">
               {/* DAILY MENU HIGHLIGHT */}
               {dailyMenuCard}
             </section>
@@ -3068,7 +4369,7 @@ const App = () => {
         )}
 
         {activeSection === 'overview' && (
-          <section id="overview" className="space-y-8 scroll-mt-28 animate-in slide-in-from-bottom duration-500">
+          <section id="overview" className="space-y-6 sm:space-y-8 scroll-mt-28 animate-in slide-in-from-bottom duration-500">
             {/* GALLERY SECTION */}
             <div id="overview-gallery" className="scroll-mt-28">
               <Gallery
@@ -3079,11 +4380,11 @@ const App = () => {
             </div>
 
             {/* BENEFICIARY TESTIMONIALS */}
-            <div id="overview-testimonials" className="bg-card rounded-2xl border border-border shadow-lg overflow-hidden scroll-mt-28">
-              <div className="p-6 border-b border-border bg-secondary/50">
+            <div id="overview-testimonials" className="bg-card rounded-2xl border border-border/50 shadow-medium hover-lift transition-smooth overflow-hidden scroll-mt-28">
+              <div className="p-4 sm:p-6 border-b border-border/50 bg-gradient-card backdrop-blur-sm">
                 <div className="flex flex-wrap items-center justify-between gap-4">
-                  <h3 className="font-bold text-foreground text-base flex items-center gap-3 uppercase tracking-tight">
-                    <div className="p-2.5 bg-primary/15 rounded-lg text-primary"><MessageSquare size={20} /></div>
+                  <h3 className="font-bold text-foreground text-sm sm:text-base flex items-center gap-2 sm:gap-3 uppercase tracking-tight">
+                    <div className="p-2 sm:p-2.5 gradient-primary rounded-lg text-white shadow-colored-primary"><MessageSquare size={18} className="sm:hidden" /><MessageSquare size={20} className="hidden sm:block" /></div>
                     {ui.beneficiaries.testimonialsTitle}
                   </h3>
                   <div className="flex items-center gap-3">
@@ -3095,7 +4396,7 @@ const App = () => {
                         type="button"
                         onClick={() => scrollTestimonials('prev')}
                         aria-label={language === 'id' ? 'Geser testimoni ke kiri' : 'Scroll testimonials left'}
-                        className="h-9 w-9 rounded-full border border-border bg-background text-muted-foreground flex items-center justify-center transition hover:border-primary/40 hover:text-primary"
+                        className="h-10 w-10 sm:h-9 sm:w-9 rounded-full border border-border/50 bg-background text-muted-foreground flex items-center justify-center transition-smooth hover:border-primary/40 hover:text-primary hover:bg-primary/5 hover:scale-110 hover:shadow-soft active:scale-95"
                       >
                         <ChevronLeft size={16} />
                       </button>
@@ -3103,7 +4404,7 @@ const App = () => {
                         type="button"
                         onClick={() => scrollTestimonials('next')}
                         aria-label={language === 'id' ? 'Geser testimoni ke kanan' : 'Scroll testimonials right'}
-                        className="h-9 w-9 rounded-full border border-border bg-background text-muted-foreground flex items-center justify-center transition hover:border-primary/40 hover:text-primary"
+                        className="h-10 w-10 sm:h-9 sm:w-9 rounded-full border border-border/50 bg-background text-muted-foreground flex items-center justify-center transition-smooth hover:border-primary/40 hover:text-primary hover:bg-primary/5 hover:scale-110 hover:shadow-soft active:scale-95"
                       >
                         <ChevronRight size={16} />
                       </button>
@@ -3193,11 +4494,11 @@ const App = () => {
         
             {/* 2. TODAY'S DELIVERY */}
             <div id="overview-delivery" className="space-y-4 scroll-mt-28">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-primary/15 rounded-lg text-primary"><Truck size={20} /></div>
-                <h3 className="font-bold text-foreground text-lg uppercase tracking-tight">{ui.stats.title}</h3>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-2 sm:p-2.5 gradient-primary rounded-lg text-white shadow-colored-primary"><Truck size={18} className="sm:hidden" /><Truck size={20} className="hidden sm:block" /></div>
+                <h3 className="font-bold text-foreground text-base sm:text-lg md:text-xl uppercase tracking-tight">{ui.stats.title}</h3>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
         {[
           { label: ui.stats.target, val: numberFormatter.format(deliveryProgress.target), icon: ClipboardCheck, tone: deliveryCardStyles.target },
           { label: ui.stats.cooked, val: numberFormatter.format(deliveryProgress.cooked), icon: Utensils, tone: deliveryCardStyles.cooked },
@@ -3206,7 +4507,7 @@ const App = () => {
         ].map((stat, i) => (
           <div
             key={i}
-            className={`rounded-lg border shadow-md overflow-hidden grid grid-rows-2 min-h-[120px] transition-all hover:shadow-lg ${stat.tone.border}`}
+            className={`rounded-lg sm:rounded-xl border shadow-soft overflow-hidden grid grid-rows-2 min-h-[100px] sm:min-h-[120px] transition-smooth hover:shadow-medium hover:-translate-y-1 hover:scale-105 active:scale-95 ${stat.tone.border}`}
           >
             <div className={`${stat.tone.headerBg} px-4 py-3 flex items-center justify-center`}>
               <p className={`text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 ${stat.tone.label}`}>
@@ -3236,13 +4537,13 @@ const App = () => {
 
             {/* PARTNER INSTITUTIONS */}
             <div id="overview-partners" className="scroll-mt-28">
-              <div className="bg-card rounded-2xl border border-border shadow-lg p-8">
+              <div className="bg-card rounded-xl sm:rounded-2xl border border-border/50 shadow-medium hover-lift transition-smooth p-4 sm:p-6 md:p-8">
                 <div className="text-center mb-8">
                   <p className="text-[11px] font-bold uppercase tracking-widest text-primary">{ui.partners.eyebrow}</p>
-                  <h3 className="text-2xl font-bold text-foreground mt-2">{ui.partners.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mt-2">{ui.partners.title}</h3>
                   <p className="text-sm text-muted-foreground mt-2 max-w-2xl mx-auto">{ui.partners.subtitle}</p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                   {ui.partners.items.map((partner, index) => {
                     const badgeColor = partnerLogoPalette[index % partnerLogoPalette.length];
                     return (
@@ -3250,7 +4551,7 @@ const App = () => {
                         key={partner.name}
                         type="button"
                         onClick={() => setActivePartnerIndex(index)}
-                        className="bg-secondary rounded-xl border border-border p-4 text-left shadow-sm transition-shadow hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 group"
+                        className="bg-secondary rounded-xl border border-border/50 p-4 text-left shadow-soft transition-smooth hover:shadow-medium hover:-translate-y-1 hover:scale-105 hover:border-primary/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 group"
                         aria-haspopup="dialog"
                         aria-label={language === 'id' ? `Buka detail ${partner.name}` : `Open details for ${partner.name}`}
                       >
@@ -3279,13 +4580,13 @@ const App = () => {
         )}
         
         {activeSection === 'menu' && (
-          <section id="menu" className="space-y-10 scroll-mt-28 animate-in slide-in-from-bottom duration-500">
+          <section id="menu" className="space-y-6 sm:space-y-8 md:space-y-10 scroll-mt-28 animate-in slide-in-from-bottom duration-500">
             {/* DAILY MENU FEED (TOP SECTION) */}
             {dailyMenuCard}
         
             {/* MENU HISTORY SECTION */}
-            <div id="menu-history" className="mt-16 pt-12 border-t border-border scroll-mt-28">
-              <h2 className="text-3xl font-bold text-foreground mb-8">{ui.sections.menuHistory}</h2>
+            <div id="menu-history" className="mt-8 sm:mt-12 md:mt-16 pt-8 sm:pt-10 md:pt-12 border-t border-border/50 scroll-mt-28">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-6 sm:mb-8 tracking-tight">{ui.sections.menuHistory}</h2>
               <MenuHistory 
                 menus={menuHistory}
                 title={ui.sections.menuHistoryTitle}
@@ -3294,15 +4595,15 @@ const App = () => {
               />
             </div>
 
-            <div id="menu-recipes" className="mt-16 pt-12 border-t border-border scroll-mt-28">
-              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
+            <div id="menu-recipes" className="mt-8 sm:mt-12 md:mt-16 pt-8 sm:pt-10 md:pt-12 border-t border-border/50 scroll-mt-28">
+              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 sm:mb-8">
                 <div>
-                  <h2 className="text-3xl font-bold text-foreground">{recipeCollection.title}</h2>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight">{recipeCollection.title}</h2>
                   <p className="text-sm text-muted-foreground mt-2 max-w-3xl">{recipeCollection.subtitle}</p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-2 text-xs font-semibold text-muted-foreground">
-                    <span className="h-2 w-2 rounded-full bg-primary"></span>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-gradient-card backdrop-blur-sm px-4 py-2 text-xs font-semibold text-muted-foreground shadow-soft">
+                    <span className="h-2 w-2 rounded-full bg-primary animate-pulse-glow"></span>
                     {recipeCollection.items.length} {recipeCollection.countLabel}
                   </div>
                   <div className="flex items-center gap-2">
@@ -3310,7 +4611,7 @@ const App = () => {
                       type="button"
                       onClick={() => scrollRecipes('prev')}
                       aria-label={language === 'id' ? 'Geser resep ke kiri' : 'Scroll recipes left'}
-                      className="h-9 w-9 rounded-full border border-border bg-background text-muted-foreground flex items-center justify-center transition hover:border-primary/40 hover:text-primary"
+                      className="h-9 w-9 rounded-full border border-border/50 bg-background text-muted-foreground flex items-center justify-center transition-smooth hover:border-primary/40 hover:text-primary hover:bg-primary/5 hover:scale-110 hover:shadow-soft"
                     >
                       <ChevronLeft size={16} />
                     </button>
@@ -3318,7 +4619,7 @@ const App = () => {
                       type="button"
                       onClick={() => scrollRecipes('next')}
                       aria-label={language === 'id' ? 'Geser resep ke kanan' : 'Scroll recipes right'}
-                      className="h-9 w-9 rounded-full border border-border bg-background text-muted-foreground flex items-center justify-center transition hover:border-primary/40 hover:text-primary"
+                      className="h-9 w-9 rounded-full border border-border/50 bg-background text-muted-foreground flex items-center justify-center transition-smooth hover:border-primary/40 hover:text-primary hover:bg-primary/5 hover:scale-110 hover:shadow-soft"
                     >
                       <ChevronRight size={16} />
                     </button>

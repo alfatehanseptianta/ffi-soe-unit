@@ -37,6 +37,19 @@
   --sidebar-accent-foreground: oklch(0.15 0 0);
   --sidebar-border: oklch(0.92 0 0);
   --sidebar-ring: oklch(0.55 0.28 27);
+
+  /* Enhanced semantic colors */
+  --success: oklch(0.72 0.18 140);
+  --success-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.75 0.2 85);
+  --warning-foreground: oklch(0.15 0 0);
+  --info: oklch(0.68 0.19 240);
+  --info-foreground: oklch(0.98 0 0);
+
+  /* Surface variations */
+  --surface-1: oklch(0.99 0 0);
+  --surface-2: oklch(0.97 0.01 0);
+  --surface-3: oklch(0.95 0.02 0);
 }
 
 .dark {
@@ -72,6 +85,19 @@
   --sidebar-accent-foreground: oklch(0.95 0 0);
   --sidebar-border: oklch(0.2 0 0);
   --sidebar-ring: oklch(0.65 0.25 29);
+
+  /* Enhanced semantic colors */
+  --success: oklch(0.6 0.18 140);
+  --success-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.7 0.2 85);
+  --warning-foreground: oklch(0.08 0 0);
+  --info: oklch(0.58 0.19 240);
+  --info-foreground: oklch(0.98 0 0);
+
+  /* Surface variations */
+  --surface-1: oklch(0.12 0 0);
+  --surface-2: oklch(0.14 0 0);
+  --surface-3: oklch(0.16 0 0);
 }
 
 @theme inline {
@@ -121,5 +147,150 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Shadow System */
+@layer utilities {
+  .shadow-soft {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+  .shadow-medium {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
+  }
+  .shadow-hard {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+  }
+  .shadow-colored-primary {
+    box-shadow: 0 8px 24px oklch(0.55 0.28 27 / 0.2), 0 2px 8px oklch(0.55 0.28 27 / 0.12);
+  }
+  .shadow-colored-success {
+    box-shadow: 0 8px 24px oklch(0.72 0.18 140 / 0.2), 0 2px 8px oklch(0.72 0.18 140 / 0.12);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .transition-bounce {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, oklch(0.55 0.28 27) 0%, oklch(0.62 0.25 27) 100%);
+  }
+  .gradient-success {
+    background: linear-gradient(135deg, oklch(0.72 0.18 140) 0%, oklch(0.68 0.20 150) 100%);
+  }
+  .gradient-card {
+    background: linear-gradient(135deg, var(--surface-1) 0%, var(--surface-2) 100%);
+  }
+
+  /* Mobile-specific utilities */
+  @media (max-width: 640px) {
+    .mobile-compact {
+      padding: 0.75rem;
+    }
+    .mobile-text-sm {
+      font-size: 0.875rem;
+    }
+    .mobile-touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Touch feedback for mobile devices */
+  @media (hover: none) and (pointer: coarse) {
+    .hover-lift:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+/* Smooth Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 oklch(0.55 0.28 27 / 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 8px oklch(0.55 0.28 27 / 0);
+  }
+}
+
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up-fade 0.4s ease-out;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-slide-up,
+  .animate-shimmer {
+    animation: none !important;
   }
 }
