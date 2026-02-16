@@ -2831,42 +2831,53 @@ const App = () => {
 
       <main className="flex-1 p-8 w-full space-y-8 animate-in fade-in duration-500">
         {/* Unit Header */}
-        <header className="flex flex-col gap-6 bg-card p-6 rounded-2xl border border-border shadow-lg">
-          <div className="grid gap-4 lg:gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,520px)] xl:grid-cols-[minmax(0,1fr)_minmax(0,620px)] lg:items-start">
+        <header className="flex flex-col gap-6 rounded-2xl border border-border bg-card p-6 md:p-7 shadow-md">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] xl:grid-cols-[minmax(0,1fr)_minmax(0,520px)] lg:items-start">
             <div className="flex items-start gap-4">
-              <div className="bg-primary/15 p-3.5 rounded-xl text-primary shadow-sm">
+              <div className="bg-primary/10 p-3.5 rounded-2xl text-primary shadow-sm ring-1 ring-primary/10">
                 <Store size={26} />
               </div>
               <div className="flex-1 space-y-3">
-                <h2 className="text-2xl font-bold text-foreground">{localizedName}</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">{localizedName}</h2>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-secondary/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20" />
+                    {ui.operationalHub}
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-emerald-500/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-700">
+                    {ui.activeStatus}
+                  </span>
+                </div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                   {ui.kitchenLocationLabel}
                 </p>
-                <a
-                  href={mapUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-muted-foreground inline-flex items-center font-medium text-sm mt-1 hover:text-foreground transition"
-                  aria-label={ui.mapAriaLabel}
-                >
-                  <MapPin size={14} className="mr-1.5 text-primary" />
-                  <span>{localizedRegion}</span>
-                </a>
-                <a
-                  href={mapUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-muted-foreground mt-1 flex items-start text-xs leading-relaxed hover:text-foreground transition"
-                >
-                  <Navigation size={14} className="mr-1.5 mt-0.5 text-primary" />
-                  <span>{localizedAddress}</span>
-                </a>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <a
+                    href={mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 font-semibold transition hover:text-foreground"
+                    aria-label={ui.mapAriaLabel}
+                  >
+                    <MapPin size={14} className="text-primary" />
+                    <span>{localizedRegion}</span>
+                  </a>
+                  <a
+                    href={mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-start gap-2 text-xs leading-relaxed transition hover:text-foreground"
+                  >
+                    <Navigation size={14} className="mt-0.5 text-primary" />
+                    <span className="max-w-2xl">{localizedAddress}</span>
+                  </a>
+                </div>
               </div>
             </div>
 
             <div className="lg:justify-self-end lg:w-full">
-              <div className="space-y-5">
-                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.32em] text-muted-foreground">
+              <div className="space-y-4 rounded-2xl border border-border bg-secondary/40 p-4 shadow-sm">
+                <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.32em] text-muted-foreground">
                   {ui.headerHighlights.partnersTitle}
                 </p>
                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">
@@ -2894,14 +2905,16 @@ const App = () => {
           </div>
 
           {headerStats && (
-            <div className="w-full">
-              <div className="rounded-2xl border border-border/80 bg-secondary/30 p-5 md:p-6 shadow-sm">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-5 text-center">
-                  {ui.headerStats.title}
-                </p>
-                <div className="flex flex-nowrap gap-3 overflow-x-auto pb-2 -mx-1 px-1 sm:mx-0 sm:px-0 sm:gap-4">
-                  <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <div className="w-full relative z-10">
+              <div className="rounded-2xl border border-border bg-secondary/20 p-5 md:p-6 shadow-sm">
+                <div className="flex items-center justify-between mb-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.28em] text-muted-foreground">
+                    {ui.headerStats.title}
+                  </p>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <CalendarDays size={16} />
                     </span>
                     <div>
@@ -2914,8 +2927,8 @@ const App = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <Utensils size={16} />
                     </span>
                     <div>
@@ -2928,8 +2941,8 @@ const App = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <Clock size={16} />
                     </span>
                     <div>
@@ -2939,8 +2952,8 @@ const App = () => {
                       <p className="text-lg font-bold text-foreground whitespace-nowrap">{headerStats.operatingHours}</p>
                     </div>
                   </div>
-                  <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <School size={16} />
                     </span>
                     <div>
@@ -2953,8 +2966,8 @@ const App = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <Hospital size={16} />
                     </span>
                     <div>
@@ -2964,8 +2977,8 @@ const App = () => {
                       <p className="text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(healthFacilitiesServedCount)}</p>
                     </div>
                   </div>
-                  <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <UserPlus size={16} />
                     </span>
                     <div>
@@ -2975,8 +2988,8 @@ const App = () => {
                       <p className="text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(headerStats.totalStaff)}</p>
                     </div>
                   </div>
-                  <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <Store size={16} />
                     </span>
                     <div>
@@ -2986,8 +2999,8 @@ const App = () => {
                       <p className="text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(supplierCount)}</p>
                     </div>
                   </div>
-                  <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <Soup size={16} />
                     </span>
                     <div>
@@ -3000,8 +3013,8 @@ const App = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full min-w-[210px] sm:min-w-0 items-start gap-3 rounded-xl border border-border/70 bg-card/80 p-3 sm:p-4 shadow-sm">
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <div className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <BadgeCheck size={16} />
                     </span>
                     <div>
@@ -3010,7 +3023,7 @@ const App = () => {
                       </p>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {ui.headerStats.certificationLabels.map((label) => (
-                          <span key={label} className="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary">
+                          <span key={label} className="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary shadow-sm ring-1 ring-primary/15">
                             {label}
                           </span>
                         ))}
@@ -4185,6 +4198,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
