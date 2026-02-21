@@ -42,9 +42,21 @@ interface SchoolsDetailProps {
   schools: SchoolDetail[];
   healthCenters?: HealthCenterDetail[];
   language: 'en' | 'id';
+  summaryOverride?: {
+    totalSchools?: number;
+    totalStudents?: number;
+    totalTeachers?: number;
+    totalBeneficiaries?: number;
+    totalFacilities?: number;
+    totalPuskesmas?: number;
+    totalPosyandu?: number;
+    totalPregnantNursing?: number;
+    totalToddlers?: number;
+    totalHealthBeneficiaries?: number;
+  };
 }
 
-export function SchoolsDetail({ schools, healthCenters, language }: SchoolsDetailProps) {
+export function SchoolsDetail({ schools, healthCenters, language, summaryOverride }: SchoolsDetailProps) {
   const totalStudents = schools.reduce((acc, s) => acc + s.students, 0);
   const totalTeachers = schools.reduce((acc, s) => acc + s.teachers, 0);
   const totalBeneficiaries = schools.reduce((acc, s) => acc + s.beneficiaries, 0);
@@ -53,7 +65,17 @@ export function SchoolsDetail({ schools, healthCenters, language }: SchoolsDetai
   const totalHealthBeneficiaries = totalPregnantNursing + totalToddlers;
   const totalPuskesmas = healthCenters?.filter((center) => center.type === 'puskesmas').length ?? 0;
   const totalPosyandu = healthCenters?.filter((center) => center.type === 'posyandu').length ?? 0;
-  const hasHealthCenters = Boolean(healthCenters?.length);
+  const displayedTotalSchools = summaryOverride?.totalSchools ?? schools.length;
+  const displayedTotalStudents = summaryOverride?.totalStudents ?? totalStudents;
+  const displayedTotalTeachers = summaryOverride?.totalTeachers ?? totalTeachers;
+  const displayedTotalBeneficiaries = summaryOverride?.totalBeneficiaries ?? totalBeneficiaries;
+  const displayedTotalFacilities = summaryOverride?.totalFacilities ?? healthCenters?.length ?? 0;
+  const displayedTotalPuskesmas = summaryOverride?.totalPuskesmas ?? totalPuskesmas;
+  const displayedTotalPosyandu = summaryOverride?.totalPosyandu ?? totalPosyandu;
+  const displayedTotalPregnantNursing = summaryOverride?.totalPregnantNursing ?? totalPregnantNursing;
+  const displayedTotalToddlers = summaryOverride?.totalToddlers ?? totalToddlers;
+  const displayedTotalHealthBeneficiaries = summaryOverride?.totalHealthBeneficiaries ?? totalHealthBeneficiaries;
+  const hasHealthCenters = Boolean((healthCenters?.length ?? 0) || displayedTotalFacilities > 0);
   const schoolTypeBadgeClasses: Record<SchoolDetail['type'], string> = {
     elementary: 'bg-red-500/15 text-red-600',
     juniorHigh: 'bg-blue-500/15 text-blue-600',
@@ -159,19 +181,19 @@ export function SchoolsDetail({ schools, healthCenters, language }: SchoolsDetai
       {/* Summary Stats */}
       <div className="p-6 border-b border-border grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-          <p className="text-2xl font-bold text-foreground">{schools.length}</p>
+          <p className="text-2xl font-bold text-foreground">{displayedTotalSchools.toLocaleString()}</p>
           <p className="text-xs font-semibold text-muted-foreground mt-1">{labels.totalSchools}</p>
         </div>
         <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-          <p className="text-2xl font-bold text-foreground">{totalStudents.toLocaleString()}</p>
+          <p className="text-2xl font-bold text-foreground">{displayedTotalStudents.toLocaleString()}</p>
           <p className="text-xs font-semibold text-muted-foreground mt-1">{labels.totalStudents}</p>
         </div>
         <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-          <p className="text-2xl font-bold text-foreground">{totalTeachers.toLocaleString()}</p>
+          <p className="text-2xl font-bold text-foreground">{displayedTotalTeachers.toLocaleString()}</p>
           <p className="text-xs font-semibold text-muted-foreground mt-1">{labels.totalTeachers}</p>
         </div>
         <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-          <p className="text-2xl font-bold text-foreground">{totalBeneficiaries.toLocaleString()}</p>
+          <p className="text-2xl font-bold text-foreground">{displayedTotalBeneficiaries.toLocaleString()}</p>
           <p className="text-xs font-semibold text-muted-foreground mt-1">{labels.beneficiaries}</p>
         </div>
       </div>
@@ -281,27 +303,27 @@ export function SchoolsDetail({ schools, healthCenters, language }: SchoolsDetai
           </div>
           <div className="p-6 border-b border-border grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-              <p className="text-2xl font-bold text-foreground">{healthCenters?.length ?? 0}</p>
+              <p className="text-2xl font-bold text-foreground">{displayedTotalFacilities.toLocaleString()}</p>
               <p className="text-xs font-semibold text-muted-foreground mt-1">{labels.totalFacilities}</p>
             </div>
             <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-              <p className="text-2xl font-bold text-foreground">{totalPuskesmas}</p>
+              <p className="text-2xl font-bold text-foreground">{displayedTotalPuskesmas.toLocaleString()}</p>
               <p className="text-xs font-semibold text-muted-foreground mt-1">{labels.totalPuskesmas}</p>
             </div>
             <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-              <p className="text-2xl font-bold text-foreground">{totalPosyandu}</p>
+              <p className="text-2xl font-bold text-foreground">{displayedTotalPosyandu.toLocaleString()}</p>
               <p className="text-xs font-semibold text-muted-foreground mt-1">{labels.totalPosyandu}</p>
             </div>
             <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-              <p className="text-2xl font-bold text-foreground">{totalPregnantNursing.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-foreground">{displayedTotalPregnantNursing.toLocaleString()}</p>
               <p className="text-xs font-semibold text-muted-foreground mt-1">{labels.pregnantNursing}</p>
             </div>
             <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-              <p className="text-2xl font-bold text-foreground">{totalToddlers.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-foreground">{displayedTotalToddlers.toLocaleString()}</p>
               <p className="text-xs font-semibold text-muted-foreground mt-1">{labels.toddlers}</p>
             </div>
             <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-              <p className="text-2xl font-bold text-foreground">{totalHealthBeneficiaries.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-foreground">{displayedTotalHealthBeneficiaries.toLocaleString()}</p>
               <p className="text-xs font-semibold text-muted-foreground mt-1">{labels.beneficiaries}</p>
             </div>
           </div>
@@ -391,4 +413,3 @@ export function SchoolsDetail({ schools, healthCenters, language }: SchoolsDetai
     </div>
   );
 }
-

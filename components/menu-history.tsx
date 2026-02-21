@@ -165,141 +165,146 @@ export const MenuHistory: React.FC<MenuHistoryProps> = ({
           <div
             key={menu.id}
             style={{ animationDelay: `${index * 80}ms` }}
-            className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card/80 shadow-[0_25px_70px_-45px_rgba(15,23,42,0.6)] backdrop-blur transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 hover:-translate-y-1 hover:shadow-[0_35px_85px_-50px_rgba(15,23,42,0.75)]"
+            className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card shadow-[0_2px_20px_-8px_rgba(15,23,42,0.12)] transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-20px_rgba(15,23,42,0.2)] dark:shadow-[0_2px_20px_-8px_rgba(0,0,0,0.4)] dark:hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)]"
           >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_55%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             {/* Photo Section */}
-            <div className="relative h-44 overflow-hidden bg-secondary sm:h-52">
+            <div className="relative h-48 overflow-hidden sm:h-56">
               <img
                 src={menu.photo || "/placeholder.svg"}
                 alt={menu.date}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
-              <div className="absolute left-3 top-3 flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-semibold text-foreground shadow-lg backdrop-blur">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-700">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+              {/* Photo count badge */}
+              <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-black/40 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-[10px] font-bold">
                   {menu.photoCount}
                 </span>
                 {labels.photos}
               </div>
-              <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-background/85 px-3 py-1 text-xs font-semibold text-foreground shadow-lg backdrop-blur">
+
+              {/* Rating badge */}
+              <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-black/40 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-md">
                 <Star size={12} className="fill-amber-400 text-amber-400" />
                 {menu.rating}
+              </div>
+
+              {/* Date overlay at bottom of image */}
+              <div className="absolute bottom-0 left-0 right-0 px-4 pb-3 pt-8 bg-gradient-to-t from-black/60 to-transparent">
+                <h4 className="text-base font-bold text-white sm:text-lg drop-shadow-sm">{menu.date}</h4>
               </div>
             </div>
 
             {/* Content Section */}
-            <div className="space-y-4 p-4 sm:space-y-5 sm:p-5">
-              {/* Date */}
-              <div className="flex items-center justify-between">
-                <h4 className="text-sm font-semibold text-foreground sm:text-base">{menu.date}</h4>
-                <span className="rounded-full border border-border/70 bg-secondary/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            <div className="p-4 sm:p-5">
+              {/* Menu Components */}
+              <div className="space-y-3.5">
+                <span className="inline-block rounded-md border border-border/60 bg-secondary/60 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
                   {labels.menuComponents}
                 </span>
+
+                <div className="space-y-3">
+                  {menu.components.map((component, idx) => (
+                    <div key={idx}>
+                      <div className="mb-1.5 flex items-center gap-2">
+                        <span className="text-base leading-none">
+                          {categoryIcons[component.category as keyof typeof categoryIcons] || '\u{1F37D}\u{FE0F}'}
+                        </span>
+                        <h5 className="text-[13px] font-bold text-foreground">
+                          {component.category}
+                        </h5>
+                      </div>
+                      <div className="ml-7 flex flex-wrap gap-1.5">
+                        {component.items.map((item, itemIdx) => (
+                          <span
+                            key={itemIdx}
+                            className="rounded-full border border-border/50 bg-secondary/50 px-2.5 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:bg-secondary"
+                          >
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div
-                className={
-                  menu.nutrition
-                    ? 'grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]'
-                    : 'space-y-3'
-                }
-              >
-                {/* Menu Components */}
-                <div className="space-y-3">
-                  <div className="space-y-3">
-                    {menu.components.map((component, idx) => (
-                      <div key={idx} className="space-y-1">
-                        <div className="flex items-center gap-2">
-                          <span className="text-lg">
-                            {categoryIcons[component.category as keyof typeof categoryIcons] || '\u{1F37D}\u{FE0F}'}
-                          </span>
-                          <h5 className="flex-1 text-sm font-semibold text-foreground sm:text-[15px]">
-                            {component.category}
-                          </h5>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {component.items.map((item, itemIdx) => (
-                            <span
-                              key={itemIdx}
-                              className="rounded-full border border-border/70 bg-background/80 px-2.5 py-1 text-xs font-medium text-muted-foreground shadow-[0_8px_18px_-15px_rgba(15,23,42,0.65)]"
-                            >
-                              {item}
-                            </span>
-                          ))}
-                        </div>
+              {/* Nutrition Summary */}
+              {menu.nutrition && (
+                <div className="mt-4 rounded-2xl border border-border/40 bg-gradient-to-br from-slate-50 to-slate-100/50 p-3.5 dark:from-slate-900/60 dark:to-slate-800/30">
+                  <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
+                    <Flame size={13} className="text-amber-500" />
+                    <span>{nutritionLabels.title}</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2.5">
+                    {/* Calories - full width */}
+                    <div className="col-span-2 flex items-center gap-3 rounded-xl border border-amber-200/50 bg-amber-50/60 px-3 py-2.5 dark:border-amber-900/30 dark:bg-amber-950/30">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 text-amber-600">
+                        <Flame size={18} />
                       </div>
-                    ))}
+                      <div className="min-w-0">
+                        <p className="text-[10px] font-semibold uppercase tracking-wider text-amber-600/70 dark:text-amber-400/70">
+                          {nutritionLabels.calories}
+                        </p>
+                        <p className="text-xl font-extrabold tabular-nums text-amber-700 dark:text-amber-400">
+                          {menu.nutrition.calories}
+                          <span className="ml-0.5 text-xs font-bold text-amber-600/60 dark:text-amber-400/60">{nutritionLabels.kcalUnit}</span>
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Protein */}
+                    <div className="flex items-center gap-2.5 rounded-xl border border-emerald-200/50 bg-emerald-50/60 px-2.5 py-2.5 dark:border-emerald-900/30 dark:bg-emerald-950/30">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-600">
+                        <BicepsFlexed size={14} />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[9px] font-semibold uppercase tracking-wider text-emerald-600/70 dark:text-emerald-400/70">
+                          {nutritionLabels.protein}
+                        </p>
+                        <p className="text-base font-extrabold tabular-nums text-emerald-700 dark:text-emerald-400">
+                          {menu.nutrition.protein}
+                          <span className="text-[10px] font-bold text-emerald-600/60 dark:text-emerald-400/60">{nutritionLabels.gramUnit}</span>
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Fat */}
+                    <div className="flex items-center gap-2.5 rounded-xl border border-rose-200/50 bg-rose-50/60 px-2.5 py-2.5 dark:border-rose-900/30 dark:bg-rose-950/30">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-rose-500/15 text-rose-600">
+                        <Droplet size={14} />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[9px] font-semibold uppercase tracking-wider text-rose-600/70 dark:text-rose-400/70">
+                          {nutritionLabels.fat}
+                        </p>
+                        <p className="text-base font-extrabold tabular-nums text-rose-700 dark:text-rose-400">
+                          {menu.nutrition.fat}
+                          <span className="text-[10px] font-bold text-rose-600/60 dark:text-rose-400/60">{nutritionLabels.gramUnit}</span>
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Carbs */}
+                    <div className="col-span-2 flex items-center gap-2.5 rounded-xl border border-sky-200/50 bg-sky-50/60 px-3 py-2.5 dark:border-sky-900/30 dark:bg-sky-950/30">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sky-500/15 text-sky-600">
+                        <Wheat size={14} />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[9px] font-semibold uppercase tracking-wider text-sky-600/70 dark:text-sky-400/70">
+                          {nutritionLabels.carbs}
+                        </p>
+                        <p className="text-base font-extrabold tabular-nums text-sky-700 dark:text-sky-400">
+                          {menu.nutrition.carbs}
+                          <span className="text-[10px] font-bold text-sky-600/60 dark:text-sky-400/60">{nutritionLabels.gramUnit}</span>
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                {/* Nutrition Summary */}
-                {menu.nutrition && (
-                  <div className="space-y-3 rounded-2xl border border-emerald-200/40 bg-gradient-to-br from-emerald-50/70 via-white to-sky-50/70 px-3 py-3 md:px-4 md:py-4 dark:border-emerald-900/40 dark:from-emerald-950/60 dark:via-slate-950 dark:to-sky-950/40">
-                    <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                      <Flame size={14} className="text-amber-500" />
-                      <span>{nutritionLabels.title}</span>
-                    </div>
-                    <div className="grid grid-cols-1 gap-3">
-                      <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 px-2.5 py-2 shadow-sm">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-500/15 text-amber-600">
-                          <Flame size={16} />
-                        </div>
-                        <div className="leading-tight">
-                          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                            {nutritionLabels.calories}
-                          </p>
-                          <p className="text-lg font-extrabold text-foreground">
-                            {menu.nutrition.calories} {nutritionLabels.kcalUnit}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 px-2.5 py-2 shadow-sm">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600">
-                          <BicepsFlexed size={16} />
-                        </div>
-                        <div className="leading-tight">
-                          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                            {nutritionLabels.protein}
-                          </p>
-                          <p className="text-lg font-extrabold text-foreground">
-                            {menu.nutrition.protein}
-                            {nutritionLabels.gramUnit}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 px-2.5 py-2 shadow-sm">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-500/15 text-rose-600">
-                          <Droplet size={16} />
-                        </div>
-                        <div className="leading-tight">
-                          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                            {nutritionLabels.fat}
-                          </p>
-                          <p className="text-lg font-extrabold text-foreground">
-                            {menu.nutrition.fat}
-                            {nutritionLabels.gramUnit}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 px-2.5 py-2 shadow-sm">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-500/15 text-sky-600">
-                          <Wheat size={16} />
-                        </div>
-                        <div className="leading-tight">
-                          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                            {nutritionLabels.carbs}
-                          </p>
-                          <p className="text-lg font-extrabold text-foreground">
-                            {menu.nutrition.carbs}
-                            {nutritionLabels.gramUnit}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
+              )}
             </div>
           </div>
         ))}

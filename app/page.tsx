@@ -99,7 +99,7 @@ const getPartnerInitials = (name: string) => {
   return `${first}${second}`.toUpperCase();
 };
 
-const MOCK_SPPG_DATA = [
+const BASE_SPPG_DATA = [
   {
     id: 'FFI-SOE-01',
     name: {
@@ -802,12 +802,12 @@ const MOCK_SPPG_DATA = [
   {
     id: 'FFI-GISTING-01',
     name: {
-      en: 'FFI Central Gisting Unit',
-      id: 'Unit Pusat FFI Gisting',
+      en: 'SPPG Tanggamus Unit',
+      id: 'Unit SPPG Tanggamus',
     },
     region: {
-      en: 'Gisting, Tanggamus',
-      id: 'Gisting, Tanggamus',
+      en: 'Tanggamus, Lampung',
+      id: 'Tanggamus, Lampung',
     },
     address: {
       en: 'Jl. Raya Gisting No. 45, Gisting District, Tanggamus Regency, Lampung Province, 35377',
@@ -821,14 +821,32 @@ const MOCK_SPPG_DATA = [
     costPerPortion: 14800,
     localSourcing: 85,
     healthScore: 96,
-    staffCount: { present: 16, total: 18 },
+    staffCount: { present: 41, total: 41 },
     wasteRate: 1.5,
     feedbackScore: 4.8,
     deliveryProgress: {
-      target: 2400,
+      target: 3250,
       cooked: 0,
       inDelivery: 0,
       received: 0,
+    },
+    operationalHighlights: {
+      operationalSince: '2025-09-08',
+      dailyMeals: 3250,
+      operatingHours: '19.00 PM - 16.00 PM',
+      schoolsServed: 3,
+      healthFacilitiesServed: 2,
+      puskesmasServed: 1,
+      posyanduServed: 1,
+      schoolBeneficiaries: 1060,
+      healthBeneficiaries: 390,
+      totalStaff: 41,
+      supplierCount: 4,
+      totalServings: 372069,
+      certifications: {
+        en: ['Halal', 'Food Handler'],
+        id: ['Halal', 'Penjamah Makanan'],
+      },
     },
     dailyMenu: {
       en: {
@@ -1024,8 +1042,6 @@ const MOCK_SPPG_DATA = [
       { id: 'S02', name: { en: 'Free-range Chicken', id: 'Ayam Kampung' }, image: '/gallery/kitchen-1.jpg', quantity: 80, unit: 'Kg', supplier: { name: 'Peternak Ayam Tanggamus', href: '/suppliers/peternak-ayam-tanggamus' }, region: 'Tanggamus', distributionFrequencyPerWeek: 1, price: 'Rp62.000', category: 'protein' as SupplierCategory },
       { id: 'S03', name: { en: 'Cassava', id: 'Singkong' }, image: '/gallery/farm-1.jpg', quantity: 120, unit: 'Kg', supplier: { name: 'Petani Singkong Gisting', href: '/suppliers/petani-singkong-gisting' }, region: 'Gisting', distributionFrequencyPerWeek: 2, price: 'Rp3.500', category: 'vegetables' as SupplierCategory },
       { id: 'S04', name: { en: 'Spinach', id: 'Bayam' }, image: '/gallery/farm-2.jpg', quantity: 70, unit: 'Kg', supplier: { name: 'Kebun Sayur Lampung', href: '/suppliers/kebun-sayur-lampung' }, region: 'Gisting', distributionFrequencyPerWeek: 2, price: 'Rp4.500', category: 'vegetables' as SupplierCategory },
-      { id: 'S05', name: { en: 'Carrots', id: 'Wortel' }, image: '/gallery/farm-1.jpg', quantity: 85, unit: 'Kg', supplier: { name: 'Kebun Sayur Tanggamus', href: '/suppliers/kebun-sayur-tanggamus' }, region: 'Tanggamus', distributionFrequencyPerWeek: 2, price: 'Rp5.000', category: 'vegetables' as SupplierCategory },
-      { id: 'S06', name: { en: 'Banana', id: 'Pisang' }, image: '/gallery/children-meals.jpg', quantity: 100, unit: 'Kg', supplier: { name: 'Petani Buah Gisting', href: '/suppliers/petani-buah-gisting' }, region: 'Gisting', distributionFrequencyPerWeek: 2, price: 'Rp8.000', category: 'vegetables' as SupplierCategory },
     ],
     beneficiaries: {
       en: [
@@ -1205,8 +1221,8 @@ const MOCK_SPPG_DATA = [
   {
     id: 'FFI-JONGGAT-01',
     name: {
-      en: 'FFI Central Jonggat Unit',
-      id: 'Unit Pusat FFI Jonggat',
+      en: 'SPPG Jonggat Unit',
+      id: 'Unit SPPG Jonggat',
     },
     region: {
       en: 'Jonggat, Central Lombok',
@@ -1224,14 +1240,32 @@ const MOCK_SPPG_DATA = [
     costPerPortion: 15200,
     localSourcing: 87,
     healthScore: 95,
-    staffCount: { present: 17, total: 19 },
+    staffCount: { present: 49, total: 49 },
     wasteRate: 1.3,
     feedbackScore: 4.9,
     deliveryProgress: {
-      target: 2600,
+      target: 2924,
       cooked: 0,
       inDelivery: 0,
       received: 0,
+    },
+    operationalHighlights: {
+      operationalSince: '2025-09-15',
+      dailyMeals: 2924,
+      operatingHours: '24 Jam',
+      schoolsServed: 24,
+      healthFacilitiesServed: 11,
+      puskesmasServed: 0,
+      posyanduServed: 11,
+      schoolBeneficiaries: 2304,
+      healthBeneficiaries: 620,
+      totalStaff: 49,
+      supplierCount: 5,
+      totalServings: 2924,
+      certifications: {
+        en: ['SLHS', 'Halal'],
+        id: ['SLHS', 'Halal'],
+      },
     },
     dailyMenu: {
       en: {
@@ -1429,14 +1463,13 @@ const MOCK_SPPG_DATA = [
       { id: 'S03', name: { en: 'Water Spinach', id: 'Kangkung' }, image: '/gallery/farm-1.jpg', quantity: 110, unit: 'Kg', supplier: { name: 'Kebun Sayur Jonggat', href: '/suppliers/kebun-sayur-jonggat' }, region: 'Jonggat', distributionFrequencyPerWeek: 3, price: 'Rp3.500', category: 'vegetables' as SupplierCategory },
       { id: 'S04', name: { en: 'Tomatoes', id: 'Tomat' }, image: '/gallery/farm-2.jpg', quantity: 75, unit: 'Kg', supplier: { name: 'Petani Sayur Sukarare', href: '/suppliers/petani-sayur-sukarare' }, region: 'Sukarare', distributionFrequencyPerWeek: 2, price: 'Rp12.000', category: 'vegetables' as SupplierCategory },
       { id: 'S05', name: { en: 'Long Beans', id: 'Kacang Panjang' }, image: '/gallery/farm-1.jpg', quantity: 80, unit: 'Kg', supplier: { name: 'Kebun Sayur Puyung', href: '/suppliers/kebun-sayur-puyung' }, region: 'Puyung', distributionFrequencyPerWeek: 2, price: 'Rp9.000', category: 'legumes' as SupplierCategory },
-      { id: 'S06', name: { en: 'Chili', id: 'Cabai' }, image: '/gallery/children-meals.jpg', quantity: 25, unit: 'Kg', supplier: { name: 'Petani Cabai Lombok', href: '/suppliers/petani-cabai-lombok' }, region: 'Jonggat', distributionFrequencyPerWeek: 2, price: 'Rp38.000', category: 'spices' as SupplierCategory },
     ],
     beneficiaries: {
       en: [
         {
           id: 'students',
           label: 'School Children',
-          value: '1,410 Students',
+          value: '2,304 Students',
           description: [
             'Learners from pre-school through junior high (TK, SD, SMP).',
             'Primary recipients of daily nutritious meals.',
@@ -1444,20 +1477,20 @@ const MOCK_SPPG_DATA = [
         },
         {
           id: 'pregnantNursing',
-          label: 'Pregnant & Nursing Mothers',
-          value: '260 Mothers',
+          label: 'Posyandu Beneficiaries',
+          value: '620 Beneficiaries',
           description: [
-            'Served via posyandu and puskesmas nutrition services.',
-            'Support focuses on maternal health during pregnancy and breastfeeding.',
+            'Total recipients served through posyandu services.',
+            'Combined data for maternal and toddler nutrition support.',
           ],
         },
         {
           id: 'toddlers',
-          label: 'Toddlers (0–59 months)',
-          value: '220 Children',
+          label: 'Total PM',
+          value: '2,924 Beneficiaries',
           description: [
-            'Early childhood cohort receiving complementary feeding support.',
-            'Linked to posyandu growth monitoring and counseling.',
+            'Total daily PM recipients for SPPG Jonggat.',
+            'Includes school and posyandu service coverage.',
           ],
         },
       ],
@@ -1465,7 +1498,7 @@ const MOCK_SPPG_DATA = [
         {
           id: 'students',
           label: 'Siswa/i Sekolah',
-          value: '1.410 Anak',
+          value: '2.304 Anak',
           description: [
             'Anak TK, SD, SMP penerima makanan bergizi.',
             'Prioritas utama distribusi program harian.',
@@ -1473,20 +1506,20 @@ const MOCK_SPPG_DATA = [
         },
         {
           id: 'pregnantNursing',
-          label: 'Ibu Hamil & Menyusui',
-          value: '260 Ibu',
+          label: 'Penerima Posyandu',
+          value: '620 Penerima',
           description: [
-            'Dilayani melalui layanan gizi posyandu dan puskesmas.',
-            'Fokus pada kesehatan ibu selama kehamilan dan menyusui.',
+            'Total penerima yang dilayani melalui posyandu.',
+            'Akumulasi data layanan gizi ibu dan balita.',
           ],
         },
         {
           id: 'toddlers',
-          label: 'Balita (0–59 bulan)',
-          value: '220 Balita',
+          label: 'Total PM',
+          value: '2.924 Penerima',
           description: [
-            'Dukungan makanan pendamping gizi untuk usia 0–59 bulan.',
-            'Terhubung dengan pemantauan tumbuh kembang posyandu.',
+            'Total penerima manfaat PM harian SPPG Jonggat.',
+            'Mencakup cakupan layanan sekolah dan posyandu.',
           ],
         },
       ],
@@ -2017,6 +2050,319 @@ const MOCK_SPPG_DATA = [
   },
 ];
 
+type SppgRecord = (typeof BASE_SPPG_DATA)[number];
+type SppgSchool = SppgRecord['schools'][number];
+type SppgHealthCenter = SppgRecord['healthCenters'][number];
+
+type ExcelSppgOverride = {
+  name?: Localized<string>;
+  operationalSince?: string;
+  dailyMeals?: number;
+  operatingHours?: string;
+  schoolsServed?: number;
+  posyanduServed?: number;
+  supplierCount?: number;
+  totalStaff?: number;
+  totalServings?: number;
+  certifications?: Localized<string[]>;
+  schoolNames?: string[];
+  healthCenterNames?: string[];
+};
+
+const EXCEL_SPPG_OVERRIDES: Record<string, ExcelSppgOverride> = {
+  'FFI-GISTING-01': {
+    name: { en: 'SPPG Gisting Unit', id: 'Unit SPPG Gisting' },
+    operationalSince: '2025-09-08',
+    dailyMeals: 3250,
+    operatingHours: '19.00 - 16.00',
+    schoolsServed: 12,
+    posyanduServed: 6,
+    supplierCount: 4,
+    totalStaff: 41,
+    totalServings: 372069,
+    certifications: {
+      en: ['Halal', 'Food Handler'],
+      id: ['Halal', 'Penjamah Makanan'],
+    },
+    schoolNames: [
+      'SMAN 1 Sumberejo',
+      'SMPN 1 Sumberejo',
+      'SD 2 Gisting Atas',
+      'SMK Bhakti',
+      'Ponpes Al Wafi',
+      'SD 1 Sidokaton',
+      'Ponpes Bahtera Quran',
+      'SD 2 Kuta Dalom',
+      'TK Rama',
+      'SD 2 Campang',
+      'SD 1 Gisting Bawah',
+      'TK Sakuntari',
+    ],
+    healthCenterNames: [
+      'Pancarmas 1',
+      'Pancarmas 2',
+      'Melati 1',
+      'Melati 2',
+      'Melati 3',
+      'Melati 4',
+    ],
+  },
+  'FFI-JONGGAT-01': {
+    name: { en: 'SPPG Jonggat Unit', id: 'Unit SPPG Jonggat' },
+    operationalSince: '2025-09-15',
+    dailyMeals: 2924,
+    operatingHours: '19.00 PM - 16.00 PM',
+    schoolsServed: 24,
+    posyanduServed: 11,
+    supplierCount: 5,
+    totalStaff: 49,
+    certifications: {
+      en: ['Halal', 'SLHS'],
+      id: ['Halal', 'SLHS'],
+    },
+    schoolNames: [
+      'SMA 2 Jonggat',
+      "SMA Darul Qur'an",
+      "SMP Islam Darul Qur'an",
+      'MTSS Nurul Huda',
+      'SDN 1 Nyerot',
+      'SDN 3 Nyerot',
+      'SDN Dasan Ketujur',
+      'SDN Batu Tulis',
+      'SDN Waker',
+      'SDN 3 Puyung',
+      'TK Arni Puyung',
+      'PAUD Ceria',
+      'TK Hidayatullah',
+      'KB Azahra Gemel',
+      'KB Sakinatul Amin',
+      'SPS Cahaya Nurani',
+      'TK Negeri 15 Jonggat',
+      'PAUD Restu Ibu',
+      'TK Islahul Ummah',
+      'TK Fatmawati Dharma Wanita',
+      'KB Dende Diyah',
+      'TKN 12 Jonggat',
+      'KB Rinjani',
+      'KB Meres',
+    ],
+    healthCenterNames: ['Melati 5 Singasari', 'Melati 4 Pedalaman', 'Subhanale'],
+  },
+  'FFI-KRAMATJATI-01': {
+    name: { en: 'SPPG Kramatjati Unit', id: 'Unit SPPG Kramatjati' },
+    operationalSince: '2025-11-10',
+    dailyMeals: 2867,
+    operatingHours: '13.00 - 12.00',
+    schoolsServed: 7,
+    posyanduServed: 2,
+    supplierCount: 4,
+    totalStaff: 47,
+    totalServings: 109536,
+    certifications: {
+      en: ['Halal', 'Food Handler'],
+      id: ['Halal', 'Penjamah Makanan'],
+    },
+    schoolNames: [
+      'SMA ADI LUHUR',
+      'SMK ADI LUHUR',
+      'SMA MUHAMMADIYAH',
+      'SMKN 10',
+      'SMK RESPATI 1',
+      'SMK RESPATI 2',
+      'SMK NUSANTARA',
+    ],
+    healthCenterNames: ['Anyelir 1', 'Anyelir 2'],
+  },
+  'FFI-SOE-01': {
+    name: { en: 'SPPG Soe Unit', id: 'Unit SPPG Soe' },
+    operationalSince: '2026-04-01',
+    dailyMeals: 2542,
+    schoolsServed: 9,
+    posyanduServed: 0,
+    supplierCount: 14,
+    schoolNames: [
+      'SD INPRES NUNUMEU',
+      'SMP KRISTEN 1 SOE',
+      'PAUD TALENTA',
+      'SD INPRES KOBELETE',
+      'SMA NEGERI 1 SOE',
+      'SD NEGERI OEKLANI',
+      'PAUD FETO MONE',
+      'PAUD GENERASI UNGGUL',
+      'SMK CAHAYA LENTERA',
+    ],
+    healthCenterNames: [],
+  },
+};
+
+const buildIndexedId = (prefix: string, index: number) =>
+  `${prefix}-${String(index + 1).padStart(2, '0')}`;
+
+const inferSchoolTypeFromName = (schoolName: string): SchoolType => {
+  const normalized = schoolName.toLowerCase();
+  if (normalized.includes('sma') || normalized.includes('smk') || normalized.includes('ma ')) {
+    return 'seniorHigh';
+  }
+  if (normalized.includes('smp') || normalized.includes('mts')) {
+    return 'juniorHigh';
+  }
+  return 'elementary';
+};
+
+const buildSchoolsFromNames = (
+  baseSchools: SppgSchool[],
+  schoolNames: string[],
+  dailyMeals?: number,
+): SppgSchool[] => {
+  if (schoolNames.length === 0) return baseSchools;
+
+  const fallbackTemplate: SppgSchool = {
+    id: 'SCH-01',
+    name: '',
+    type: 'elementary',
+    students: 0,
+    beneficiaries: 0,
+    target: 0,
+    cooked: 0,
+    inDelivery: 0,
+    received: 0,
+    teachers: 0,
+    scholarshipPercentage: 0,
+    distance: '-',
+    travelTimeMinutes: 0,
+    status: 'active',
+    contact: { en: 'Operational Team', id: 'Tim Operasional' },
+    rating: null,
+  };
+  const totalBeneficiaries =
+    dailyMeals ??
+    baseSchools.reduce((acc, school) => acc + school.beneficiaries, 0) ??
+    schoolNames.length;
+  const basePerSchool = Math.floor(totalBeneficiaries / schoolNames.length);
+  const remainder = totalBeneficiaries % schoolNames.length;
+
+  return schoolNames.map((name, index) => {
+    const template =
+      baseSchools.length > 0
+        ? baseSchools[index % baseSchools.length]
+        : fallbackTemplate;
+    const beneficiaries = basePerSchool + (index < remainder ? 1 : 0);
+    return {
+      ...template,
+      id: buildIndexedId('SCH', index),
+      name,
+      type: inferSchoolTypeFromName(name),
+      students: beneficiaries,
+      beneficiaries,
+      target: beneficiaries,
+      cooked: 0,
+      inDelivery: 0,
+      received: 0,
+      status: 'active',
+      rating: index < 3 ? 5 : null,
+    };
+  });
+};
+
+const buildHealthCentersFromNames = (
+  baseCenters: SppgHealthCenter[],
+  names: string[],
+  expectedPosyanduCount?: number,
+): SppgHealthCenter[] => {
+  if (expectedPosyanduCount === 0) return [];
+
+  const fallbackTemplate: SppgHealthCenter = {
+    id: 'HC-01',
+    name: '',
+    type: 'posyandu',
+    pregnantNursing: 0,
+    toddlers: 0,
+    target: 0,
+    cooked: 0,
+    inDelivery: 0,
+    received: 0,
+    distance: '-',
+    travelTimeMinutes: 0,
+    status: 'active',
+    contact: { en: 'Health Team', id: 'Tim Kesehatan' },
+  };
+  const targetCount = Math.max(names.length, expectedPosyanduCount ?? names.length);
+
+  return Array.from({ length: targetCount }, (_, index) => {
+    const template =
+      baseCenters.length > 0
+        ? baseCenters[index % baseCenters.length]
+        : fallbackTemplate;
+    const name = names[index] ?? `Posyandu ${index + 1}`;
+    const isPuskesmas = name.toLowerCase().includes('puskesmas');
+    return {
+      ...template,
+      id: buildIndexedId('HC', index),
+      name,
+      type: (isPuskesmas ? 'puskesmas' : 'posyandu') as SppgHealthCenter['type'],
+      cooked: 0,
+      inDelivery: 0,
+      received: 0,
+      status: 'active',
+    };
+  });
+};
+
+const MOCK_SPPG_DATA = BASE_SPPG_DATA.map((location) => {
+  const override = EXCEL_SPPG_OVERRIDES[location.id];
+  if (!override) return location;
+
+  const schools = override.schoolNames
+    ? buildSchoolsFromNames(location.schools, override.schoolNames, override.dailyMeals)
+    : location.schools;
+  const healthCenters = override.healthCenterNames
+    ? buildHealthCentersFromNames(
+        location.healthCenters ?? [],
+        override.healthCenterNames,
+        override.posyanduServed,
+      )
+    : location.healthCenters ?? [];
+  const schoolBeneficiaries = schools.reduce((acc, school) => acc + school.beneficiaries, 0);
+  const puskesmasFromList = healthCenters.filter((center) => center.type === 'puskesmas').length;
+  const posyanduServed = override.posyanduServed ?? healthCenters.length;
+  const baseOperationalHighlights =
+    'operationalHighlights' in location ? location.operationalHighlights : {};
+
+  return {
+    ...location,
+    ...(override.name ? { name: override.name } : {}),
+    staffCount: {
+      present: override.totalStaff ?? location.staffCount.present,
+      total: override.totalStaff ?? location.staffCount.total,
+    },
+    deliveryProgress: {
+      ...location.deliveryProgress,
+      target: override.dailyMeals ?? location.deliveryProgress.target,
+    },
+    schools,
+    healthCenters,
+    operationalHighlights: {
+      ...baseOperationalHighlights,
+      ...(override.operationalSince ? { operationalSince: override.operationalSince } : {}),
+      ...(override.dailyMeals !== undefined ? { dailyMeals: override.dailyMeals } : {}),
+      ...(override.operatingHours ? { operatingHours: override.operatingHours } : {}),
+      ...(override.totalStaff !== undefined ? { totalStaff: override.totalStaff } : {}),
+      ...(override.supplierCount !== undefined ? { supplierCount: override.supplierCount } : {}),
+      ...(override.totalServings !== undefined ? { totalServings: override.totalServings } : {}),
+      ...(override.certifications ? { certifications: override.certifications } : {}),
+      ...(override.schoolsServed !== undefined ? { schoolsServed: override.schoolsServed } : {}),
+      ...(schoolBeneficiaries !== undefined ? { schoolBeneficiaries } : {}),
+      ...(override.posyanduServed !== undefined
+        ? {
+            healthFacilitiesServed: override.posyanduServed,
+            puskesmasServed: puskesmasFromList,
+            posyanduServed,
+          }
+        : {}),
+    },
+  };
+});
+
 const copy = {
   en: {
     navTitle: 'SPPG Soe, East Nusa Tenggara',
@@ -2044,10 +2390,10 @@ const copy = {
       operatingHours: 'Operating Hours',
       schoolsServed: 'Schools Served',
       schoolsUnit: 'schools',
-      healthFacilitiesServed: 'Posyandu & Puskesmas Served',
+      healthFacilitiesServed: 'Posyandu/Puskesmas Served',
       staffCount: 'SPPG Staff',
       supplierCount: 'Supplier Count',
-      totalServings: 'Total Portions Served',
+      totalServings: 'Portions Served',
       totalServingsUnit: 'servings',
       certifications: 'Certified',
       certificationLabels: ['SLHS', 'Halal', 'HACCP'],
@@ -2418,10 +2764,10 @@ const copy = {
       operatingHours: 'Jam Operasional',
       schoolsServed: 'Melayani Sekolah',
       schoolsUnit: 'sekolah',
-      healthFacilitiesServed: 'Melayani Posyandu & Puskesmas',
-      staffCount: 'Jumlah Pekerja SPPG',
+      healthFacilitiesServed: 'Posyandu/Puskesmas',
+      staffCount: 'Staf SPPG',
       supplierCount: 'Jumlah Supplier',
-      totalServings: 'Total Porsi Layanan',
+      totalServings: 'Total Porsi',
       totalServingsUnit: 'porsi',
       certifications: 'Tersertifikasi',
       certificationLabels: ['SLHS', 'Halal', 'HACCP'],
@@ -3387,17 +3733,17 @@ const LocationSelector = ({
     <div className="relative" ref={selectorRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-red-700 hover:bg-red-800 transition-colors text-white shadow-sm"
+        className="flex items-center gap-2 rounded-full bg-red-700 px-3 py-1.5 text-white shadow-sm transition-colors hover:bg-red-800 sm:px-4 sm:py-2"
       >
-        <MapPin size={16} className="shrink-0 text-white" />
-        <span className="font-semibold text-sm text-white truncate max-w-[140px] md:max-w-[220px]">
+        <MapPin size={14} className="shrink-0 text-white" />
+        <span className="max-w-[120px] truncate text-xs font-semibold text-white sm:max-w-[180px] md:max-w-[220px] xl:max-w-[260px] sm:text-sm">
           {selectedLocation.region[language]}
         </span>
-        <ChevronDown size={16} className={`shrink-0 text-white transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown size={14} className={`shrink-0 text-white transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 min-w-[280px] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl z-50 overflow-hidden">
+        <div className="absolute top-full right-0 mt-1.5 min-w-[260px] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl z-50 overflow-hidden">
           {locations.map(location => (
             <button
               key={location.id}
@@ -3589,6 +3935,10 @@ const App = () => {
     return { totalStudents, delivered };
   }, [selectedSppg]);
 
+  const operationalHighlights = useMemo(() => {
+    return 'operationalHighlights' in selectedSppg ? selectedSppg.operationalHighlights : null;
+  }, [selectedSppg]);
+
   const healthCenterStats = useMemo(() => {
     const centers = selectedSppg.healthCenters ?? [];
     const totalFacilities = centers.length;
@@ -3607,7 +3957,7 @@ const App = () => {
     };
   }, [selectedSppg]);
 
-  const hasHealthCenters = healthCenterStats.totalFacilities > 0;
+  const hasHealthCenters = (operationalHighlights?.healthFacilitiesServed ?? healthCenterStats.totalFacilities) > 0;
   const activeRecipe = recipeCollection.items.find((item) => item.id === activeRecipeId) ?? recipeCollection.items[0] ?? null;
   const recipeDetailSteps = [recipeCollection.overviewLabel, recipeCollection.ingredientsLabel, recipeCollection.stepsLabel];
   const getRecipeNutritionIcon = (label: string) => {
@@ -3633,12 +3983,13 @@ const App = () => {
     [language],
   );
   const headerStats = useMemo(() => {
-    if (!kitchenProfile) return null;
-    const startDate = new Date(kitchenProfile.operationalSince);
+    const operationalSince = operationalHighlights?.operationalSince ?? kitchenProfile?.operationalSince;
+    if (!operationalSince) return null;
+    const startDate = new Date(operationalSince);
     const locale = language === 'id' ? 'id-ID' : 'en-US';
     const formatter = new Intl.DateTimeFormat(locale, {
       day: '2-digit',
-      month: 'long',
+      month: 'short',
       year: 'numeric',
     });
     const formattedSince = formatter.format(startDate);
@@ -3648,26 +3999,52 @@ const App = () => {
     if (now.getDate() < startDate.getDate()) {
       serviceMonths -= 1;
     }
+    const fallbackDailyMeals = kitchenProfile?.totalDailyMeals ?? 0;
+    const fallbackTotalStaff = kitchenProfile?.totalStaff ?? 0;
+    const fallbackOperatingHours = kitchenProfile?.operatingHours ?? '-';
+    const fallbackOperatingDays = kitchenProfile?.operatingDays ?? 0;
+    const dailyMeals = operationalHighlights?.dailyMeals ?? fallbackDailyMeals;
     return {
       operationalSince: displaySince,
       serviceMonths: Math.max(serviceMonths, 0),
-      dailyMeals: kitchenProfile.totalDailyMeals,
-      totalStaff: kitchenProfile.totalStaff ?? 0,
-      totalServings: kitchenProfile.totalDailyMeals * kitchenProfile.operatingDays,
-      operatingHours: kitchenProfile.operatingHours,
-      operatingDays: kitchenProfile.operatingDays,
+      dailyMeals,
+      totalStaff: operationalHighlights?.totalStaff ?? fallbackTotalStaff,
+      totalServings: operationalHighlights?.totalServings ?? dailyMeals * fallbackOperatingDays,
+      operatingHours: operationalHighlights?.operatingHours ?? fallbackOperatingHours,
+      operatingDays: fallbackOperatingDays,
     };
-  }, [kitchenProfile, language]);
-  const schoolsServedCount = selectedSppg.schools.length;
-  const healthFacilitiesServedCount = healthCenterStats.totalFacilities;
+  }, [kitchenProfile, language, operationalHighlights]);
+  const schoolsServedCount = operationalHighlights?.schoolsServed ?? selectedSppg.schools.length;
+  const schoolBeneficiariesCount = operationalHighlights?.schoolBeneficiaries ?? unitStats.totalStudents;
+  const healthFacilitiesServedCount = operationalHighlights?.healthFacilitiesServed ?? healthCenterStats.totalFacilities;
+  const healthBeneficiariesCount = operationalHighlights?.healthBeneficiaries ?? healthCenterStats.totalBeneficiaries;
+  const puskesmasServedCount = operationalHighlights?.puskesmasServed ?? healthCenterStats.totalPuskesmas;
+  const posyanduServedCount = operationalHighlights?.posyanduServed ?? healthCenterStats.totalPosyandu;
   const supplierCount = useMemo(() => {
+    if (operationalHighlights?.supplierCount !== undefined) {
+      return operationalHighlights.supplierCount;
+    }
     const suppliers = selectedSppg.suppliers ?? [];
     if (suppliers.length === 0) return 0;
     const supplierNames = suppliers.map((item) =>
       typeof item.supplier === 'string' ? item.supplier : item.supplier.name,
     );
     return new Set(supplierNames).size;
-  }, [selectedSppg.suppliers]);
+  }, [operationalHighlights, selectedSppg.suppliers]);
+  const certificationLabels =
+    operationalHighlights?.certifications?.[language] ?? ui.headerStats.certificationLabels;
+  const schoolDetailSummary = useMemo(
+    () => ({
+      totalSchools: operationalHighlights?.schoolsServed,
+      totalStudents: operationalHighlights?.schoolBeneficiaries,
+      totalBeneficiaries: operationalHighlights?.schoolBeneficiaries,
+      totalFacilities: operationalHighlights?.healthFacilitiesServed,
+      totalPuskesmas: operationalHighlights?.puskesmasServed,
+      totalPosyandu: operationalHighlights?.posyanduServed,
+      totalHealthBeneficiaries: operationalHighlights?.healthBeneficiaries,
+    }),
+    [operationalHighlights],
+  );
   const menuDateLabel = useMemo(() => {
     const locale = language === 'en' ? 'en-US' : 'id-ID';
     const formatter = new Intl.DateTimeFormat(locale, {
@@ -3723,6 +4100,11 @@ const App = () => {
   const languageLabel = language === 'en' ? ui.languageMenu.english : ui.languageMenu.indonesian;
   const languageFlag = language === 'en' ? '/flags/us.svg' : '/flags/id.svg';
   const languageFlagAlt = language === 'en' ? ui.languageMenu.usFlagAlt : ui.languageMenu.idFlagAlt;
+  const headerStatLabelClass =
+    'text-[10px] font-bold uppercase tracking-[0.08em] text-muted-foreground whitespace-nowrap overflow-hidden text-ellipsis';
+  const headerStatValueClass = 'text-sm sm:text-base font-bold text-foreground whitespace-nowrap';
+  const headerStatValueWithUnitClass =
+    'inline-flex items-baseline gap-1 text-sm sm:text-base font-bold text-foreground whitespace-nowrap';
   const navToggleLabel = language === 'id' ? 'Navigasi' : 'Navigation';
   const nutritionIconMap: Record<string, IconType> = {
     Calories: Flame,
@@ -3838,13 +4220,13 @@ const App = () => {
           label: labelFor('overview'),
           items: [
             { id: 'overview-gallery', label: ui.gallery.title },
-            { id: 'overview-surveillance', label: ui.surveillance.liveFeeds },
             { id: 'overview-delivery', label: ui.stats.title },
             { id: 'overview-operations', label: language === 'id' ? 'Operasional Dapur' : 'Kitchen Operations' },
             { id: 'overview-beneficiaries', label: beneficiaryHeading },
             { id: 'overview-testimonials', label: ui.beneficiaries.testimonialsTitle },
             { id: 'overview-schools', label: language === 'id' ? 'Rincian Distribusi Sekolah' : 'School Distribution Details' },
             { id: 'overview-suppliers', label: ui.supplier.title },
+            { id: 'overview-surveillance', label: ui.surveillance.liveFeeds },
           ],
       },
       {
@@ -3969,11 +4351,11 @@ const App = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans antialiased text-foreground">
       {/* Header Navigation */}
-      <nav className="bg-card/95 border-b border-border/50 px-3 sm:px-6 py-3 sm:py-4 sticky top-0 z-50 backdrop-blur-xl shadow-medium relative grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4">
-        <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <FFILogo className="h-6 w-auto sm:h-7 md:h-8" alt={ui.footer.ffiLogoAlt} />
-            <div className="flex items-center gap-2 sm:gap-3 pl-1">
+      <nav className="bg-card/95 border-b border-border/50 sticky top-0 z-50 backdrop-blur-xl shadow-medium relative">
+        <div className="mx-auto grid w-full max-w-[1920px] grid-cols-[auto_1fr_auto] items-center gap-3 px-4 py-2.5 sm:gap-4 sm:px-6 sm:py-3 xl:gap-6 xl:px-8">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex shrink-0 items-center gap-2.5 sm:gap-3">
+              <FFILogo className="h-6 w-auto sm:h-7 md:h-8" alt={ui.footer.ffiLogoAlt} />
               <img
                 src="/bgn-logo.png"
                 alt={ui.bgnLogoAlt}
@@ -3991,153 +4373,154 @@ const App = () => {
                 />
               )}
             </div>
+            <div className="hidden h-10 w-px md:block bg-border/70"></div>
+            <div className="hidden md:block">
+              <h1 className="font-semibold text-sm sm:text-base text-foreground leading-tight">{selectedSppg.name[language]}</h1>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mt-0.5">
+                {ui.operationalHub}
+              </p>
+            </div>
           </div>
-          <div className="hidden md:block h-10 w-px bg-border"></div>
-          <div className="min-w-0 space-y-1">
-            <h1 className="font-semibold text-base sm:text-lg text-foreground leading-tight truncate">{selectedSppg.name[language]}</h1>
-            <p className="hidden md:block text-[10px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
-              {ui.operationalHub}
-            </p>
+          
+          <div className="hidden lg:flex items-center justify-center gap-1 xl:gap-1.5">
+            {navSections.map((section) => (
+              <div key={section.id} className="relative group">
+                <button
+                  type="button"
+                  onClick={() => handleSectionNavigation(section.id)}
+                  aria-current={section.id === activeSection ? 'page' : undefined}
+                  className={`flex items-center gap-1 px-3 py-2 text-xs font-bold uppercase tracking-wider transition-smooth rounded-lg whitespace-nowrap xl:px-3.5 xl:text-[13px] ${
+                    section.id === activeSection
+                      ? 'text-foreground bg-primary/10'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
+                  }`}
+                >
+                  {section.label}
+                  <ChevronDown
+                    size={11}
+                    className={`transition-smooth ${section.id === activeSection ? 'text-foreground rotate-180' : 'text-muted-foreground group-hover:text-foreground'}`}
+                  />
+                </button>
+                <div
+                  role="menu"
+                  className="absolute left-0 mt-1.5 min-w-[200px] rounded-xl border border-border/50 bg-card/95 backdrop-blur-lg p-1.5 shadow-hard opacity-0 pointer-events-none translate-y-2 transition-smooth group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0"
+                >
+                  {section.items.map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      role="menuitem"
+                      onClick={() => handleSectionNavigation(section.id, item.id)}
+                      className="flex w-full items-center rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition-smooth hover:bg-primary/10 hover:text-foreground hover:translate-x-1"
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-        
-        <div className="hidden lg:flex items-center gap-2 justify-self-center">
-          {navSections.map((section) => (
-            <div key={section.id} className="relative group">
-              <button
-                type="button"
-                onClick={() => handleSectionNavigation(section.id)}
-                aria-current={section.id === activeSection ? 'page' : undefined}
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-bold uppercase tracking-wider transition-smooth rounded-lg ${
-                  section.id === activeSection
-                    ? 'text-foreground bg-primary/10'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
-                }`}
-              >
-                {section.label}
-                <ChevronDown
-                  size={12}
-                  className={`transition-smooth ${section.id === activeSection ? 'text-foreground rotate-180' : 'text-muted-foreground group-hover:text-foreground'}`}
-                />
-              </button>
-              <div
-                role="menu"
-                className="absolute left-0 mt-2 min-w-[220px] rounded-xl border border-border/50 bg-card/95 backdrop-blur-lg p-2 shadow-hard opacity-0 pointer-events-none translate-y-2 transition-smooth group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0"
-              >
-                {section.items.map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    role="menuitem"
-                    onClick={() => handleSectionNavigation(section.id, item.id)}
-                    className="flex w-full items-center rounded-lg px-3 py-2.5 text-left text-xs font-semibold text-muted-foreground transition-smooth hover:bg-primary/10 hover:text-foreground hover:translate-x-1"
-                  >
-                    {item.label}
-                  </button>
+
+          <div className="flex items-center gap-2 sm:gap-2.5 justify-self-end">
+            <details className="relative lg:hidden group">
+              <summary className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-border/50 bg-secondary/80 backdrop-blur-sm px-2.5 py-1.5 text-xs font-bold uppercase tracking-wider text-foreground shadow-soft transition-smooth hover:border-primary/40 hover:bg-secondary hover:shadow-medium sm:px-3 sm:py-2 sm:text-sm [&::-webkit-details-marker]:hidden">
+                <span>{navToggleLabel}</span>
+                <ChevronDown size={13} className="transition-smooth group-open:rotate-180" />
+              </summary>
+              <div className="absolute right-0 mt-1.5 w-64 rounded-xl border border-border/50 bg-card/95 backdrop-blur-lg p-1.5 shadow-hard animate-slide-up">
+                {navSections.map((section) => (
+                  <div key={section.id} className="p-1.5">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{section.label}</p>
+                    <div className="mt-1.5 space-y-0.5">
+                      {section.items.map((item) => (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => handleSectionNavigation(section.id, item.id)}
+                          className="flex w-full items-center rounded-lg px-2.5 py-2 text-left text-xs font-semibold text-muted-foreground transition-smooth hover:bg-primary/10 hover:text-foreground hover:translate-x-1"
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
-            </div>
-          ))}
-        </div>
+            </details>
 
-        <div className="flex items-center gap-3 justify-self-end">
-          <details className="relative lg:hidden group">
-            <summary className="flex cursor-pointer items-center gap-2 rounded-lg border border-border/50 bg-secondary/80 backdrop-blur-sm px-3 py-2 text-sm font-bold uppercase tracking-wider text-foreground shadow-soft transition-smooth hover:border-primary/40 hover:bg-secondary hover:shadow-medium [&::-webkit-details-marker]:hidden">
-              <span>{navToggleLabel}</span>
-              <ChevronDown size={14} className="transition-smooth group-open:rotate-180" />
-            </summary>
-            <div className="absolute right-0 mt-2 w-72 rounded-xl border border-border/50 bg-card/95 backdrop-blur-lg p-2 shadow-hard animate-slide-up">
-              {navSections.map((section) => (
-                <div key={section.id} className="p-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{section.label}</p>
-                  <div className="mt-2 space-y-1">
-                    {section.items.map((item) => (
-                      <button
-                        key={item.id}
-                        type="button"
-                        onClick={() => handleSectionNavigation(section.id, item.id)}
-                        className="flex w-full items-center rounded-lg px-3 py-2.5 text-left text-xs font-semibold text-muted-foreground transition-smooth hover:bg-primary/10 hover:text-foreground hover:translate-x-1"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </details>
+            <LocationSelector
+              locations={MOCK_SPPG_DATA}
+              selectedLocation={selectedSppg}
+              onLocationChange={setSelectedSppg}
+              language={language}
+            />
 
-          <LocationSelector
-            locations={MOCK_SPPG_DATA}
-            selectedLocation={selectedSppg}
-            onLocationChange={setSelectedSppg}
-            language={language}
-          />
-
-          <div className="relative" ref={languageMenuRef}>
-            <button
-              type="button"
-              onClick={() => setLanguageMenuOpen((open) => !open)}
-              className="flex items-center gap-2 rounded-lg border border-border/50 bg-secondary/80 backdrop-blur-sm px-2.5 py-1.5 text-xs font-semibold text-foreground shadow-soft transition-smooth hover:border-primary/40 hover:bg-secondary hover:shadow-medium"
-              aria-haspopup="menu"
-              aria-expanded={languageMenuOpen}
-              aria-label={ui.languageMenu.ariaLabel}
-            >
-              <span className="inline-flex items-center gap-2">
-                <span className="inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-[3px] border border-border/60 bg-white">
-                  <img src={languageFlag} alt={languageFlagAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+            <div className="relative" ref={languageMenuRef}>
+              <button
+                type="button"
+                onClick={() => setLanguageMenuOpen((open) => !open)}
+                className="flex items-center gap-1.5 rounded-lg border border-border/50 bg-secondary/80 backdrop-blur-sm px-2.5 py-1.5 text-xs font-semibold text-foreground shadow-soft transition-smooth hover:border-primary/40 hover:bg-secondary hover:shadow-medium sm:px-3 sm:py-2 sm:text-sm"
+                aria-haspopup="menu"
+                aria-expanded={languageMenuOpen}
+                aria-label={ui.languageMenu.ariaLabel}
+              >
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-[3px] border border-border/60 bg-white">
+                    <img src={languageFlag} alt={languageFlagAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                  </span>
+                  <span className="hidden sm:inline text-[11px] font-semibold">{languageLabel}</span>
                 </span>
-                <span className="hidden sm:inline text-[11px] font-semibold">{languageLabel}</span>
-              </span>
-              <ChevronDown size={14} className={`transition-smooth ${languageMenuOpen ? 'rotate-180' : ''}`} />
-            </button>
+                <ChevronDown size={13} className={`transition-smooth ${languageMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
 
-            {languageMenuOpen && (
-              <div role="menu" className="absolute right-0 mt-2 min-w-[190px] rounded-xl border border-border/50 bg-card/95 backdrop-blur-lg p-2 shadow-hard animate-slide-up">
-                <button
-                  type="button"
-                  role="menuitem"
-                  onClick={() => {
-                    updateLanguage('en');
-                    setLanguageMenuOpen(false);
-                  }}
-                  className={`flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-xs font-semibold transition-smooth ${language === 'en' ? 'bg-primary/10 text-foreground' : 'text-muted-foreground hover:bg-primary/10 hover:text-foreground hover:translate-x-1'}`}
-                >
-                  <span className="inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-[3px] border border-border/60 bg-white">
-                    <img src="/flags/us.svg" alt={ui.languageMenu.usFlagAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
-                  </span>
-                  {ui.languageMenu.english}
-                </button>
-                <button
-                  type="button"
-                  role="menuitem"
-                  onClick={() => {
-                    updateLanguage('id');
-                    setLanguageMenuOpen(false);
-                  }}
-                  className={`flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-xs font-semibold transition-smooth ${language === 'id' ? 'bg-primary/10 text-foreground' : 'text-muted-foreground hover:bg-primary/10 hover:text-foreground hover:translate-x-1'}`}
-                >
-                  <span className="inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-[3px] border border-border/60 bg-white">
-                    <img src="/flags/id.svg" alt={ui.languageMenu.idFlagAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
-                  </span>
-                  {ui.languageMenu.indonesian}
-                </button>
-              </div>
-            )}
+              {languageMenuOpen && (
+                <div role="menu" className="absolute right-0 mt-1.5 min-w-[180px] rounded-xl border border-border/50 bg-card/95 backdrop-blur-lg p-1.5 shadow-hard animate-slide-up">
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => {
+                      updateLanguage('en');
+                      setLanguageMenuOpen(false);
+                    }}
+                    className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold transition-smooth ${language === 'en' ? 'bg-primary/10 text-foreground' : 'text-muted-foreground hover:bg-primary/10 hover:text-foreground hover:translate-x-1'}`}
+                  >
+                    <span className="inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-[3px] border border-border/60 bg-white">
+                      <img src="/flags/us.svg" alt={ui.languageMenu.usFlagAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                    </span>
+                    {ui.languageMenu.english}
+                  </button>
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => {
+                      updateLanguage('id');
+                      setLanguageMenuOpen(false);
+                    }}
+                    className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold transition-smooth ${language === 'id' ? 'bg-primary/10 text-foreground' : 'text-muted-foreground hover:bg-primary/10 hover:text-foreground hover:translate-x-1'}`}
+                  >
+                    <span className="inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-[3px] border border-border/60 bg-white">
+                      <img src="/flags/id.svg" alt={ui.languageMenu.idFlagAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                    </span>
+                    {ui.languageMenu.indonesian}
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </nav>
 
       <main className="flex-1 p-4 sm:p-6 md:p-8 w-full space-y-6 sm:space-y-8 animate-in fade-in duration-500">
         {/* Unit Header */}
-        <header className="flex flex-col gap-4 sm:gap-6 rounded-xl sm:rounded-2xl border border-border/50 bg-card p-4 sm:p-6 md:p-7 shadow-medium hover-lift">
-          <div className="grid gap-4 sm:gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] xl:grid-cols-[minmax(0,1fr)_minmax(0,520px)] lg:items-start">
-            <div className="flex items-start gap-4">
-              <div className="gradient-primary p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl text-white shadow-colored-primary ring-1 ring-primary/20 animate-float">
-                <Store size={26} />
+        <header className="flex flex-col gap-5 sm:gap-6 rounded-xl sm:rounded-2xl border border-border/50 bg-card p-4 sm:p-6 md:p-7 shadow-medium hover-lift">
+          <div className="grid gap-5 sm:gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="gradient-primary p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-white shadow-colored-primary ring-1 ring-primary/20 animate-float shrink-0">
+                <Store size={24} className="sm:hidden" />
+                <Store size={28} className="hidden sm:block" />
               </div>
-              <div className="flex-1 space-y-3">
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground tracking-tight">{localizedName}</h2>
+              <div className="flex-1 min-w-0 space-y-2.5">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground tracking-tight leading-tight">{localizedName}</h2>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-2 rounded-full bg-secondary/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
                     <span className="h-2 w-2 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20" />
@@ -4147,39 +4530,41 @@ const App = () => {
                     {ui.activeStatus}
                   </span>
                 </div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                  {ui.kitchenLocationLabel}
-                </p>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <a
-                    href={mapUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 font-semibold transition hover:text-foreground"
-                    aria-label={ui.mapAriaLabel}
-                  >
-                    <MapPin size={14} className="text-primary" />
-                    <span>{localizedRegion}</span>
-                  </a>
-                  <a
-                    href={mapUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-start gap-2 text-xs leading-relaxed transition hover:text-foreground"
-                  >
-                    <Navigation size={14} className="mt-0.5 text-primary" />
-                    <span className="max-w-2xl">{localizedAddress}</span>
-                  </a>
+                <div className="pt-1">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1.5">
+                    {ui.kitchenLocationLabel}
+                  </p>
+                  <div className="space-y-1.5 text-sm text-muted-foreground">
+                    <a
+                      href={mapUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 font-semibold transition hover:text-foreground"
+                      aria-label={ui.mapAriaLabel}
+                    >
+                      <MapPin size={14} className="text-primary shrink-0" />
+                      <span>{localizedRegion}</span>
+                    </a>
+                    <a
+                      href={mapUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-start gap-2 text-xs leading-relaxed transition hover:text-foreground"
+                    >
+                      <Navigation size={14} className="mt-0.5 text-primary shrink-0" />
+                      <span className="max-w-2xl">{localizedAddress}</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:justify-self-end lg:w-full">
-              <div className="space-y-4 rounded-2xl border border-border/50 bg-gradient-card p-4 shadow-soft backdrop-blur-sm">
+            <div className="lg:w-auto">
+              <div className="space-y-3 rounded-2xl border border-border/50 bg-gradient-card p-4 shadow-soft backdrop-blur-sm">
                 <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.32em] text-muted-foreground">
                   {ui.headerHighlights.partnersTitle}
                 </p>
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
                   <FFILogo
                     className="h-10 w-auto opacity-90 transition-opacity hover:opacity-100 sm:h-12 lg:h-14"
                     alt={ui.footer.ffiLogoAlt}
@@ -4213,118 +4598,118 @@ const App = () => {
                     {ui.headerStats.title}
                   </p>
                 </div>
-                <div className="grid gap-3 sm:gap-4 grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                <div className="grid grid-cols-1 gap-3 xs:grid-cols-2 sm:gap-3.5 md:grid-cols-3 xl:grid-cols-5">
+                  <div className="flex items-start gap-2.5 sm:gap-3 rounded-xl border border-border/50 bg-card p-3 sm:p-3.5 shadow-soft hover-lift transition-smooth group active:scale-[0.98]">
                     <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <CalendarDays size={16} />
                     </span>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <div className="min-w-0 overflow-hidden">
+                      <p className={headerStatLabelClass}>
                         {ui.headerStats.operatingSince}
                       </p>
-                      <p className="text-base sm:text-lg font-bold text-foreground whitespace-nowrap">{headerStats.operationalSince}</p>
-                      <p className="text-[10px] text-muted-foreground mt-1 whitespace-nowrap">
+                      <p className={`${headerStatValueClass} leading-tight`}>{headerStats.operationalSince}</p>
+                      <p className="text-[10px] text-muted-foreground mt-0.5">
                         {numberFormatter.format(headerStats.serviceMonths)} {ui.headerStats.monthsServing}
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                  <div className="flex items-start gap-2.5 sm:gap-3 rounded-xl border border-border/50 bg-card p-3 sm:p-3.5 shadow-soft hover-lift transition-smooth group active:scale-[0.98]">
                     <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <Utensils size={16} />
                     </span>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <div className="min-w-0 overflow-hidden">
+                      <p className={headerStatLabelClass}>
                         {ui.headerStats.dailyMeals}
                       </p>
-                      <p className="inline-flex items-baseline gap-1 text-base sm:text-lg font-bold text-foreground whitespace-nowrap">
+                      <p className={headerStatValueWithUnitClass}>
                         {numberFormatter.format(headerStats.dailyMeals)}
                         <span className="text-[10px] font-semibold text-muted-foreground">{ui.headerStats.dailyMealsUnit}</span>
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                  <div className="flex items-start gap-2.5 sm:gap-3 rounded-xl border border-border/50 bg-card p-3 sm:p-3.5 shadow-soft hover-lift transition-smooth group active:scale-[0.98]">
                     <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <Clock size={16} />
                     </span>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <div className="min-w-0 overflow-hidden">
+                      <p className={headerStatLabelClass}>
                         {ui.headerStats.operatingHours}
                       </p>
-                      <p className="text-base sm:text-lg font-bold text-foreground whitespace-nowrap">{headerStats.operatingHours}</p>
+                      <p className={headerStatValueClass}>{headerStats.operatingHours}</p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                  <div className="flex items-start gap-2.5 sm:gap-3 rounded-xl border border-border/50 bg-card p-3 sm:p-3.5 shadow-soft hover-lift transition-smooth group active:scale-[0.98]">
                     <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <School size={16} />
                     </span>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <div className="min-w-0 overflow-hidden">
+                      <p className={headerStatLabelClass}>
                         {ui.headerStats.schoolsServed}
                       </p>
-                      <p className="inline-flex items-baseline gap-1 text-base sm:text-lg font-bold text-foreground whitespace-nowrap">
+                      <p className={headerStatValueWithUnitClass}>
                         {numberFormatter.format(schoolsServedCount)}
                         <span className="text-[10px] font-semibold text-muted-foreground">{ui.headerStats.schoolsUnit}</span>
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                  <div className="flex items-start gap-2.5 sm:gap-3 rounded-xl border border-border/50 bg-card p-3 sm:p-3.5 shadow-soft hover-lift transition-smooth group active:scale-[0.98]">
                     <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <Hospital size={16} />
                     </span>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <div className="min-w-0 overflow-hidden">
+                      <p className={headerStatLabelClass}>
                         {ui.headerStats.healthFacilitiesServed}
                       </p>
-                      <p className="text-base sm:text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(healthFacilitiesServedCount)}</p>
+                      <p className={headerStatValueClass}>{numberFormatter.format(healthFacilitiesServedCount)}</p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                  <div className="flex items-start gap-2.5 sm:gap-3 rounded-xl border border-border/50 bg-card p-3 sm:p-3.5 shadow-soft hover-lift transition-smooth group active:scale-[0.98]">
                     <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <UserPlus size={16} />
                     </span>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <div className="min-w-0 overflow-hidden">
+                      <p className={headerStatLabelClass}>
                         {ui.headerStats.staffCount}
                       </p>
-                      <p className="text-base sm:text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(headerStats.totalStaff)}</p>
+                      <p className={headerStatValueClass}>{numberFormatter.format(headerStats.totalStaff)}</p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                  <div className="flex items-start gap-2.5 sm:gap-3 rounded-xl border border-border/50 bg-card p-3 sm:p-3.5 shadow-soft hover-lift transition-smooth group active:scale-[0.98]">
                     <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <Store size={16} />
                     </span>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <div className="min-w-0 overflow-hidden">
+                      <p className={headerStatLabelClass}>
                         {ui.headerStats.supplierCount}
                       </p>
-                      <p className="text-base sm:text-lg font-bold text-foreground whitespace-nowrap">{numberFormatter.format(supplierCount)}</p>
+                      <p className={headerStatValueClass}>{numberFormatter.format(supplierCount)}</p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                  <div className="flex items-start gap-2.5 sm:gap-3 rounded-xl border border-border/50 bg-card p-3 sm:p-3.5 shadow-soft hover-lift transition-smooth group active:scale-[0.98]">
                     <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <Soup size={16} />
                     </span>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <div className="min-w-0 overflow-hidden">
+                      <p className={headerStatLabelClass}>
                         {ui.headerStats.totalServings}
                       </p>
-                      <p className="inline-flex items-baseline gap-1 text-base sm:text-lg font-bold text-foreground whitespace-nowrap">
+                      <p className={headerStatValueWithUnitClass}>
                         {numberFormatter.format(headerStats.totalServings)}
                         <span className="text-[10px] font-semibold text-muted-foreground">{ui.headerStats.totalServingsUnit}</span>
                       </p>
                     </div>
                   </div>
-                  <div className="flex h-full items-start gap-2 sm:gap-3 rounded-lg sm:rounded-xl border border-border/50 bg-card p-3 sm:p-4 shadow-soft hover-lift transition-smooth group active:scale-95">
+                  <div className="flex items-start gap-2.5 sm:gap-3 rounded-xl border border-border/50 bg-card p-3 sm:p-3.5 shadow-soft hover-lift transition-smooth group active:scale-[0.98] xs:col-span-2 md:col-span-1 xl:col-span-2">
                     <span className="mt-0.5 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg gradient-primary text-white shadow-colored-primary group-hover:scale-110 transition-smooth shrink-0">
                       <BadgeCheck size={16} />
                     </span>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <div className="min-w-0 overflow-hidden">
+                      <p className={headerStatLabelClass}>
                         {ui.headerStats.certifications}
                       </p>
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        {ui.headerStats.certificationLabels.map((label) => (
-                          <span key={label} className="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary shadow-sm ring-1 ring-primary/15">
+                      <div className="mt-1.5 flex items-center gap-1.5 overflow-x-auto whitespace-nowrap">
+                        {certificationLabels.map((label) => (
+                          <span key={label} className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.24em] text-primary shadow-sm ring-1 ring-primary/15">
                             {label}
                           </span>
                         ))}
@@ -4467,31 +4852,6 @@ const App = () => {
               </div>
             </div>
         
-            {/* 1. SURVEILLANCE */}
-            <div id="overview-surveillance" className="grid grid-cols-1 gap-8 scroll-mt-28">
-              <div className="bg-card rounded-2xl border border-border shadow-lg overflow-hidden flex flex-col transition-all hover:border-primary/40">
-                <div className="p-5 border-b border-border flex justify-between items-center bg-secondary/50">
-                  <h3 className="font-bold text-foreground text-sm uppercase tracking-wider flex items-center gap-2.5">
-                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div> {ui.surveillance.liveFeeds}
-                  </h3>
-                </div>
-                <div className="grid grid-cols-2 gap-2 p-2 bg-secondary flex-1">
-                  {cctvFeeds.map((feed, idx) => (
-                    <div key={idx} className="relative aspect-video bg-input flex items-center justify-center group overflow-hidden rounded-lg border border-border hover:border-primary/50 transition-colors">
-                      <div className="absolute top-2.5 left-2.5 z-20 bg-background/70 px-2.5 py-1 rounded text-[9px] text-foreground font-bold uppercase tracking-widest backdrop-blur-md">CAM {idx+1}</div>
-                      <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                        <Video size={32} className="text-muted-foreground" />
-                        <div className="text-center leading-tight">
-                          <p className="text-[10px] font-semibold uppercase tracking-widest">{ui.surveillance.placeholder}</p>
-                          <p className="text-[11px] font-semibold text-foreground/70">{feed}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-        
             {/* 2. TODAY'S DELIVERY */}
             <div id="overview-delivery" className="space-y-4 scroll-mt-28">
               <div className="flex items-center gap-2 sm:gap-3">
@@ -4527,7 +4887,14 @@ const App = () => {
 
             {/* 3. SCHOOL REGISTRY - DETAILED */}
             <div id="overview-schools" className="scroll-mt-28">
-              <SchoolsDetail schools={selectedSppg.schools} healthCenters={selectedSppg.healthCenters} language={language} />
+              <SchoolsDetail
+                schools={selectedSppg.schools}
+                healthCenters={
+                  selectedSppg.healthCenters as React.ComponentProps<typeof SchoolsDetail>['healthCenters']
+                }
+                language={language}
+                summaryOverride={schoolDetailSummary}
+              />
             </div>
         
             {/* 4. SUPPLIER MANAGEMENT */}
@@ -4573,6 +4940,31 @@ const App = () => {
                       </button>
                     );
                   })}
+                </div>
+              </div>
+            </div>
+
+            {/* SURVEILLANCE (MOVED TO BOTTOM) */}
+            <div id="overview-surveillance" className="grid grid-cols-1 gap-8 scroll-mt-28">
+              <div className="bg-card rounded-2xl border border-border shadow-lg overflow-hidden flex flex-col transition-all hover:border-primary/40">
+                <div className="p-5 border-b border-border flex justify-between items-center bg-secondary/50">
+                  <h3 className="font-bold text-foreground text-sm uppercase tracking-wider flex items-center gap-2.5">
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div> {ui.surveillance.liveFeeds}
+                  </h3>
+                </div>
+                <div className="grid grid-cols-2 gap-2 p-2 bg-secondary flex-1">
+                  {cctvFeeds.map((feed, idx) => (
+                    <div key={idx} className="relative aspect-video bg-input flex items-center justify-center group overflow-hidden rounded-lg border border-border hover:border-primary/50 transition-colors">
+                      <div className="absolute top-2.5 left-2.5 z-20 bg-background/70 px-2.5 py-1 rounded text-[9px] text-foreground font-bold uppercase tracking-widest backdrop-blur-md">CAM {idx+1}</div>
+                      <div className="flex flex-col items-center gap-2 text-muted-foreground">
+                        <Video size={32} className="text-muted-foreground" />
+                        <div className="text-center leading-tight">
+                          <p className="text-[10px] font-semibold uppercase tracking-widest">{ui.surveillance.placeholder}</p>
+                          <p className="text-[11px] font-semibold text-foreground/70">{feed}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -4720,11 +5112,11 @@ const App = () => {
               <div className="p-8">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                   <div className="bg-secondary p-6 rounded-lg border border-border text-center">
-                    <p className="text-3xl font-bold text-primary">{selectedSppg.schools.length}</p>
+                    <p className="text-3xl font-bold text-primary">{numberFormatter.format(schoolsServedCount)}</p>
                     <p className="text-sm font-semibold text-muted-foreground mt-2">{ui.schools.schools}</p>
                   </div>
                   <div className="bg-secondary p-6 rounded-lg border border-border text-center">
-                    <p className="text-3xl font-bold text-primary">{unitStats.totalStudents.toLocaleString()}</p>
+                    <p className="text-3xl font-bold text-primary">{numberFormatter.format(schoolBeneficiariesCount)}</p>
                     <p className="text-sm font-semibold text-muted-foreground mt-2">{ui.schools.totalBeneficiaries}</p>
                   </div>
                   <div className="bg-secondary p-6 rounded-lg border border-border text-center">
@@ -4772,24 +5164,24 @@ const App = () => {
                         <h4 className="font-bold text-foreground text-sm uppercase tracking-tight">{ui.schools.healthFacilities}</h4>
                       </div>
                       <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">
-                        {ui.schools.healthBeneficiaries}: {numberFormatter.format(healthCenterStats.totalBeneficiaries)}
+                        {ui.schools.healthBeneficiaries}: {numberFormatter.format(healthBeneficiariesCount)}
                       </p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                       <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-                        <p className="text-2xl font-bold text-foreground">{numberFormatter.format(healthCenterStats.totalFacilities)}</p>
+                        <p className="text-2xl font-bold text-foreground">{numberFormatter.format(healthFacilitiesServedCount)}</p>
                         <p className="text-xs font-semibold text-muted-foreground mt-1">{ui.schools.totalFacilities}</p>
                       </div>
                       <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-                        <p className="text-2xl font-bold text-foreground">{numberFormatter.format(healthCenterStats.totalPuskesmas)}</p>
+                        <p className="text-2xl font-bold text-foreground">{numberFormatter.format(puskesmasServedCount)}</p>
                         <p className="text-xs font-semibold text-muted-foreground mt-1">{ui.schools.puskesmas}</p>
                       </div>
                       <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-                        <p className="text-2xl font-bold text-foreground">{numberFormatter.format(healthCenterStats.totalPosyandu)}</p>
+                        <p className="text-2xl font-bold text-foreground">{numberFormatter.format(posyanduServedCount)}</p>
                         <p className="text-xs font-semibold text-muted-foreground mt-1">{ui.schools.posyandu}</p>
                       </div>
                       <div className="bg-secondary p-4 rounded-lg border border-border text-center">
-                        <p className="text-2xl font-bold text-foreground">{numberFormatter.format(healthCenterStats.totalBeneficiaries)}</p>
+                        <p className="text-2xl font-bold text-foreground">{numberFormatter.format(healthBeneficiariesCount)}</p>
                         <p className="text-xs font-semibold text-muted-foreground mt-1">{ui.schools.healthBeneficiaries}</p>
                       </div>
                     </div>
@@ -5499,14 +5891,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
