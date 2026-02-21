@@ -3742,10 +3742,10 @@ const LocationSelector = ({
     <div className="relative min-w-0 shrink-0" ref={selectorRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full max-w-[164px] items-center gap-1.5 rounded-full bg-red-700 px-2.5 py-1.5 text-white shadow-sm transition-colors hover:bg-red-800 sm:max-w-[208px] sm:px-3 sm:py-1.5 lg:max-w-[248px] xl:max-w-[278px] 2xl:max-w-[320px]"
+        className="flex w-full max-w-[150px] items-center gap-1.5 rounded-full bg-red-700 px-2.5 py-1.5 text-white shadow-sm transition-colors hover:bg-red-800 sm:max-w-[190px] sm:px-3 sm:py-1.5 lg:max-w-[220px] xl:max-w-[250px] 2xl:max-w-[280px]"
       >
         <MapPin size={13} className="shrink-0 text-white" />
-        <span className="min-w-0 max-w-[106px] truncate text-[11px] font-semibold text-white sm:max-w-[146px] sm:text-xs lg:max-w-[186px] xl:max-w-[214px] 2xl:max-w-[252px]">
+        <span className="min-w-0 max-w-[92px] truncate text-[11px] font-semibold text-white sm:max-w-[128px] sm:text-xs lg:max-w-[160px] xl:max-w-[186px] 2xl:max-w-[214px]">
           {selectedLocation.region[language]}
         </span>
         <ChevronDown size={13} className={`shrink-0 text-white transition-transform ${isOpen ? 'rotate-180' : ''}`} />
