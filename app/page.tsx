@@ -99,6 +99,15 @@ const getPartnerInitials = (name: string) => {
   return `${first}${second}`.toUpperCase();
 };
 
+const parseBeneficiaryCountFromValue = (value: string): number | null => {
+  const matchedNumber = value.match(/\d[\d.,]*/);
+  if (!matchedNumber) return null;
+  const digitsOnly = matchedNumber[0].replace(/\D/g, '');
+  if (!digitsOnly) return null;
+  const parsed = Number.parseInt(digitsOnly, 10);
+  return Number.isFinite(parsed) ? parsed : null;
+};
+
 const BASE_SPPG_DATA = [
   {
     id: 'FFI-SOE-01',
@@ -143,12 +152,12 @@ const BASE_SPPG_DATA = [
           Vitamins: 'Vit A, C & Iron',
         },
         components: {
-          Staple: 'xxx',
-          'Main Dish': 'xx',
-          'Side Dish': 'xxx',
-          Vegetable: 'xxx',
-          Fruit: 'xxx',
-          Milk: 'xxx',
+          Staple: 'Bose Corn 180g',
+          'Main Dish': "Timor Smoked Beef (Se'i) 70g",
+          'Side Dish': 'Mung Beans 60g',
+          Vegetable: 'Moringa Soup 120ml',
+          Fruit: 'Banana 100g',
+          Milk: 'UHT Milk 200ml',
         },
       },
       id: {
@@ -162,12 +171,12 @@ const BASE_SPPG_DATA = [
           Vitamin: 'Vit A, C & Zat Besi',
         },
         components: {
-          'Makanan Pokok': 'xxx',
-          Lauk: 'xx',
-          Pauk: 'xxx',
-          Sayur: 'xxx',
-          Buah: 'xxx',
-          Susu: 'xxx',
+          Karbohidrat: 'Jagung Bose 180g',
+          Lauk: "Daging Se\'i Timor 70g",
+          Pauk: 'Kacang Hijau 60g',
+          Sayuran: 'Sup Kelor 120ml',
+          'Buah-Buahan': 'Pisang 100g',
+          Susu: 'Susu UHT 200ml',
         },
       },
     },
@@ -860,12 +869,12 @@ const BASE_SPPG_DATA = [
           Vitamins: 'Vit A, C & Iron',
         },
         components: {
-          Staple: 'xxx',
-          'Main Dish': 'xx',
-          'Side Dish': 'xxx',
-          Vegetable: 'xxx',
-          Fruit: 'xxx',
-          Milk: 'xxx',
+          Staple: 'Steamed Cassava 150g',
+          'Main Dish': 'Lampung Grilled Fish 70g',
+          'Side Dish': 'Boiled Egg 50g',
+          Vegetable: 'Vegetable Soup 110ml',
+          Fruit: 'Banana 100g',
+          Milk: 'UHT Milk 200ml',
         },
       },
       id: {
@@ -879,12 +888,12 @@ const BASE_SPPG_DATA = [
           Vitamin: 'Vit A, C & Zat Besi',
         },
         components: {
-          'Makanan Pokok': 'xxx',
-          Lauk: 'xx',
-          Pauk: 'xxx',
-          Sayur: 'xxx',
-          Buah: 'xxx',
-          Susu: 'xxx',
+          Karbohidrat: 'Singkong Kukus 150g',
+          Lauk: 'Ikan Bakar Lampung 70g',
+          Pauk: 'Telur Rebus 50g',
+          Sayuran: 'Sup Sayuran 110ml',
+          'Buah-Buahan': 'Pisang 100g',
+          Susu: 'Susu UHT 200ml',
         },
       },
     },
@@ -1279,12 +1288,12 @@ const BASE_SPPG_DATA = [
           Vitamins: 'Vit A, C & Iron',
         },
         components: {
-          Staple: 'xxx',
-          'Main Dish': 'xx',
-          'Side Dish': 'xxx',
-          Vegetable: 'xxx',
-          Fruit: 'xxx',
-          Milk: 'xxx',
+          Staple: 'Steamed Rice 160g',
+          'Main Dish': 'Taliwang Grilled Chicken 75g',
+          'Side Dish': 'Boiled Egg 50g',
+          Vegetable: 'Plecing Kangkung 80g',
+          Fruit: 'Watermelon 100g',
+          Milk: 'UHT Milk 200ml',
         },
       },
       id: {
@@ -1298,12 +1307,12 @@ const BASE_SPPG_DATA = [
           Vitamin: 'Vit A, C & Zat Besi',
         },
         components: {
-          'Makanan Pokok': 'xxx',
-          Lauk: 'xx',
-          Pauk: 'xxx',
-          Sayur: 'xxx',
-          Buah: 'xxx',
-          Susu: 'xxx',
+          Karbohidrat: 'Nasi Putih 160g',
+          Lauk: 'Ayam Taliwang 75g',
+          Pauk: 'Telur Rebus 50g',
+          Sayuran: 'Plecing Kangkung 80g',
+          'Buah-Buahan': 'Semangka 100g',
+          Susu: 'Susu UHT 200ml',
         },
       },
     },
@@ -1684,12 +1693,12 @@ const BASE_SPPG_DATA = [
           Vitamins: 'Vit A, C & Iron',
         },
         components: {
-          Staple: 'xxx',
-          'Main Dish': 'xx',
-          'Side Dish': 'xxx',
-          Vegetable: 'xxx',
-          Fruit: 'xxx',
-          Milk: 'xxx',
+          Staple: 'Steamed Rice 170g',
+          'Main Dish': 'Betawi Grilled Chicken 80g',
+          'Side Dish': 'Boiled Egg 55g',
+          Vegetable: 'Sayur Asem 120ml',
+          Fruit: 'Apple 90g',
+          Milk: 'UHT Milk 200ml',
         },
       },
       id: {
@@ -1703,12 +1712,12 @@ const BASE_SPPG_DATA = [
           Vitamin: 'Vit A, C & Zat Besi',
         },
         components: {
-          'Makanan Pokok': 'xxx',
-          Lauk: 'xx',
-          Pauk: 'xxx',
-          Sayur: 'xxx',
-          Buah: 'xxx',
-          Susu: 'xxx',
+          Karbohidrat: 'Nasi Putih 170g',
+          Lauk: 'Ayam Bakar Betawi 80g',
+          Pauk: 'Telur Rebus 55g',
+          Sayuran: 'Sayur Asem 120ml',
+          'Buah-Buahan': 'Apel 90g',
+          Susu: 'Susu UHT 200ml',
         },
       },
     },
@@ -2149,7 +2158,7 @@ const EXCEL_SPPG_OVERRIDES: Record<string, ExcelSppgOverride> = {
     healthCenterNames: ['Melati 5 Singasari', 'Melati 4 Pedalaman', 'Subhanale'],
   },
   'FFI-KRAMATJATI-01': {
-    name: { en: 'SPPG Kramatjati Unit', id: 'Unit SPPG Kramatjati' },
+    name: { en: 'SPPG Kramatjati', id: 'SPPG Kramatjati' },
     operationalSince: '2025-11-10',
     dailyMeals: 2867,
     operatingHours: '13.00 - 12.00',
@@ -3730,20 +3739,20 @@ const LocationSelector = ({
   }, []);
 
   return (
-    <div className="relative" ref={selectorRef}>
+    <div className="relative min-w-0 shrink-0" ref={selectorRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 rounded-full bg-red-700 px-3 py-1.5 text-white shadow-sm transition-colors hover:bg-red-800 sm:px-4 sm:py-2"
+        className="flex w-full max-w-[164px] items-center gap-1.5 rounded-full bg-red-700 px-2.5 py-1.5 text-white shadow-sm transition-colors hover:bg-red-800 sm:max-w-[208px] sm:px-3 sm:py-1.5 lg:max-w-[248px] xl:max-w-[278px] 2xl:max-w-[320px]"
       >
-        <MapPin size={14} className="shrink-0 text-white" />
-        <span className="max-w-[120px] truncate text-xs font-semibold text-white sm:max-w-[180px] md:max-w-[220px] xl:max-w-[260px] sm:text-sm">
+        <MapPin size={13} className="shrink-0 text-white" />
+        <span className="min-w-0 max-w-[106px] truncate text-[11px] font-semibold text-white sm:max-w-[146px] sm:text-xs lg:max-w-[186px] xl:max-w-[214px] 2xl:max-w-[252px]">
           {selectedLocation.region[language]}
         </span>
-        <ChevronDown size={14} className={`shrink-0 text-white transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown size={13} className={`shrink-0 text-white transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-1.5 min-w-[260px] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl z-50 overflow-hidden">
+        <div className="absolute top-full right-0 z-50 mt-1.5 min-w-[260px] overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800 sm:min-w-[280px] xl:min-w-[320px]">
           {locations.map(location => (
             <button
               key={location.id}
@@ -3823,6 +3832,69 @@ const App = () => {
   const recipeCollection = SPPG_RECIPE_COLLECTION[language];
   const testimonials = selectedSppg.testimonials[language];
   const beneficiaryHighlights = selectedSppg.beneficiaries[language];
+  const { beneficiarySummaryMetric, beneficiaryCategoryMetrics } = useMemo(() => {
+    const isSummaryMetric = (metric: (typeof beneficiaryHighlights)[number]) =>
+      metric.id === 'families' || metric.label.toLowerCase().includes('total');
+
+    const explicitSummaryMetric = beneficiaryHighlights.find((metric) => isSummaryMetric(metric)) ?? null;
+    if (explicitSummaryMetric) {
+      const summaryMetric = {
+        ...explicitSummaryMetric,
+        id: 'families',
+      };
+
+      return {
+        beneficiarySummaryMetric: summaryMetric,
+        beneficiaryCategoryMetrics: beneficiaryHighlights.filter((metric) => metric !== explicitSummaryMetric),
+      };
+    }
+
+    const sourceIds = ['students', 'pregnantNursing', 'toddlers'] as const;
+    const sourceMetrics = sourceIds
+      .map((id) => beneficiaryHighlights.find((metric) => metric.id === id))
+      .filter((metric): metric is (typeof beneficiaryHighlights)[number] => Boolean(metric));
+
+    if (sourceMetrics.length !== sourceIds.length) {
+      return {
+        beneficiarySummaryMetric: null,
+        beneficiaryCategoryMetrics: beneficiaryHighlights,
+      };
+    }
+
+    const parsedCounts = sourceMetrics.map((metric) => parseBeneficiaryCountFromValue(metric.value));
+    const numericCounts = parsedCounts.filter((count): count is number => count !== null);
+    if (numericCounts.length !== parsedCounts.length) {
+      return {
+        beneficiarySummaryMetric: null,
+        beneficiaryCategoryMetrics: beneficiaryHighlights,
+      };
+    }
+
+    const total = numericCounts.reduce((acc, count) => acc + count, 0);
+
+    const totalValue = `${total.toLocaleString(language === 'en' ? 'en-US' : 'id-ID')} ${
+      language === 'en' ? 'Beneficiaries' : 'Penerima Manfaat'
+    }`;
+
+    const summaryMetric = {
+      id: 'families',
+      label: language === 'en' ? 'Total Beneficiary' : 'Total Penerima Manfaat',
+      value: totalValue,
+      description:
+        language === 'en'
+          ? 'Combined total from school children, pregnant/nursing mothers, and toddlers.'
+          : 'Akumulasi total dari siswa, ibu hamil/menyusui, dan balita.',
+    };
+
+    return {
+      beneficiarySummaryMetric: summaryMetric,
+      beneficiaryCategoryMetrics: beneficiaryHighlights,
+    };
+  }, [beneficiaryHighlights, language]);
+  const beneficiaryDetailHeading =
+    language === 'id'
+      ? 'Rincian kategori penerima manfaat'
+      : 'Beneficiary category details';
   const testimonialCategories = useMemo<{ id: TestimonialCategory; label: string }[]>(
     () => [
       { id: 'all', label: language === 'id' ? 'Semua' : 'All' },
@@ -4056,48 +4128,6 @@ const App = () => {
     const formatted = formatter.format(new Date());
     return language === 'id' ? formatted.replace(',', '') : formatted;
   }, [language]);
-  const deliveryProgress = selectedSppg.deliveryProgress ?? {
-    target: 2900,
-    cooked: 0,
-    inDelivery: 0,
-    received: 0,
-  };
-  const deliveryCardStyles = {
-    target: {
-      headerBg: 'bg-red-700',
-      iconWrap: 'bg-white/15',
-      icon: 'text-white',
-      label: 'text-white',
-      value: 'text-red-600',
-      border: 'border-red-700/40',
-    },
-    cooked: {
-      headerBg: 'bg-amber-600',
-      iconWrap: 'bg-white/15',
-      icon: 'text-white',
-      label: 'text-white',
-      value: 'text-amber-600',
-      border: 'border-amber-600/40',
-    },
-    inDelivery: {
-      headerBg: 'bg-sky-700',
-      iconWrap: 'bg-white/15',
-      icon: 'text-white',
-      label: 'text-white',
-      value: 'text-sky-600',
-      border: 'border-sky-700/40',
-    },
-    received: {
-      headerBg: 'bg-emerald-700',
-      iconWrap: 'bg-white/15',
-      icon: 'text-white',
-      label: 'text-white',
-      value: 'text-emerald-600',
-      border: 'border-emerald-700/40',
-    },
-  };
-
-  const languageLabel = language === 'en' ? ui.languageMenu.english : ui.languageMenu.indonesian;
   const languageFlag = language === 'en' ? '/flags/us.svg' : '/flags/id.svg';
   const languageFlagAlt = language === 'en' ? ui.languageMenu.usFlagAlt : ui.languageMenu.idFlagAlt;
   const headerStatLabelClass =
@@ -4138,71 +4168,87 @@ const App = () => {
     Buah: 'Buah-Buahan',
   };
   const dailyMenuCard = (
-    <div id="menu-daily" className="bg-card rounded-2xl border border-border shadow-lg p-8 scroll-mt-28">
-      <div className="flex flex-col lg:flex-row gap-10">
-        <div className="lg:w-1/3 space-y-4">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2.5 bg-primary/15 rounded-lg text-primary"><Utensils size={20} /></div>
+    <div id="menu-daily" className="relative overflow-hidden rounded-3xl border border-border/60 bg-gradient-to-br from-card via-card to-secondary/30 shadow-xl scroll-mt-28">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_20%_-10%,rgba(239,68,68,0.04),transparent)]" />
+
+      <div className="relative flex flex-col lg:flex-row">
+        {/* Left - Image & Title */}
+        <div className="lg:w-[38%] p-6 lg:p-8 flex flex-col gap-5">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/80 text-white shadow-md shadow-primary/20">
+              <Utensils size={18} />
+            </div>
             <div>
-              <h3 className="font-bold text-lg text-foreground uppercase tracking-tight">{ui.dailyMenu.title}</h3>
-              <p className="text-xs font-semibold text-muted-foreground tracking-wide">{menuDateLabel}</p>
+              <h3 className="font-extrabold text-sm text-foreground uppercase tracking-wider">{ui.dailyMenu.title}</h3>
+              <p className="text-xs text-muted-foreground font-medium">{menuDateLabel}</p>
             </div>
           </div>
-          <div className="aspect-video bg-secondary rounded-xl border border-border overflow-hidden">
+
+          <div className="relative group rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5">
             <img
               src={dailyMenu.photo}
               alt={ui.dailyMenu.imageAlt}
-              className="h-full w-full object-cover"
+              className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-5">
+              <h4 className="text-xl lg:text-2xl font-bold text-white leading-tight drop-shadow-lg">{dailyMenu.name}</h4>
+            </div>
           </div>
         </div>
 
-        <div className="flex-1 space-y-6">
-          <div>
-            <h4 className="text-2xl font-bold text-foreground leading-snug">{dailyMenu.name}</h4>
+        {/* Right - Nutrisi & Komponen */}
+        <div className="flex-1 p-6 lg:p-8 lg:pl-2 flex flex-col gap-5">
+          {/* Nutrisi Card */}
+          <div className="flex-1 rounded-2xl bg-gradient-to-br from-primary/[0.03] to-primary/[0.08] border border-primary/10 p-5 lg:p-6">
+            <div className="flex items-center gap-2 mb-5">
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10">
+                <Zap size={14} className="text-primary" />
+              </div>
+              <p className="text-xs font-bold text-primary uppercase tracking-widest">{ui.dailyMenu.nutrition}</p>
+            </div>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-5">
+              {Object.entries(dailyMenu.nutrition).slice(0, 4).map(([k, v], i) => {
+                const NutrientIcon = nutritionIconMap[k] ?? Info;
+                return (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-card shadow-sm border border-border/50">
+                      <NutrientIcon size={16} className="text-primary" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">{k}</p>
+                      <p className="text-lg font-extrabold text-foreground leading-tight">{v}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-secondary p-6 rounded-xl border border-border">
-              <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-4 flex items-center gap-2"><Zap size={13} className="text-primary" /> {ui.dailyMenu.nutrition}</p>
-              <div className="grid grid-cols-2 gap-4">
-                {Object.entries(dailyMenu.nutrition).slice(0, 4).map(([k, v], i) => {
-                  const NutrientIcon = nutritionIconMap[k] ?? Info;
-                  return (
-                    <div key={i} className="space-y-1">
-                      <div className="flex items-center gap-2 text-[10px] font-bold text-muted-foreground uppercase">
-                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/10 text-primary">
-                          <NutrientIcon size={12} />
-                        </span>
-                        <span>{k}</span>
-                      </div>
-                      <p className="text-lg font-bold text-foreground">{v}</p>
-                    </div>
-                  );
-                })}
+          {/* Komponen Menu Card */}
+          <div className="flex-1 rounded-2xl bg-gradient-to-br from-emerald-500/[0.03] to-emerald-500/[0.08] border border-emerald-500/10 p-5 lg:p-6">
+            <div className="flex items-center gap-2 mb-5">
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10">
+                <Soup size={14} className="text-emerald-600" />
               </div>
+              <p className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-widest">{ui.dailyMenu.menuComponents}</p>
             </div>
-            <div className="bg-secondary p-6 rounded-xl border border-border">
-              <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-4 flex items-center gap-2">
-                <Soup size={13} className="text-primary" /> {ui.dailyMenu.menuComponents}
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {Object.entries(dailyMenu.components).map(([k, v], i) => {
-                  const ComponentIcon = menuComponentIcons[k] ?? Utensils;
-                  const label = menuComponentLabels[k] ?? k;
-                  return (
-                    <div key={i} className="space-y-1">
-                      <div className="flex items-center gap-2 text-[10px] font-bold text-muted-foreground uppercase">
-                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/10 text-primary">
-                          <ComponentIcon size={12} />
-                        </span>
-                        <span className="truncate">{label}</span>
-                      </div>
-                      <p className="text-sm font-semibold text-foreground leading-snug">{v}</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-5 gap-y-4">
+              {Object.entries(dailyMenu.components).map(([k, v], i) => {
+                const ComponentIcon = menuComponentIcons[k] ?? Utensils;
+                const label = menuComponentLabels[k] ?? k;
+                return (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-card shadow-sm border border-border/50">
+                      <ComponentIcon size={16} className="text-emerald-600" />
                     </div>
-                  );
-                })}
-              </div>
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wide truncate">{label}</p>
+                      <p className="text-sm font-bold text-foreground leading-snug">{v}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -4220,7 +4266,6 @@ const App = () => {
           label: labelFor('overview'),
           items: [
             { id: 'overview-gallery', label: ui.gallery.title },
-            { id: 'overview-delivery', label: ui.stats.title },
             { id: 'overview-operations', label: language === 'id' ? 'Operasional Dapur' : 'Kitchen Operations' },
             { id: 'overview-beneficiaries', label: beneficiaryHeading },
             { id: 'overview-testimonials', label: ui.beneficiaries.testimonialsTitle },
@@ -4352,8 +4397,8 @@ const App = () => {
     <div className="min-h-screen bg-background flex flex-col font-sans antialiased text-foreground">
       {/* Header Navigation */}
       <nav className="bg-card/95 border-b border-border/50 sticky top-0 z-50 backdrop-blur-xl shadow-medium relative">
-        <div className="mx-auto grid w-full max-w-[1920px] grid-cols-[auto_1fr_auto] items-center gap-3 px-4 py-2.5 sm:gap-4 sm:px-6 sm:py-3 xl:gap-6 xl:px-8">
-          <div className="flex items-center gap-3 sm:gap-4">
+        <div className="mx-auto grid w-full max-w-[1920px] grid-cols-[minmax(0,auto)_minmax(0,1fr)_auto] items-center gap-2.5 px-4 py-2.5 sm:gap-4 sm:px-6 sm:py-3 xl:gap-5 xl:px-8 2xl:gap-6">
+          <div className="flex min-w-0 items-center gap-3 sm:gap-4">
             <div className="flex shrink-0 items-center gap-2.5 sm:gap-3">
               <FFILogo className="h-6 w-auto sm:h-7 md:h-8" alt={ui.footer.ffiLogoAlt} />
               <img
@@ -4374,22 +4419,24 @@ const App = () => {
               )}
             </div>
             <div className="hidden h-10 w-px md:block bg-border/70"></div>
-            <div className="hidden md:block">
-              <h1 className="font-semibold text-sm sm:text-base text-foreground leading-tight">{selectedSppg.name[language]}</h1>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mt-0.5">
+            <div className="hidden min-w-0 md:block">
+              <h1 className="max-w-[180px] truncate font-semibold text-sm sm:max-w-[220px] sm:text-base lg:max-w-[260px] xl:max-w-[320px] 2xl:max-w-none text-foreground leading-tight">
+                {selectedSppg.name[language]}
+              </h1>
+              <p className="mt-0.5 max-w-[180px] truncate text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:max-w-[220px] lg:max-w-[260px] xl:max-w-[320px] 2xl:max-w-none">
                 {ui.operationalHub}
               </p>
             </div>
           </div>
           
-          <div className="hidden lg:flex items-center justify-center gap-1 xl:gap-1.5">
+          <div className="hidden min-w-0 xl:flex items-center justify-center gap-1 xl:gap-1.5 px-1">
             {navSections.map((section) => (
-              <div key={section.id} className="relative group">
+              <div key={section.id} className="relative group shrink-0">
                 <button
                   type="button"
                   onClick={() => handleSectionNavigation(section.id)}
                   aria-current={section.id === activeSection ? 'page' : undefined}
-                  className={`flex items-center gap-1 px-3 py-2 text-xs font-bold uppercase tracking-wider transition-smooth rounded-lg whitespace-nowrap xl:px-3.5 xl:text-[13px] ${
+                  className={`flex items-center gap-1 px-2.5 py-2 text-[11px] font-bold uppercase tracking-wider transition-smooth rounded-lg whitespace-nowrap xl:px-3 xl:text-xs 2xl:px-3.5 2xl:text-[13px] ${
                     section.id === activeSection
                       ? 'text-foreground bg-primary/10'
                       : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
@@ -4421,8 +4468,8 @@ const App = () => {
             ))}
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-2.5 justify-self-end">
-            <details className="relative lg:hidden group">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-2.5 justify-self-end">
+            <details className="relative xl:hidden group">
               <summary className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-border/50 bg-secondary/80 backdrop-blur-sm px-2.5 py-1.5 text-xs font-bold uppercase tracking-wider text-foreground shadow-soft transition-smooth hover:border-primary/40 hover:bg-secondary hover:shadow-medium sm:px-3 sm:py-2 sm:text-sm [&::-webkit-details-marker]:hidden">
                 <span>{navToggleLabel}</span>
                 <ChevronDown size={13} className="transition-smooth group-open:rotate-180" />
@@ -4459,18 +4506,14 @@ const App = () => {
               <button
                 type="button"
                 onClick={() => setLanguageMenuOpen((open) => !open)}
-                className="flex items-center gap-1.5 rounded-lg border border-border/50 bg-secondary/80 backdrop-blur-sm px-2.5 py-1.5 text-xs font-semibold text-foreground shadow-soft transition-smooth hover:border-primary/40 hover:bg-secondary hover:shadow-medium sm:px-3 sm:py-2 sm:text-sm"
+                className="flex h-9 w-11 items-center justify-center rounded-xl border border-border/50 bg-secondary/80 backdrop-blur-sm shadow-soft transition-smooth hover:border-primary/40 hover:bg-secondary hover:shadow-medium sm:h-10 sm:w-12"
                 aria-haspopup="menu"
                 aria-expanded={languageMenuOpen}
                 aria-label={ui.languageMenu.ariaLabel}
               >
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-[3px] border border-border/60 bg-white">
-                    <img src={languageFlag} alt={languageFlagAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
-                  </span>
-                  <span className="hidden sm:inline text-[11px] font-semibold">{languageLabel}</span>
+                <span className="inline-flex h-5 w-7 items-center justify-center overflow-hidden rounded-[3px] border border-border/60 bg-white">
+                  <img src={languageFlag} alt={languageFlagAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
                 </span>
-                <ChevronDown size={13} className={`transition-smooth ${languageMenuOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {languageMenuOpen && (
@@ -4522,10 +4565,6 @@ const App = () => {
               <div className="flex-1 min-w-0 space-y-2.5">
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground tracking-tight leading-tight">{localizedName}</h2>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-secondary/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20" />
-                    {ui.operationalHub}
-                  </span>
                   <span className="inline-flex items-center rounded-full bg-emerald-500/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-700">
                     {ui.activeStatus}
                   </span>
@@ -4728,21 +4767,25 @@ const App = () => {
               id="overview-beneficiaries"
               className="scroll-mt-28 animate-in fade-in duration-500 mt-2"
             >
-              <div className="bg-card rounded-xl sm:rounded-2xl border border-border/50 shadow-medium hover-lift transition-smooth p-4 sm:p-5">
-                <div className="flex items-center gap-2 sm:gap-3 mb-3">
-                  <div className="p-2 sm:p-2.5 gradient-primary rounded-lg text-white shadow-colored-primary">
-                    <Heart size={16} className="sm:hidden" /><Heart size={18} className="hidden sm:block" />
+              <div className="bg-card rounded-xl sm:rounded-2xl border border-border/40 shadow-sm p-4 sm:p-6">
+                <div className="flex items-center gap-2.5 mb-4">
+                  <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg bg-rose-50 text-rose-500">
+                    <Heart className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-foreground">
                       {beneficiaryHeading}
                     </p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-[10px] sm:text-xs text-muted-foreground/60">
                       {language === 'id' ? 'Highlight dampak penerima manfaat' : 'Beneficiary impact at a glance'}
                     </p>
                   </div>
                 </div>
-                <BeneficiaryCategories data={beneficiaryHighlights} />
+                <BeneficiaryCategories
+                  summary={beneficiarySummaryMetric}
+                  data={beneficiaryCategoryMetrics}
+                  detailHeading={beneficiaryDetailHeading}
+                />
               </div>
             </section>
 
@@ -4852,39 +4895,6 @@ const App = () => {
               </div>
             </div>
         
-            {/* 2. TODAY'S DELIVERY */}
-            <div id="overview-delivery" className="space-y-4 scroll-mt-28">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="p-2 sm:p-2.5 gradient-primary rounded-lg text-white shadow-colored-primary"><Truck size={18} className="sm:hidden" /><Truck size={20} className="hidden sm:block" /></div>
-                <h3 className="font-bold text-foreground text-base sm:text-lg md:text-xl uppercase tracking-tight">{ui.stats.title}</h3>
-      </div>
-      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
-        {[
-          { label: ui.stats.target, val: numberFormatter.format(deliveryProgress.target), icon: ClipboardCheck, tone: deliveryCardStyles.target },
-          { label: ui.stats.cooked, val: numberFormatter.format(deliveryProgress.cooked), icon: Utensils, tone: deliveryCardStyles.cooked },
-          { label: ui.stats.inDelivery, val: numberFormatter.format(deliveryProgress.inDelivery), icon: Truck, tone: deliveryCardStyles.inDelivery },
-          { label: ui.stats.received, val: numberFormatter.format(deliveryProgress.received), icon: CheckCircle2, tone: deliveryCardStyles.received },
-        ].map((stat, i) => (
-          <div
-            key={i}
-            className={`rounded-lg sm:rounded-xl border shadow-soft overflow-hidden grid grid-rows-2 min-h-[100px] sm:min-h-[120px] transition-smooth hover:shadow-medium hover:-translate-y-1 hover:scale-105 active:scale-95 ${stat.tone.border}`}
-          >
-            <div className={`${stat.tone.headerBg} px-4 py-3 flex items-center justify-center`}>
-              <p className={`text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 ${stat.tone.label}`}>
-                <span className={`flex h-6 w-6 items-center justify-center rounded-md ${stat.tone.iconWrap}`}>
-                  <stat.icon size={13} className={stat.tone.icon} />
-                </span>
-                {stat.label}
-              </p>
-            </div>
-            <div className="bg-white px-4 py-4 flex items-center justify-center">
-              <p className={`text-3xl font-bold ${stat.tone.value}`}>{stat.val}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-
             {/* 3. SCHOOL REGISTRY - DETAILED */}
             <div id="overview-schools" className="scroll-mt-28">
               <SchoolsDetail
@@ -5099,7 +5109,11 @@ const App = () => {
               <h3 className="font-bold text-foreground text-xl uppercase tracking-tight mb-6 flex items-center gap-3">
                 <div className="w-1.5 h-8 bg-primary rounded-full"></div>{beneficiaryHeading}
               </h3>
-              <BeneficiaryCategories data={selectedSppg.beneficiaries[language]} />
+              <BeneficiaryCategories
+                summary={beneficiarySummaryMetric}
+                data={beneficiaryCategoryMetrics}
+                detailHeading={beneficiaryDetailHeading}
+              />
             </div>
         
             {/* SCHOOLS BENEFITING & STATISTICS */}

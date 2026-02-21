@@ -93,21 +93,23 @@ export function SupplierManagement({ items, title = 'Supplier Management', langu
     milk: Milk,
     other: Tag,
   };
-  const AllIcon = categoryIconMap.all ?? Tag;
-  const categoryButtons = categories.map(cat => {
+  const orderedCategories = ['all', ...categories.filter((cat) => cat !== 'all')];
+  const categoryButtons = orderedCategories.map((cat) => {
     const CategoryIcon = categoryIconMap[cat] ?? Tag;
-    const categoryLabel = labels.categoryLabels[cat as keyof typeof labels.categoryLabels] || cat;
+    const categoryLabel = cat === 'all'
+      ? labels.all
+      : labels.categoryLabels[cat as keyof typeof labels.categoryLabels] || cat;
     return (
       <button
         key={cat}
         onClick={() => setSelectedCategory(cat)}
-        className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-base font-semibold transition-all ${
+        className={`inline-flex min-h-[42px] min-w-[104px] flex-none items-center justify-center gap-1.5 whitespace-nowrap rounded-2xl border px-2.5 py-1.5 text-[11px] font-semibold transition-colors sm:min-w-[112px] sm:text-xs ${
           selectedCategory === cat
-            ? 'bg-primary text-primary-foreground'
-            : 'bg-secondary border border-border text-muted-foreground hover:text-foreground'
+            ? 'border-primary bg-primary text-primary-foreground shadow-sm'
+            : 'border-border bg-secondary/80 text-muted-foreground hover:bg-secondary hover:text-foreground'
         }`}
       >
-        <CategoryIcon size={16} className="shrink-0" />
+        <CategoryIcon size={12} className="shrink-0" />
         {categoryLabel}
       </button>
     );
@@ -130,18 +132,7 @@ export function SupplierManagement({ items, title = 'Supplier Management', langu
           </span>
           {labels.categories}
         </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          <button
-            onClick={() => setSelectedCategory('all')}
-            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-base font-semibold transition-all ${
-              selectedCategory === 'all'
-                ? 'bg-primary text-primary-foreground'
-                : 'bg-secondary border border-border text-muted-foreground hover:text-foreground'
-            }`}
-          >
-            <AllIcon size={16} className="shrink-0" />
-            {labels.all}
-          </button>
+        <div className="mx-auto flex w-full flex-nowrap items-center justify-center gap-1.5 overflow-x-auto pb-1">
           {categoryButtons}
         </div>
       </div>

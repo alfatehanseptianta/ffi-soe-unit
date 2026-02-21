@@ -1,7 +1,7 @@
 ﻿'use client';
 
 import React from 'react';
-import { School, MapPin, Clock, User, Heart } from 'lucide-react';
+import { School, MapPin, Clock, Heart } from 'lucide-react';
 import { getGoogleMapsUrl } from '@/lib/utils';
 
 interface SchoolDetail {
@@ -81,25 +81,6 @@ export function SchoolsDetail({ schools, healthCenters, language, summaryOverrid
     juniorHigh: 'bg-blue-500/15 text-blue-600',
     seniorHigh: 'bg-emerald-500/15 text-emerald-600',
   };
-  const deliveryStatusStyles = {
-    target: {
-      header: 'bg-red-500/10 text-red-700',
-      value: 'text-red-600',
-      pill: 'bg-red-500/10 text-red-700 border-red-500/30',
-    },
-    cooked: {
-      header: 'bg-amber-500/10 text-amber-700',
-      pill: 'bg-amber-500/10 text-amber-700 border-amber-500/30',
-    },
-    inDelivery: {
-      header: 'bg-sky-500/10 text-sky-700',
-      pill: 'bg-sky-500/10 text-sky-700 border-sky-500/30',
-    },
-    received: {
-      header: 'bg-emerald-500/10 text-emerald-700',
-      pill: 'bg-emerald-500/10 text-emerald-700 border-emerald-500/30',
-    },
-  };
   const labels = language === 'id'
     ? {
         title: 'Rincian Distribusi Sekolah & Kesehatan',
@@ -112,10 +93,6 @@ export function SchoolsDetail({ schools, healthCenters, language, summaryOverrid
         type: 'Tipe',
         teachers: 'Guru',
         students: 'Siswa',
-        target: 'Target',
-        cooked: 'Selesai Dimasak',
-        inDelivery: 'Dalam Pengiriman',
-        received: 'Telah Diterima',
         distance: 'Jarak',
         travelTime: 'Waktu Tempuh',
         totalFacilities: 'Total Faskes',
@@ -124,7 +101,6 @@ export function SchoolsDetail({ schools, healthCenters, language, summaryOverrid
         pregnantNursing: 'Ibu Hamil & Menyusui',
         toddlers: 'Balita',
         healthSection: 'Puskesmas & Posyandu',
-        pic: 'PIC',
         typeLabels: {
           elementary: 'SD',
           juniorHigh: 'SMP',
@@ -145,10 +121,6 @@ export function SchoolsDetail({ schools, healthCenters, language, summaryOverrid
         type: 'Type',
         teachers: 'Teachers',
         students: 'Students',
-        target: 'Target',
-        cooked: 'Cooked',
-        inDelivery: 'In Delivery',
-        received: 'Received',
         distance: 'Distance',
         travelTime: 'Travel Time',
         totalFacilities: 'Total Facilities',
@@ -157,7 +129,6 @@ export function SchoolsDetail({ schools, healthCenters, language, summaryOverrid
         pregnantNursing: 'Pregnant & Nursing',
         toddlers: 'Toddlers',
         healthSection: 'Health Facilities',
-        pic: 'PIC',
         typeLabels: {
           elementary: 'Elementary',
           juniorHigh: 'Junior High',
@@ -200,50 +171,36 @@ export function SchoolsDetail({ schools, healthCenters, language, summaryOverrid
 
       {/* Detailed Table */}
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-sm">
+        <table className="w-full min-w-[1080px] text-left text-sm">
           <thead>
             <tr className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest bg-secondary border-b border-border">
-              <th className="px-6 py-4">{labels.schoolName}</th>
+              <th className="min-w-[220px] whitespace-nowrap px-6 py-4">{labels.schoolName}</th>
               <th className="px-6 py-4 text-center">{labels.type}</th>
               <th className="px-6 py-4 text-center">{labels.teachers}</th>
               <th className="px-6 py-4 text-center">{labels.students}</th>
               <th className="px-6 py-4 text-center">{labels.beneficiaries}</th>
-              <th className={`px-6 py-4 text-center ${deliveryStatusStyles.target.header}`}>{labels.target}</th>
-              <th className={`px-6 py-4 text-center ${deliveryStatusStyles.cooked.header}`}>{labels.cooked}</th>
-              <th className={`px-6 py-4 text-center ${deliveryStatusStyles.inDelivery.header}`}>{labels.inDelivery}</th>
-              <th className={`px-6 py-4 text-center ${deliveryStatusStyles.received.header}`}>{labels.received}</th>
-              <th className="px-6 py-4 text-center">
-                <div className="flex flex-col items-center gap-1">
-                  <span>{labels.distance}</span>
-                  <span>{labels.travelTime}</span>
-                </div>
-              </th>
+              <th className="px-6 py-4 text-center">{labels.distance}</th>
+              <th className="px-6 py-4 text-center">{labels.travelTime}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-border">
             {schools.map((school) => {
-              const contactName = typeof school.contact === 'string' ? school.contact : school.contact[language];
               const mapUrl = getGoogleMapsUrl(school.name);
               return (
                 <tr key={school.id} className="hover:bg-secondary/50 transition-colors">
-                <td className="px-6 py-4">
+                <td className="min-w-[220px] px-6 py-4">
                   <p className="font-bold">
                     <a
                       href={mapUrl}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="inline-flex items-center gap-1 text-foreground hover:text-primary transition-colors"
+                      className="inline-flex max-w-[220px] items-center gap-1 text-foreground transition-colors hover:text-primary"
                       aria-label={`${mapLabel}: ${school.name}`}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      {school.name}
-                      <MapPin size={12} className="text-primary" />
+                      <span className="min-w-0 truncate whitespace-nowrap">{school.name}</span>
+                      <MapPin size={12} className="shrink-0 text-primary" />
                     </a>
-                  </p>
-                  <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                    <User size={12} className="text-muted-foreground" />
-                    <span className="font-semibold text-muted-foreground">{labels.pic}:</span>
-                    <span>{contactName}</span>
                   </p>
                 </td>
                 <td className="px-6 py-4 text-center">
@@ -254,36 +211,16 @@ export function SchoolsDetail({ schools, healthCenters, language, summaryOverrid
                 <td className="px-6 py-4 text-center font-semibold text-foreground">{school.teachers}</td>
                 <td className="px-6 py-4 text-center font-semibold text-foreground">{school.students}</td>
                 <td className="px-6 py-4 text-center font-semibold text-foreground">{school.beneficiaries}</td>
-                <td className="px-6 py-4 text-center">
-                  <span className={`inline-flex min-w-[42px] justify-center rounded-full border px-2.5 py-1 text-xs font-bold tabular-nums ${deliveryStatusStyles.target.pill}`}>
-                    {school.target}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className={`inline-flex min-w-[42px] justify-center rounded-full border px-2.5 py-1 text-xs font-bold tabular-nums ${deliveryStatusStyles.cooked.pill}`}>
-                    {school.cooked}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className={`inline-flex min-w-[42px] justify-center rounded-full border px-2.5 py-1 text-xs font-bold tabular-nums ${deliveryStatusStyles.inDelivery.pill}`}>
-                    {school.inDelivery}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className={`inline-flex min-w-[42px] justify-center rounded-full border px-2.5 py-1 text-xs font-bold tabular-nums ${deliveryStatusStyles.received.pill}`}>
-                    {school.received}
-                  </span>
+                <td className="px-6 py-4 text-center text-foreground">
+                  <div className="flex items-center justify-center gap-1 whitespace-nowrap">
+                    <MapPin size={14} className="text-muted-foreground" />
+                    <span>{school.distance}</span>
+                  </div>
                 </td>
                 <td className="px-6 py-4 text-center text-foreground">
-                  <div className="flex flex-col items-center justify-center gap-2">
-                    <div className="flex items-center gap-1">
-                      <MapPin size={14} className="text-muted-foreground" />
-                      <span>{school.distance}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock size={14} className="text-muted-foreground" />
-                      <span>{school.travelTimeMinutes} {labels.travelTimeUnit}</span>
-                    </div>
+                  <div className="flex items-center justify-center gap-1 whitespace-nowrap">
+                    <Clock size={14} className="text-muted-foreground" />
+                    <span>{school.travelTimeMinutes} {labels.travelTimeUnit}</span>
                   </div>
                 </td>
                 </tr>
@@ -328,39 +265,25 @@ export function SchoolsDetail({ schools, healthCenters, language, summaryOverrid
             </div>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
+            <table className="w-full min-w-[1080px] text-left text-sm">
               <thead>
                 <tr className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest bg-secondary border-b border-border">
-                  <th className="px-6 py-4">{labels.facilityName}</th>
+                  <th className="min-w-[220px] whitespace-nowrap px-6 py-4">{labels.facilityName}</th>
                   <th className="px-6 py-4 text-center">{labels.type}</th>
                   <th className="px-6 py-4 text-center">{labels.pregnantNursing}</th>
                   <th className="px-6 py-4 text-center">{labels.toddlers}</th>
                   <th className="px-6 py-4 text-center">{labels.beneficiaries}</th>
-                  <th className={`px-6 py-4 text-center ${deliveryStatusStyles.target.header}`}>{labels.target}</th>
-                  <th className={`px-6 py-4 text-center ${deliveryStatusStyles.cooked.header}`}>{labels.cooked}</th>
-                  <th className={`px-6 py-4 text-center ${deliveryStatusStyles.inDelivery.header}`}>{labels.inDelivery}</th>
-                  <th className={`px-6 py-4 text-center ${deliveryStatusStyles.received.header}`}>{labels.received}</th>
-                  <th className="px-6 py-4 text-center">
-                    <div className="flex flex-col items-center gap-1">
-                      <span>{labels.distance}</span>
-                      <span>{labels.travelTime}</span>
-                    </div>
-                  </th>
+                  <th className="px-6 py-4 text-center">{labels.distance}</th>
+                  <th className="px-6 py-4 text-center">{labels.travelTime}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {healthCenters?.map((center) => {
-                  const contactName = typeof center.contact === 'string' ? center.contact : center.contact[language];
                   const totalCenterBeneficiaries = center.pregnantNursing + center.toddlers;
                   return (
                     <tr key={center.id} className="hover:bg-secondary/50 transition-colors">
-                      <td className="px-6 py-4">
-                        <p className="font-bold text-foreground">{center.name}</p>
-                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                          <User size={12} className="text-muted-foreground" />
-                          <span className="font-semibold text-muted-foreground">{labels.pic}:</span>
-                          <span>{contactName}</span>
-                        </p>
+                      <td className="min-w-[220px] px-6 py-4">
+                        <p className="max-w-[220px] truncate whitespace-nowrap font-bold text-foreground">{center.name}</p>
                       </td>
                       <td className="px-6 py-4 text-center">
                         <span className="inline-block px-2.5 py-1 bg-primary/15 text-primary rounded-full text-[10px] font-semibold">
@@ -370,36 +293,16 @@ export function SchoolsDetail({ schools, healthCenters, language, summaryOverrid
                       <td className="px-6 py-4 text-center font-semibold text-foreground">{center.pregnantNursing}</td>
                       <td className="px-6 py-4 text-center font-semibold text-foreground">{center.toddlers}</td>
                       <td className="px-6 py-4 text-center font-semibold text-foreground">{totalCenterBeneficiaries}</td>
-                      <td className="px-6 py-4 text-center">
-                        <span className={`inline-flex min-w-[42px] justify-center rounded-full border px-2.5 py-1 text-xs font-bold tabular-nums ${deliveryStatusStyles.target.pill}`}>
-                          {center.target}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-center">
-                        <span className={`inline-flex min-w-[42px] justify-center rounded-full border px-2.5 py-1 text-xs font-bold tabular-nums ${deliveryStatusStyles.cooked.pill}`}>
-                          {center.cooked}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-center">
-                        <span className={`inline-flex min-w-[42px] justify-center rounded-full border px-2.5 py-1 text-xs font-bold tabular-nums ${deliveryStatusStyles.inDelivery.pill}`}>
-                          {center.inDelivery}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-center">
-                        <span className={`inline-flex min-w-[42px] justify-center rounded-full border px-2.5 py-1 text-xs font-bold tabular-nums ${deliveryStatusStyles.received.pill}`}>
-                          {center.received}
-                        </span>
+                      <td className="px-6 py-4 text-center text-foreground">
+                        <div className="flex items-center justify-center gap-1 whitespace-nowrap">
+                          <MapPin size={14} className="text-muted-foreground" />
+                          <span>{center.distance}</span>
+                        </div>
                       </td>
                       <td className="px-6 py-4 text-center text-foreground">
-                        <div className="flex flex-col items-center justify-center gap-2">
-                          <div className="flex items-center gap-1">
-                            <MapPin size={14} className="text-muted-foreground" />
-                            <span>{center.distance}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Clock size={14} className="text-muted-foreground" />
-                            <span>{center.travelTimeMinutes} {labels.travelTimeUnit}</span>
-                          </div>
+                        <div className="flex items-center justify-center gap-1 whitespace-nowrap">
+                          <Clock size={14} className="text-muted-foreground" />
+                          <span>{center.travelTimeMinutes} {labels.travelTimeUnit}</span>
                         </div>
                       </td>
                     </tr>

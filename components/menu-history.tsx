@@ -7,6 +7,7 @@ interface MenuComponent {
   category: string;
   items: string[];
   icon?: string;
+  isMissing?: boolean;
 }
 
 interface MenuNutrition {
@@ -42,14 +43,217 @@ interface MenuHistoryProps {
 
 const categoryIcons = {
   'Karbohidrat': '\u{1F35A}',
-  'Protein': '\u{1F95A}',
+  'Lauk': '\u{1F356}',
+  'Pauk': '\u{1F37D}\u{FE0F}',
   'Sayuran': '\u{1F96C}',
-  'Buah': '\u{1F34E}',
+  'Buah-Buahan': '\u{1F34E}',
   'Susu': '\u{1F95B}',
   'Carbohydrates': '\u{1F35A}',
-  'Vegetables': '\u{1F96C}',
+  'Main Dish': '\u{1F356}',
+  'Side Dish': '\u{1F37D}\u{FE0F}',
   'Fruit': '\u{1F34E}',
+  'Vegetables': '\u{1F96C}',
   'Milk': '\u{1F95B}',
+};
+
+const FAT_ITEM_KEYWORDS = [
+  'kacang',
+  'peanut',
+  'almond',
+  'walnut',
+  'cashew',
+  'avocado',
+  'alpukat',
+  'santan',
+  'coconut',
+  'kelapa',
+  'keju',
+  'cheese',
+  'butter',
+  'mentega',
+  'oil',
+  'minyak',
+];
+
+const PROTEIN_ITEM_KEYWORDS = [
+  'telur',
+  'egg',
+  'ayam',
+  'chicken',
+  'ikan',
+  'fish',
+  'daging',
+  'meat',
+  'beef',
+  'tofu',
+  'tahu',
+  'tempe',
+  'tempeh',
+  'kacang',
+  'beans',
+];
+
+const VEGETABLE_ITEM_KEYWORDS = [
+  'sayur',
+  'vegetable',
+  'bayam',
+  'spinach',
+  'wortel',
+  'carrot',
+  'brokoli',
+  'broccoli',
+  'kangkung',
+  'cabbage',
+  'kol',
+  'buncis',
+  'long beans',
+  'kacang panjang',
+];
+
+const FRUIT_ITEM_KEYWORDS = [
+  'buah',
+  'fruit',
+  'apple',
+  'apel',
+  'banana',
+  'pisang',
+  'orange',
+  'jeruk',
+  'papaya',
+  'mango',
+  'mangga',
+  'watermelon',
+  'semangka',
+];
+
+const MILK_ITEM_KEYWORDS = [
+  'susu',
+  'milk',
+  'yogurt',
+  'yoghurt',
+  'uht',
+  'kedelai',
+  'soy',
+  'dairy',
+];
+
+const isCarbCategory = (category: string) => {
+  const normalized = category.toLowerCase();
+  return (
+    normalized.includes('karbo') ||
+    normalized.includes('carb') ||
+    normalized.includes('staple') ||
+    normalized.includes('makanan pokok')
+  );
+};
+
+const isFatCategory = (category: string) => {
+  const normalized = category.toLowerCase();
+  return normalized.includes('lemak') || normalized.includes('fat');
+};
+
+const isProteinCategory = (category: string) => {
+  const normalized = category.toLowerCase();
+  return normalized.includes('protein') || normalized.includes('lauk') || normalized.includes('main dish');
+};
+
+const isVegetableCategory = (category: string) => {
+  const normalized = category.toLowerCase();
+  return normalized.includes('sayur') || normalized.includes('vegetable') || normalized.includes('veg');
+};
+
+const isFruitCategory = (category: string) => {
+  const normalized = category.toLowerCase();
+  return normalized.includes('buah') || normalized.includes('fruit');
+};
+
+const isMilkCategory = (category: string) => {
+  const normalized = category.toLowerCase();
+  return normalized.includes('susu') || normalized.includes('milk') || normalized.includes('dairy');
+};
+
+type FlatMenuEntry = {
+  category: string;
+  item: string;
+  itemIndex: number;
+};
+
+const normalizeMenuComponents = (components: MenuComponent[], language: 'en' | 'id'): MenuComponent[] => {
+  const carbLabel = language === 'id' ? 'Karbohidrat' : 'Carbohydrates';
+  const mainDishLabel = language === 'id' ? 'Lauk' : 'Main Dish';
+  const sideDishLabel = language === 'id' ? 'Pauk' : 'Side Dish';
+  const vegetablesLabel = language === 'id' ? 'Sayuran' : 'Vegetables';
+  const fruitLabel = language === 'id' ? 'Buah-Buahan' : 'Fruit';
+  const milkLabel = language === 'id' ? 'Susu' : 'Milk';
+  const emptyLabel = language === 'id' ? 'Belum ada data' : 'No data';
+
+  const allEntries = components.flatMap((component) =>
+    component.items.map((item, itemIndex) => ({
+      category: component.category,
+      item,
+      itemIndex,
+    })),
+  );
+
+  const usedItems = new Set<string>();
+  const pickEntry = (matcher: (entry: FlatMenuEntry) => boolean) => {
+    const found = allEntries.find((entry) => matcher(entry) && !usedItems.has(`${entry.category}-${entry.item}-${entry.itemIndex}`));
+    if (found) {
+      usedItems.add(`${found.category}-${found.item}-${found.itemIndex}`);
+    }
+    return found;
+  };
+
+  const carbEntry =
+    pickEntry((entry) => isCarbCategory(entry.category)) ??
+    pickEntry(() => true);
+
+  const mainDishEntry =
+    pickEntry((entry) => isProteinCategory(entry.category) && entry.itemIndex === 0) ??
+    pickEntry((entry) => isProteinCategory(entry.category)) ??
+    pickEntry((entry) => isFatCategory(entry.category)) ??
+    pickEntry((entry) => {
+      const normalizedItem = entry.item.toLowerCase();
+      return PROTEIN_ITEM_KEYWORDS.some((keyword) => normalizedItem.includes(keyword));
+    });
+
+  const sideDishEntry =
+    pickEntry((entry) => isProteinCategory(entry.category) && entry.itemIndex > 0) ??
+    pickEntry((entry) => isFatCategory(entry.category)) ??
+    pickEntry((entry) => {
+      const normalizedItem = entry.item.toLowerCase();
+      return FAT_ITEM_KEYWORDS.some((keyword) => normalizedItem.includes(keyword));
+    });
+
+  const vegetablesEntry =
+    pickEntry((entry) => isVegetableCategory(entry.category)) ??
+    pickEntry((entry) => {
+      const normalizedItem = entry.item.toLowerCase();
+      return VEGETABLE_ITEM_KEYWORDS.some((keyword) => normalizedItem.includes(keyword));
+    });
+
+  const fruitEntry =
+    pickEntry((entry) => isFruitCategory(entry.category)) ??
+    pickEntry((entry) => {
+      const normalizedItem = entry.item.toLowerCase();
+      return FRUIT_ITEM_KEYWORDS.some((keyword) => normalizedItem.includes(keyword));
+    });
+
+  const milkEntry =
+    pickEntry((entry) => isMilkCategory(entry.category)) ??
+    pickEntry((entry) => {
+      const normalizedItem = entry.item.toLowerCase();
+      return MILK_ITEM_KEYWORDS.some((keyword) => normalizedItem.includes(keyword));
+    });
+
+  return [
+    { category: carbLabel, items: [carbEntry?.item ?? emptyLabel], isMissing: !carbEntry },
+    { category: mainDishLabel, items: [mainDishEntry?.item ?? emptyLabel], isMissing: !mainDishEntry },
+    { category: sideDishLabel, items: [sideDishEntry?.item ?? emptyLabel], isMissing: !sideDishEntry },
+    { category: vegetablesLabel, items: [vegetablesEntry?.item ?? emptyLabel], isMissing: !vegetablesEntry },
+    { category: fruitLabel, items: [fruitEntry?.item ?? emptyLabel], isMissing: !fruitEntry },
+    { category: milkLabel, items: [milkEntry?.item ?? emptyLabel], isMissing: !milkEntry },
+  ];
 };
 
 export const MenuHistory: React.FC<MenuHistoryProps> = ({
@@ -198,113 +402,119 @@ export const MenuHistory: React.FC<MenuHistoryProps> = ({
 
             {/* Content Section */}
             <div className="p-4 sm:p-5">
-              {/* Menu Components */}
-              <div className="space-y-3.5">
-                <span className="inline-block rounded-md border border-border/60 bg-secondary/60 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
-                  {labels.menuComponents}
-                </span>
+              <div className={`grid gap-4 ${menu.nutrition ? 'lg:grid-cols-2 lg:items-start' : ''}`}>
+                {/* Menu Components */}
+                <div className="space-y-3.5">
+                  <span className="inline-block rounded-md border border-border/60 bg-secondary/60 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
+                    {labels.menuComponents}
+                  </span>
 
-                <div className="space-y-3">
-                  {menu.components.map((component, idx) => (
-                    <div key={idx}>
-                      <div className="mb-1.5 flex items-center gap-2">
-                        <span className="text-base leading-none">
-                          {categoryIcons[component.category as keyof typeof categoryIcons] || '\u{1F37D}\u{FE0F}'}
-                        </span>
-                        <h5 className="text-[13px] font-bold text-foreground">
-                          {component.category}
-                        </h5>
-                      </div>
-                      <div className="ml-7 flex flex-wrap gap-1.5">
-                        {component.items.map((item, itemIdx) => (
-                          <span
-                            key={itemIdx}
-                            className="rounded-full border border-border/50 bg-secondary/50 px-2.5 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:bg-secondary"
-                          >
-                            {item}
+                  <div className="space-y-3">
+                    {normalizeMenuComponents(menu.components, language).map((component, idx) => (
+                      <div key={idx}>
+                        <div className="mb-1.5 flex items-center gap-2">
+                          <span className="text-base leading-none">
+                            {categoryIcons[component.category as keyof typeof categoryIcons] || '\u{1F37D}\u{FE0F}'}
                           </span>
-                        ))}
+                          <h5 className="text-[13px] font-bold text-foreground">
+                            {component.category}
+                          </h5>
+                        </div>
+                        <div className="ml-7 flex flex-wrap gap-1.5">
+                          {component.items.map((item, itemIdx) => (
+                            <span
+                              key={itemIdx}
+                              className={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${
+                                component.isMissing
+                                  ? 'border-dashed border-border/50 bg-transparent text-muted-foreground/70'
+                                  : 'border-border/50 bg-secondary/50 text-muted-foreground transition-colors hover:bg-secondary'
+                              }`}
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Nutrition Summary */}
+                {menu.nutrition && (
+                  <div className="rounded-2xl border border-border/40 bg-gradient-to-br from-slate-50 to-slate-100/50 p-3.5 dark:from-slate-900/60 dark:to-slate-800/30">
+                    <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
+                      <Flame size={13} className="text-amber-500" />
+                      <span>{nutritionLabels.title}</span>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-2.5">
+                      {/* Calories */}
+                      <div className="flex items-center gap-3 rounded-xl border border-amber-200/50 bg-amber-50/60 px-3 py-2.5 dark:border-amber-900/30 dark:bg-amber-950/30">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 text-amber-600">
+                          <Flame size={18} />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-[10px] font-semibold uppercase tracking-wider text-amber-600/70 dark:text-amber-400/70">
+                            {nutritionLabels.calories}
+                          </p>
+                          <p className="text-xl font-extrabold tabular-nums text-amber-700 dark:text-amber-400">
+                            {menu.nutrition.calories}
+                            <span className="ml-0.5 text-xs font-bold text-amber-600/60 dark:text-amber-400/60">{nutritionLabels.kcalUnit}</span>
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Protein */}
+                      <div className="flex items-center gap-2.5 rounded-xl border border-emerald-200/50 bg-emerald-50/60 px-3 py-2.5 dark:border-emerald-900/30 dark:bg-emerald-950/30">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-600">
+                          <BicepsFlexed size={14} />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-[9px] font-semibold uppercase tracking-wider text-emerald-600/70 dark:text-emerald-400/70">
+                            {nutritionLabels.protein}
+                          </p>
+                          <p className="text-base font-extrabold tabular-nums text-emerald-700 dark:text-emerald-400">
+                            {menu.nutrition.protein}
+                            <span className="text-[10px] font-bold text-emerald-600/60 dark:text-emerald-400/60">{nutritionLabels.gramUnit}</span>
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Fat */}
+                      <div className="flex items-center gap-2.5 rounded-xl border border-rose-200/50 bg-rose-50/60 px-3 py-2.5 dark:border-rose-900/30 dark:bg-rose-950/30">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-rose-500/15 text-rose-600">
+                          <Droplet size={14} />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-[9px] font-semibold uppercase tracking-wider text-rose-600/70 dark:text-rose-400/70">
+                            {nutritionLabels.fat}
+                          </p>
+                          <p className="text-base font-extrabold tabular-nums text-rose-700 dark:text-rose-400">
+                            {menu.nutrition.fat}
+                            <span className="text-[10px] font-bold text-rose-600/60 dark:text-rose-400/60">{nutritionLabels.gramUnit}</span>
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Carbs */}
+                      <div className="flex items-center gap-2.5 rounded-xl border border-sky-200/50 bg-sky-50/60 px-3 py-2.5 dark:border-sky-900/30 dark:bg-sky-950/30">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sky-500/15 text-sky-600">
+                          <Wheat size={14} />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-[9px] font-semibold uppercase tracking-wider text-sky-600/70 dark:text-sky-400/70">
+                            {nutritionLabels.carbs}
+                          </p>
+                          <p className="text-base font-extrabold tabular-nums text-sky-700 dark:text-sky-400">
+                            {menu.nutrition.carbs}
+                            <span className="text-[10px] font-bold text-sky-600/60 dark:text-sky-400/60">{nutritionLabels.gramUnit}</span>
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                )}
               </div>
-
-              {/* Nutrition Summary */}
-              {menu.nutrition && (
-                <div className="mt-4 rounded-2xl border border-border/40 bg-gradient-to-br from-slate-50 to-slate-100/50 p-3.5 dark:from-slate-900/60 dark:to-slate-800/30">
-                  <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
-                    <Flame size={13} className="text-amber-500" />
-                    <span>{nutritionLabels.title}</span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2.5">
-                    {/* Calories - full width */}
-                    <div className="col-span-2 flex items-center gap-3 rounded-xl border border-amber-200/50 bg-amber-50/60 px-3 py-2.5 dark:border-amber-900/30 dark:bg-amber-950/30">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 text-amber-600">
-                        <Flame size={18} />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-[10px] font-semibold uppercase tracking-wider text-amber-600/70 dark:text-amber-400/70">
-                          {nutritionLabels.calories}
-                        </p>
-                        <p className="text-xl font-extrabold tabular-nums text-amber-700 dark:text-amber-400">
-                          {menu.nutrition.calories}
-                          <span className="ml-0.5 text-xs font-bold text-amber-600/60 dark:text-amber-400/60">{nutritionLabels.kcalUnit}</span>
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Protein */}
-                    <div className="flex items-center gap-2.5 rounded-xl border border-emerald-200/50 bg-emerald-50/60 px-2.5 py-2.5 dark:border-emerald-900/30 dark:bg-emerald-950/30">
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-600">
-                        <BicepsFlexed size={14} />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-[9px] font-semibold uppercase tracking-wider text-emerald-600/70 dark:text-emerald-400/70">
-                          {nutritionLabels.protein}
-                        </p>
-                        <p className="text-base font-extrabold tabular-nums text-emerald-700 dark:text-emerald-400">
-                          {menu.nutrition.protein}
-                          <span className="text-[10px] font-bold text-emerald-600/60 dark:text-emerald-400/60">{nutritionLabels.gramUnit}</span>
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Fat */}
-                    <div className="flex items-center gap-2.5 rounded-xl border border-rose-200/50 bg-rose-50/60 px-2.5 py-2.5 dark:border-rose-900/30 dark:bg-rose-950/30">
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-rose-500/15 text-rose-600">
-                        <Droplet size={14} />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-[9px] font-semibold uppercase tracking-wider text-rose-600/70 dark:text-rose-400/70">
-                          {nutritionLabels.fat}
-                        </p>
-                        <p className="text-base font-extrabold tabular-nums text-rose-700 dark:text-rose-400">
-                          {menu.nutrition.fat}
-                          <span className="text-[10px] font-bold text-rose-600/60 dark:text-rose-400/60">{nutritionLabels.gramUnit}</span>
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Carbs */}
-                    <div className="col-span-2 flex items-center gap-2.5 rounded-xl border border-sky-200/50 bg-sky-50/60 px-3 py-2.5 dark:border-sky-900/30 dark:bg-sky-950/30">
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sky-500/15 text-sky-600">
-                        <Wheat size={14} />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-[9px] font-semibold uppercase tracking-wider text-sky-600/70 dark:text-sky-400/70">
-                          {nutritionLabels.carbs}
-                        </p>
-                        <p className="text-base font-extrabold tabular-nums text-sky-700 dark:text-sky-400">
-                          {menu.nutrition.carbs}
-                          <span className="text-[10px] font-bold text-sky-600/60 dark:text-sky-400/60">{nutritionLabels.gramUnit}</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         ))}
